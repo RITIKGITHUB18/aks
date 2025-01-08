@@ -11,6 +11,7 @@ const VerifyPage = ({
   onResend,
   onSuccess,
   redirectPath,
+  backPath,
 }) => {
   const [otp, setOtp] = useState(""); // OTP state
   const [error, setError] = useState(""); // Error state for invalid OTP
@@ -42,9 +43,9 @@ const VerifyPage = ({
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center justify-center p-4">
+    <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center justify-center ">
       {/* Back Button */}
-      <Link to="/login" className="self-start mb-4">
+      <Link to={backPath} className="self-start ">
         <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px]  bg-[#090D14] border-[1px] border-[#202938]">
           <img
             src={leftArrow}
@@ -55,7 +56,7 @@ const VerifyPage = ({
       </Link>
 
       {/* Header */}
-      <div className="flex flex-col items-center text-center mb-6 ml-6 mt-[60px]">
+      <div className="flex flex-col self-start items-center text-center mt-[82px] mb-[24px] px-7">
         <h1 className="text-[30px] font-[700] mb-2 leading-10">{header}</h1>
         <p className="text-slate-400 font-[400] text-[16px] leading-5">
           {description}{" "}
@@ -66,7 +67,7 @@ const VerifyPage = ({
       </div>
 
       {/* OTP Input Section */}
-      <div className="flex w-[393px]">
+      <div className="flex w-[393px] mt-[42px] px-6">
         <form
           onSubmit={handleOnSubmit}
           className="flex flex-col items-center w-[393px]"
@@ -87,7 +88,7 @@ const VerifyPage = ({
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
           {/* Resend Section */}
-          <div className="flex items-center justify-center gap-2 mt-4">
+          <div className="flex items-center justify-center gap-2 mt-[52px]">
             <p className="text-[#EEEEEEEE] text-[16px] font-[400] leading-5">
               I didn’t receive a code?
             </p>
@@ -104,7 +105,7 @@ const VerifyPage = ({
           {/* Verify Button */}
           <CustomButton
             text="Verify"
-            buttonStyle="w-[353px] h-[56px]  bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-[600] mt-6"
+            buttonStyle="w-[353px] h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-[600] mt-6"
             type="submit"
           />
         </form>

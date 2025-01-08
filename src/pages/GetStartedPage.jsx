@@ -11,10 +11,10 @@ const GetStartedPage = () => {
       style={{
         backgroundImage: `url(${crackersCelebration})`,
       }}
-      className="flex justify-center items-center text-center w-[393px] bg-no-repeat bg-center bg-cover"
+      className="flex justify-center items-center text-center w-[393px]  bg-no-repeat bg-center bg-cover"
     >
       <div
-        className="flex flex-col mt-[612px] w-full h-[240px] text-white"
+        className="flex flex-col mt-[600px] w-[393px] h-[250px] text-white"
         style={{
           background:
             "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, #0F172A 100%)",
@@ -22,7 +22,7 @@ const GetStartedPage = () => {
           WebkitBackdropFilter: "blur(20px)",
         }}
       >
-        <div className="flex flex-col w-[343px] h-[218px] p-4">
+        <div className="flex flex-col w-[353px] h-[250px] p-4">
           <h2 className="font-[700] text-[24px] text-start">
             Experience the Best
           </h2>

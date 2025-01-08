@@ -8,7 +8,8 @@ const VerifyEmailPage = () => {
       emailOrPhone="ritikrog90@gmail.com"
       onResend={() => alert("A new OTP has been sent to your email.")}
       onSuccess={() => console.log("Email verified!")}
-      redirectPath="/phone"
+      redirectPath="/phone-auth"
+      backPath="/login"
     />
   );
 };

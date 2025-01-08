@@ -16,7 +16,7 @@ const CustomButton = ({
         {...rest}
       >
         {icon && <span className="mr-2">{icon}</span>}
-        {text}
+        <p className="text-[16px] font-[600]">{text}</p>
       </button>
     </div>
   );
