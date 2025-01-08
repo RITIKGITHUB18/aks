@@ -1,4 +1,4 @@
-import VerifyPage from "../components/LoginComponent/verifyPage";
+import VerifyPage from "../components/LoginComponent/VerifyPage";
 
 const VerifyEmailPage = () => {
   return (
