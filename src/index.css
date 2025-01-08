@@ -1,0 +1,46 @@
+/* @import url("./assets/Fonts/WEB/css/switzer.css"); */
+@import "./assets/Fonts/WEB/css/switzer.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Switzer-Regular";
+  background-color: #090d14;
+  margin: 0;
+  padding: 0;
+  width: 393px;
+  height: 852px;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* You are now ready to use the following Rules in your CSS to specify each Font Style:
+
+font-family: Switzer-Thin;
+font-family: Switzer-ThinItalic;
+font-family: Switzer-Extralight;
+font-family: Switzer-ExtralightItalic;
+font-family: Switzer-Light;
+font-family: Switzer-LightItalic;
+font-family: Switzer-Regular;
+font-family: Switzer-Italic;
+font-family: Switzer-Medium;
+font-family: Switzer-MediumItalic;
+font-family: Switzer-Semibold;
+font-family: Switzer-SemiboldItalic;
+font-family: Switzer-Bold;
+font-family: Switzer-BoldItalic;
+font-family: Switzer-Extrabold;
+font-family: Switzer-ExtraboldItalic;
+font-family: Switzer-Black;
+font-family: Switzer-BlackItalic;
+font-family: Switzer-Variable;
+font-family: Switzer-VariableItalic; */
