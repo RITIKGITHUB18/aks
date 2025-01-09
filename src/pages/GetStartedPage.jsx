@@ -12,7 +12,7 @@ const GetStartedPage = () => {
       style={{
         backgroundImage: `url(${crackersCelebration})`,
       }}
-      className="flex flex-col justify-end w-full h-screen bg-no-repeat bg-cover"
+      className="flex flex-col justify-end w-[393px] max-w-[400px] h-screen bg-no-repeat bg-cover"
     >
       {/* Overlay section */}
       <div
@@ -25,7 +25,7 @@ const GetStartedPage = () => {
           WebkitBackdropFilter: "blur(20px)",
         }}
       >
-        <div className="flex flex-col w-[100%] max-w-[353px] text-start px-4 mt-3">
+        <div className="flex flex-col w-[353px] max-w-[400px] text-start px-4 mt-3">
           <h2 className="font-[700] text-[24px] leading-8">
             Experience the Best
           </h2>
