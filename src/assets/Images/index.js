@@ -1,4 +1,4 @@
-import crackersCelebration from "./crackersCelebration.png";
+import crackersCelebration from "./crackersCelebration.jpg";
 import GoogleIcon from "./googleIcon.svg";
 import FacebookIcon from "./facebookIcon.svg";
 import AppleIcon from "./appleIcon.svg";

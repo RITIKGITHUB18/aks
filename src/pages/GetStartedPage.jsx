@@ -6,40 +6,43 @@ const GetStartedPage = () => {
   const handleGetStarted = () => {
     navigate("/login");
   };
+
   return (
     <div
       style={{
         backgroundImage: `url(${crackersCelebration})`,
       }}
-      className="flex justify-center items-center text-center w-[393px]  bg-no-repeat bg-center bg-cover"
+      className="flex flex-col justify-end w-[393px] max-w-[400px] h-screen bg-no-repeat bg-cover"
     >
+      {/* Overlay section */}
       <div
-        className="flex flex-col mt-[600px] w-[393px] h-[250px] text-white"
+        className="flex flex-col w-full text-white transform -translate-y-0"
         style={{
+          height: "33vh",
           background:
             "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, #0F172A 100%)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
         }}
       >
-        <div className="flex flex-col w-[353px] h-[250px] p-4">
-          <h2 className="font-[700] text-[24px] text-start">
+        <div className="flex flex-col w-[353px] max-w-[400px] text-start px-4 mt-3">
+          <h2 className="font-[700] text-[24px] leading-8">
             Experience the Best
           </h2>
-          <h2 className="font-[700] text-[24px] text-start pt-1">
+          <h2 className="font-[700] text-[24px] pt-1 leading-8">
             Night Life With AKS
           </h2>
-          <p className="font-[400] text-start text-[13.5px] pt-2">
+          <p className="font-[400] text-[14px] text-gray-300 pt-2">
             Come join us at the exciting surfing events at Dubai.
           </p>
-          <p className="font-[400] text-start text-[13.5px] pt-1">
+          <p className="font-[400] text-[14px] text-gray-300 pt-1">
             Register yourself now!
           </p>
         </div>
-        <div className="flex items-center justify-center pb-4">
+        <div className="flex items-center justify-center w-full mt-8 pb-4">
           <button
             onClick={handleGetStarted}
-            className="bg-white rounded-[24px] w-[361px] h-[50px] text-[#0F172A] font-500 text-[16px] items-center justify-center"
+            className="bg-white rounded-[24px] w-[90%] max-w-[350px] h-[50px] text-[#0F172A] font-[500] text-[16px] flex items-center justify-center"
           >
             Get Started
           </button>
