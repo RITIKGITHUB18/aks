@@ -17,10 +17,24 @@ import arrowRightIcon from "./ArrowRight.svg";
 import coupanMedal from "./Medal.svg";
 import copyIcon from "./copyIcon.svg";
 import inActiveHistoryIcon from "./inActiveHistoryIcon.svg";
+import activeHistoryIcon from "./activeHistory.svg";
 import inActiveMusicIcon from "./inActiveMusicIcon.svg";
+import activeMusicIcon from "./activeMusic.svg";
 import ratingStar from "./Star.svg";
+import hotelRoom01 from "./hotelRoom01.jpg";
+import hotelRoom02 from "./hotelRoom02.jpg";
+import hotelRoom03 from "./hotelRoom03.jpg";
+import RecommendedIcon from "./RecommendedIcon.svg";
+import activeHomeIcon from "./homeIcon.svg";
+import inActiveHomeIcon from "./inActiveHome.svg";
 
 export {
+  activeHistoryIcon,
+  activeMusicIcon,
+  RecommendedIcon,
+  hotelRoom01,
+  hotelRoom02,
+  hotelRoom03,
   inActiveHistoryIcon,
   inActiveMusicIcon,
   ratingStar,
@@ -42,4 +56,6 @@ export {
   arrowRightIcon,
   coupanMedal,
   copyIcon,
+  activeHomeIcon,
+  inActiveHomeIcon,
 };

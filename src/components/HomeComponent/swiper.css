@@ -1,0 +1,30 @@
+.hotelSwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.hotelSwiper .swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hotelSwiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotelSwiper .swiper-slide {
+  width: 80%;
+}
+
+.hotelSwiper .swiper-slide:nth-child(2n) {
+  width: 60%;
+}
+
+.hotelSwiper .swiper-slide:nth-child(3n) {
+  width: 40%;
+}
