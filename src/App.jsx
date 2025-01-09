@@ -9,6 +9,8 @@ import SelectCountry from "./pages/SelectCountryPage";
 import SelectDob from "./pages/SelectDobPage";
 import WelcomeScreen from "./pages/WelcomeScreenPage";
 import HomePage from "./pages/HomePage";
+import BookTable from "./pages/BookTable";
+import { useState } from "react";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
       <Route path="/select-dob" element={<SelectDob />} />
       <Route path="/welcome-to-aks" element={<WelcomeScreen />} />
       <Route path="/home" element={<HomePage />} />
+      <Route path="/book-table" element={<BookTable/>} />
     </Routes>
   );
 }

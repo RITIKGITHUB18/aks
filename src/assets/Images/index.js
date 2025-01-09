@@ -19,6 +19,9 @@ import copyIcon from "./copyIcon.svg";
 import inActiveHistoryIcon from "./inActiveHistoryIcon.svg";
 import inActiveMusicIcon from "./inActiveMusicIcon.svg";
 import ratingStar from "./Star.svg";
+import BookTableImg from "./BookTableImg.svg"
+import affordableImg1 from "./affordableImg1.svg"
+import affordableImg2 from "./affordableImg2.svg"
 
 export {
   inActiveHistoryIcon,
@@ -42,4 +45,7 @@ export {
   arrowRightIcon,
   coupanMedal,
   copyIcon,
+  BookTableImg,
+  affordableImg2,
+  affordableImg1,
 };
