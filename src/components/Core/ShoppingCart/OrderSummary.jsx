@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CustomButton from "../../common/CustomButton";
 import { Link } from "react-router-dom";
-import { leftArrow } from "../../../assets/Images";
+import { leftArrow, qrimage } from "../../../assets/Images";
 import RotatingCoin from "./RotatingCoin";
 
 const orderData = {
@@ -45,6 +45,9 @@ const OrderSummary = () => {
               <img src={leftArrow} alt="Back" className="w-6 h-6" />
             </div>
           </Link>
+            <div className="flex items-center justify-center mb-12">
+                <img src={qrimage} alt="gr" />
+            </div>
           <div className="p-6 rounded-xl w-full max-w-lg text-center border-gray-500 border-[1px] relative animate-slide-in">
             <div className="flex justify-center mb-4 absolute top-[-20px] left-1/2 transform -translate-x-1/2">
               <div className="bg-[#203921] p-2 rounded-full">

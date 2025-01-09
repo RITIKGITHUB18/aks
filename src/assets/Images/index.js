@@ -23,6 +23,7 @@ import ratingStar from "./Star.svg";
 import food1 from "./food1.svg";
 import food2 from "./food2.svg";
 import Coin from "./Coin.svg";
+import qrimage from "./qrimage.svg";
 
 export {
   inActiveHistoryIcon,
@@ -50,4 +51,5 @@ export {
   food1,
   food2,
   Coin,
+  qrimage,
 };
