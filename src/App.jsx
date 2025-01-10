@@ -11,7 +11,7 @@ import WelcomeScreen from "./pages/WelcomeScreenPage";
 import HomePage from "./pages/HomePage";
 import MapPage from "./pages/MapPage";
 import ShoppingCart from "./pages/ShoppingCart";
-import Ordercompleted from "./pages/Ordercompleted";
+import Ordercompleted from "./pages/OrderCompleted";
 import ProfilePage from "./pages/ProfilePage";
 
 function App() {
