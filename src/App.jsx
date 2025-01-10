@@ -9,6 +9,9 @@ import SelectCountry from "./pages/SelectCountryPage";
 import SelectDob from "./pages/SelectDobPage";
 import WelcomeScreen from "./pages/WelcomeScreenPage";
 import HomePage from "./pages/HomePage";
+import ShoppingCart from "./pages/ShoppingCart";
+import Ordercompleted from "./pages/Ordercompleted";
+
 
 function App() {
   return (
@@ -22,6 +25,8 @@ function App() {
       <Route path="/select-dob" element={<SelectDob />} />
       <Route path="/welcome-to-aks" element={<WelcomeScreen />} />
       <Route path="/home" element={<HomePage />} />
+      <Route path="/shopping-cart" element={<ShoppingCart />} />
+      <Route path="/completion" element={<Ordercompleted />} />
     </Routes>
   );
 }
