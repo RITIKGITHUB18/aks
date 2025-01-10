@@ -32,6 +32,11 @@ import priceLocation from "./precise.svg";
 import rightLocationArrow from "./rightLocationIcon.svg";
 import locationSearchIcon from "./LocationSearchIcon.svg";
 
+import food1 from "./food1.svg";
+import food2 from "./food2.svg";
+import Coin from "./Coin.svg";
+import qrimage from "./qrimage.svg";
+
 export {
   activeHistoryIcon,
   activeMusicIcon,
@@ -66,4 +71,9 @@ export {
   priceLocation,
   rightLocationArrow,
   locationSearchIcon,
+
+  food1,
+  food2,
+  Coin,
+  qrimage,
 };

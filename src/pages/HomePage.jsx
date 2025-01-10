@@ -26,6 +26,14 @@ const HomePage = () => {
     });
   };
 
+  const handleCartOnClick = () => {
+    navigate("/shopping-cart");
+  };
+
+  const handleProfileOnClick = () => {
+    navigate("/profile");
+  };
+
   return (
     <div
       className="bg-[#090D14] 
@@ -41,11 +49,17 @@ const HomePage = () => {
         {/* Top Bar: Cart and Profile Icons */}
         <div className="absolute flex mt-6 right-2 gap-4  p-4">
           {/* Cart Icon */}
-          <div className="flex items-center justify-center w-[44px] h-[44px] border-2 border-slate-500 rounded-full p-[10px]">
+          <div
+            onClick={handleCartOnClick}
+            className="flex items-center justify-center w-[44px] h-[44px] border-2 border-slate-500 cursor-pointer rounded-full p-[10px]"
+          >
             <img src={cartIcon} alt="Cart Icon" className="w-[24px] h-[24px]" />
           </div>
           {/* Profile Icon */}
-          <div className="w-[44px] h-[44px]">
+          <div
+            className="w-[44px] h-[44px] cursor-pointerw"
+            onClick={handleProfileOnClick}
+          >
             <img
               src={profileIcon}
               alt="Profile Icon"
