@@ -17,13 +17,36 @@ import arrowRightIcon from "./ArrowRight.svg";
 import coupanMedal from "./Medal.svg";
 import copyIcon from "./copyIcon.svg";
 import inActiveHistoryIcon from "./inActiveHistoryIcon.svg";
+import activeHistoryIcon from "./activeHistory.svg";
 import inActiveMusicIcon from "./inActiveMusicIcon.svg";
+import activeMusicIcon from "./activeMusic.svg";
 import ratingStar from "./Star.svg";
 import BookTableImg from "./BookTableImg.svg"
 import affordableImg1 from "./affordableImg1.svg"
 import affordableImg2 from "./affordableImg2.svg"
+import hotelRoom01 from "./hotelRoom01.jpg";
+import hotelRoom02 from "./hotelRoom02.jpg";
+import hotelRoom03 from "./hotelRoom03.jpg";
+import RecommendedIcon from "./RecommendedIcon.svg";
+import activeHomeIcon from "./homeIcon.svg";
+import inActiveHomeIcon from "./inActiveHome.svg";
+import addAddress from "./addAddress.svg";
+import priceLocation from "./precise.svg";
+import rightLocationArrow from "./rightLocationIcon.svg";
+import locationSearchIcon from "./LocationSearchIcon.svg";
+import food1 from "./food1.svg";
+import food2 from "./food2.svg";
+import Coin from "./Coin.svg";
+import qrimage from "./qrImage.svg";
+
 
 export {
+  activeHistoryIcon,
+  activeMusicIcon,
+  RecommendedIcon,
+  hotelRoom01,
+  hotelRoom02,
+  hotelRoom03,
   inActiveHistoryIcon,
   inActiveMusicIcon,
   ratingStar,
@@ -45,7 +68,19 @@ export {
   arrowRightIcon,
   coupanMedal,
   copyIcon,
+
   BookTableImg,
   affordableImg2,
   affordableImg1,
+
+  activeHomeIcon,
+  inActiveHomeIcon,
+  addAddress,
+  priceLocation,
+  rightLocationArrow,
+  locationSearchIcon,
+  food1,
+  food2,
+  Coin,
+  qrimage,
 };

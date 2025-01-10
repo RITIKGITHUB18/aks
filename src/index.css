@@ -19,10 +19,6 @@ body {
   box-sizing: border-box;
 }
 
-.getStarted {
-  background-image: url(`./assets/Images/crackersCelebration.png`);
-}
-
 .container {
   width: 100%;
   max-width: 420px;
@@ -30,6 +26,46 @@ body {
   padding: 16px;
   box-sizing: border-box;
 }
+
+/* .swiper {
+  width: 100%;
+  height: auto;
+  margin: 2px;
+} */
+
+/* .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 16px;
+  transition: transform 0.3s ease-in-out; 
+} */
+
+/* .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+} */
+
+/* .swiper-slide-active {
+  transform: scale(1); 
+  z-index: 10; 
+} */
+
+/* .swiper-slide-next,
+.swiper-slide-prev {
+  transform: scale(0.85); 
+  z-index: 5;
+} */
+
+/* .swiper-slide:nth-child(2n) {
+  width: 60%;
+}
+
+.swiper-slide:nth-child(3n) {
+  width: 40%;
+} */
 
 /* You are now ready to use the following Rules in your CSS to specify each Font Style:
 

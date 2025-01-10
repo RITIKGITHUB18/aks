@@ -32,7 +32,7 @@ const WelcomeScreen = () => {
             </p>
           </div>
           <div
-            className="flex items-center justify-center rounded-[24px] mt-10 w-[206px] h-[48px] bg-gradient-to-r from-[#842ED8] via-[#DB28A9] to-[#9D1DCA]"
+            className="flex items-center justify-center rounded-[24px] mt-10 w-[206px] h-[48px] cursor-pointer bg-gradient-to-r from-[#842ED8] via-[#DB28A9] to-[#9D1DCA]"
             onClick={handleOnClick}
           >
             <p className="font-[600] text-[16px] leading-4 text-white">
