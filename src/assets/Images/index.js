@@ -27,6 +27,10 @@ import hotelRoom03 from "./hotelRoom03.jpg";
 import RecommendedIcon from "./RecommendedIcon.svg";
 import activeHomeIcon from "./homeIcon.svg";
 import inActiveHomeIcon from "./inActiveHome.svg";
+import addAddress from "./addAddress.svg";
+import priceLocation from "./precise.svg";
+import rightLocationArrow from "./rightLocationIcon.svg";
+import locationSearchIcon from "./LocationSearchIcon.svg";
 
 export {
   activeHistoryIcon,
@@ -58,4 +62,8 @@ export {
   copyIcon,
   activeHomeIcon,
   inActiveHomeIcon,
+  addAddress,
+  priceLocation,
+  rightLocationArrow,
+  locationSearchIcon,
 };

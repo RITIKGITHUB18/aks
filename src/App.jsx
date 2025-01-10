@@ -9,6 +9,7 @@ import SelectCountry from "./pages/SelectCountryPage";
 import SelectDob from "./pages/SelectDobPage";
 import WelcomeScreen from "./pages/WelcomeScreenPage";
 import HomePage from "./pages/HomePage";
+import MapPage from "./pages/MapPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/select-dob" element={<SelectDob />} />
       <Route path="/welcome-to-aks" element={<WelcomeScreen />} />
       <Route path="/home" element={<HomePage />} />
+      <Route path="/map" element={<MapPage />} />
     </Routes>
   );
 }

@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="fixed bottom-0 w-[393px] bg-[#090D14] border-t-[1px] boder-[#202938] py-3 flex justify-around items-center">
+    <div className="fixed bottom-0 w-[393px] bg-[#090D14] border-t-[1px] border-slate-700 py-3 flex justify-around items-center">
       {navbarData.map((tab) => (
         <div
           key={tab.id}
@@ -26,7 +26,7 @@ const Footer = () => {
           />
           <p
             className={`text-[12px] ${
-              activeTab === tab.name ? "text-white" : "text-gray-400"
+              activeTab === tab.name ? "text-[#3579DD]" : "text-[#83858A]"
             }`}
           >
             {tab.name}

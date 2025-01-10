@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   arrowRightIcon,
   cartIcon,
@@ -11,8 +12,20 @@ import CarouselComponent from "../components/HomeComponent/CarouselComponent";
 import CouponsCarousel from "../components/HomeComponent/CouponsCarousel";
 import { coupanData } from "../data/coupanData";
 import { hotelData } from "../data/hotelData";
+import { useState } from "react";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const [location, setLocation] = useState("Kawungcarang road no 28...");
+
+  const handleLocationClick = () => {
+    navigate("/map", {
+      state: {
+        location: location,
+      },
+    });
+  };
+
   return (
     <div
       className="bg-[#090D14] 
@@ -67,19 +80,25 @@ const HomePage = () => {
 
       {/* Content Section */}
       <div className="mt-[0px] px-4 flex-1">
-        <div className="flex items-center h-[50px] px-4 mt-5 mb-10">
+        <div className="flex items-center h-[50px] px-4 mt-8 mb-12">
           <CouponsCarousel couponsData={coupanData} />
         </div>
 
         {/* Location Component Placeholder */}
-        <div className="relative bg-[#161C25] rounded-[56px] h-[62px] mb-4 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]">
+        <div
+          onClick={handleLocationClick}
+          className="relative bg-[#161C25] rounded-[56px] h-[62px] mb-6 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
+        >
           <div className="absolute transform left-0 flex items-center justify-center">
             <img
               src={locationIcon}
               className="w-[80px] h-[80px] translate-y-2"
             />
-            <p className="text-gray-400">Your Location</p>
-            <img src={arrowRightIcon} className="translate-x-[140px]" />
+            <div className="">
+              <p className="text-[#FFFFFF]">Your Location</p>
+              <p className="text-[#83858A]">{location}</p>
+            </div>
+            <img src={arrowRightIcon} className="translate-x-[40px]" />
           </div>
         </div>
 
