@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const CouponsCard = ({ coupon }) => {
   const handleCopy = () => {
-    // Copy the promo code to the clipboard
     navigator.clipboard.writeText(coupon.promoCode).then(() => {
       const toastId = coupon.promoCode;
       toast.info(`🦄${toastId} copied`, {
@@ -18,21 +17,12 @@ const CouponsCard = ({ coupon }) => {
         progress: undefined,
         theme: "light",
         toastId: toastId,
-        // transition: Bounce,
       });
     });
   };
   return (
     <div className="relative flex items-center justify-between w-full max-w-[330px] h-[66px]">
-      <div
-        className="absolute flex items-center justify-between bg-[#0ECCB3] text-black w-full h-full rounded-[24px] shadow-md px-4 "
-        // style={{
-        //   boxShadow: `
-        //     0px 4px 8px rgba(14, 204, 179, 0.3),
-        //     0px 8px 16px rgba(14, 204, 179, 0.2),
-        //     0px 12px 24px rgba(14, 204, 179, 0.1)`,
-        // }}
-      >
+      <div className="absolute flex items-center justify-between bg-[#0ECCB3] text-black w-full h-full rounded-[24px] shadow-md px-4 ">
         <div className="absolute flex items-center gap-3">
           <div className="flex items-center justify-center w-[40px] h-[40px] rounded-full">
             <img
@@ -49,7 +39,7 @@ const CouponsCard = ({ coupon }) => {
           </div>
         </div>
         <div
-          className="absolute transform -translate-y-[8px] translate-x-[275px]"
+          className="absolute transform -translate-y-[8px] translate-x-[260px]"
           onClick={handleCopy}
         >
           <img

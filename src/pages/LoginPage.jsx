@@ -5,14 +5,31 @@ import InputBox from "../components/LoginComponent/InputBox";
 import OAuthLoginComponent from "../components/LoginComponent/OAuthLoginComponent";
 import { OAuthComponentData } from "../data/loginComponentData";
 import { useState } from "react";
+import { supabase } from "../helper/supabaseConfig";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState(""); // State to store email input
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleOnClick = () => {
-    // Navigate to VerifyEmailPage with email as state
-    navigate("/verify-email", { state: { email } });
+  const handleOnClick = async () => {
+    try {
+      console.log("PRINTING EMAIL: ", email);
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: "http://localhost:5173/auth/callback",
+        },
+      });
+
+      if (error) {
+        setMessage(error.message);
+      } else {
+        setMessage("Check your email for the login link!");
+      }
+    } catch (error) {
+      console.error("Error during sign-in:", error);
+      setMessage("An unexpected error occured.");
+    }
   };
   return (
     <div className="bg-[#090D14] bg-cover w-[393px]">

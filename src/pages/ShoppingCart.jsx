@@ -61,7 +61,7 @@ const ShoppingCart = () => {
 
       <CustomButton
         text="Proceed To Pay"
-        buttonStyle="w-[353px] h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-[600] mt-6"
+        buttonStyle="w-[353px] h-[50px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[100px] font-[500] mt-6"
         type="submit"
         onClick={handleProceedToPay}
       />

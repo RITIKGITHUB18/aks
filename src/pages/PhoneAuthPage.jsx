@@ -13,6 +13,7 @@ const PhoneAuth = () => {
       code2l: "IN",
       name: "India",
       emoji: IN,
+      dailingCode: " (+91)",
     }
   );
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -47,7 +48,7 @@ const PhoneAuth = () => {
         <h1 className="text-[30px] font-[700] leading-[40px] text-white">
           Hi there!
         </h1>
-        <p className="text-[#EEEEEE] text-opacity-70 text-[17px] leading-6">
+        <p className="text-[#EEEEEE] text-opacity-70 text-[17px] font-[400] leading-6">
           Please enter your phone number
         </p>
       </div>
@@ -58,10 +59,11 @@ const PhoneAuth = () => {
           {/* Country Code Dropdown */}
           <div
             onClick={handleSelectCountry}
-            className="flex items-center justify-center gap-x-4 w-[80px] h-[56px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-center text-white focus:outline-none"
+            className="flex items-center justify-center gap-x-2 w-[80px] h-[56px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-center text-white focus:outline-none"
           >
-            <img src={selectedCountry.emoji} className="w-[20px] h-[20px]" />
-            <p>{selectedCountry.code2l}</p>
+            <img src={selectedCountry?.emoji} className="w-[20px] h-[20px]" />
+            <p>{selectedCountry?.code2l}</p>
+            <p>({selectedCountry?.dialingCode})</p>
           </div>
 
           {/* Phone Number Input */}

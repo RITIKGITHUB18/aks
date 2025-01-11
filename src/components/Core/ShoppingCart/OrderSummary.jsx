@@ -37,18 +37,18 @@ const OrderSummary = () => {
   }, [checkout]);
 
   return (
-    <div className="text-white min-h-screen flex flex-col items-center p-6">
+    <div className="text-white w-[393px] min-h-screen flex flex-col items-center p-2">
       {!checkout && !showRotatingCoin ? (
         <div className="animate-fade-in">
-          <Link to="/home" className="self-start mb-4">
+          <Link to="/home" className="self-start fixed mb-4 mt-[30px]">
             <div className="rounded-full p-[10px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
               <img src={leftArrow} alt="Back" className="w-6 h-6" />
             </div>
           </Link>
-          <div className="flex items-center justify-center mb-12">
+          <div className="flex items-center justify-center mb-12 mt-[80px] px-5">
             <img src={qrimage} alt="gr" />
           </div>
-          <div className="p-6 rounded-xl w-full max-w-lg text-center border-gray-500 border-[1px] relative animate-slide-in">
+          <div className=" p-6 rounded-xl w-full max-w-lg text-center border-gray-500 border-[1px] relative animate-slide-in">
             <div className="flex justify-center mb-4 absolute top-[-20px] left-1/2 transform -translate-x-1/2">
               <div className="bg-[#203921] p-2 rounded-full">
                 <div className="bg-[#32B638] p-2 rounded-full">

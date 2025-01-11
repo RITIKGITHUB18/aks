@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import GetStartedPage from "./pages/GetStartedPage";
 import LoginPage from "./pages/LoginPage";
@@ -14,25 +14,32 @@ import MapPage from "./pages/MapPage";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderCompleted from "./pages/OrderCompleted";
 import ProfilePage from "./pages/ProfilePage";
-
+import HistoryPage from "./pages/History";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AuthCallback from "./helper/AuthCallback";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<GetStartedPage />} />
+      <Route path="/getStarted" element={<GetStartedPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/verify-email" element={<VerifyEmailPage />} />
       <Route path="/verify-phone" element={<VerifyPhonePage />} />
       <Route path="/phone-auth" element={<PhoneAuth />} />
       <Route path="/select-country" element={<SelectCountry />} />
       <Route path="/select-dob" element={<SelectDob />} />
-      <Route path="/welcome-to-aks" element={<WelcomeScreen />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/book-table" element={<BookTable/>} />
-      <Route path="/shopping-cart" element={<ShoppingCart />} />
-      <Route path="/order-completion" element={<OrderCompleted />} />
-      <Route path="/map" element={<MapPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/auth/v1/callback" element={<AuthCallback />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<WelcomeScreen />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/book-table/:id" element={<BookTable />} />
+        <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route path="/order-completion" element={<OrderCompleted />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/history" element={<HistoryPage />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );
 }

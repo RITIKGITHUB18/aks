@@ -13,7 +13,7 @@ const InputBox = ({
         type={type}
         placeholder={placeholder}
         value={value}
-        // onChange={onChange}
+        onChange={onChange}
         className={`w-full p-2 border rounded-[24px] ${inputStyle}`}
         style={{
           boxShadow: "inset 0px -1px 0px 0px rgba(9, 13, 20, 1)",

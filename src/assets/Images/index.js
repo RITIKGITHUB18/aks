@@ -21,9 +21,9 @@ import activeHistoryIcon from "./activeHistory.svg";
 import inActiveMusicIcon from "./inActiveMusicIcon.svg";
 import activeMusicIcon from "./activeMusic.svg";
 import ratingStar from "./Star.svg";
-import BookTableImg from "./BookTableImg.svg"
-import affordableImg1 from "./affordableImg1.svg"
-import affordableImg2 from "./affordableImg2.svg"
+import BookTableImg from "./BookTableImg.svg";
+import affordableImg1 from "./affordableImg1.svg";
+import affordableImg2 from "./affordableImg2.svg";
 import hotelRoom01 from "./hotelRoom01.jpg";
 import hotelRoom02 from "./hotelRoom02.jpg";
 import hotelRoom03 from "./hotelRoom03.jpg";
@@ -38,9 +38,12 @@ import food1 from "./food1.svg";
 import food2 from "./food2.svg";
 import Coin from "./Coin.svg";
 import qrimage from "./qrImage.svg";
-
+import EditIcon from "./editIcon.svg";
+import passwordViewOff from "./passwordViewOff.svg";
 
 export {
+  passwordViewOff,
+  EditIcon,
   activeHistoryIcon,
   activeMusicIcon,
   RecommendedIcon,
@@ -68,11 +71,9 @@ export {
   arrowRightIcon,
   coupanMedal,
   copyIcon,
-
   BookTableImg,
   affordableImg2,
   affordableImg1,
-
   activeHomeIcon,
   inActiveHomeIcon,
   addAddress,

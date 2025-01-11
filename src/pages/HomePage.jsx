@@ -13,8 +13,11 @@ import CouponsCarousel from "../components/HomeComponent/CouponsCarousel";
 import { coupanData } from "../data/coupanData";
 import { hotelData } from "../data/hotelData";
 import { useState } from "react";
+import { useAuth } from "../helper/AuthContext";
 
 const HomePage = () => {
+  const { user, signOut } = useAuth();
+
   const navigate = useNavigate();
   const [location, setLocation] = useState("Kawungcarang road no 28...");
 
@@ -35,11 +38,7 @@ const HomePage = () => {
   };
 
   return (
-    <div
-      className="bg-[#090D14] 
-    w-[393px] flex flex-col"
-    >
-      {/* Background Image Section */}
+    <div className="bg-[#090D14] w-[393px] max-w-[440px] flex flex-col mx-auto">
       <div
         style={{
           backgroundImage: `url(${homeBg})`,
@@ -57,7 +56,7 @@ const HomePage = () => {
           </div>
           {/* Profile Icon */}
           <div
-            className="w-[44px] h-[44px] cursor-pointerw"
+            className="w-[44px] h-[44px] cursor-pointer"
             onClick={handleProfileOnClick}
           >
             <img
@@ -94,14 +93,14 @@ const HomePage = () => {
 
       {/* Content Section */}
       <div className="mt-[0px] px-4 flex-1">
-        <div className="flex items-center h-[50px] px-4 mt-8 mb-12">
+        <div className="flex items-center h-[50px] px-6 mt-8 mb-12">
           <CouponsCarousel couponsData={coupanData} />
         </div>
 
         {/* Location Component Placeholder */}
         <div
           onClick={handleLocationClick}
-          className="relative bg-[#161C25] rounded-[56px] h-[62px] mb-6 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
+          className="relative mx-auto bg-[#161C25] rounded-[56px] w-[340px] h-[62px] mb-6 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
         >
           <div className="absolute transform left-0 flex items-center justify-center">
             <img
@@ -112,7 +111,7 @@ const HomePage = () => {
               <p className="text-[#FFFFFF]">Your Location</p>
               <p className="text-[#83858A]">{location}</p>
             </div>
-            <img src={arrowRightIcon} className="translate-x-[40px]" />
+            <img src={arrowRightIcon} className="translate-x-[25px]" />
           </div>
         </div>
 

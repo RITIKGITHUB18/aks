@@ -1,8 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { ratingStar } from "../../assets/Images";
 
 const CarouselCard = ({ cardData }) => {
+  const navigate = useNavigate();
+  const handleBookTable = () => {
+    const url = `/book-table/${cardData.id}`;
+    navigate(url);
+  };
+
   return (
-    <div className="relative flex flex-col w-[269px] h-[183px] rounded-[12px] px-2 mb-3">
+    <div
+      className="relative flex flex-col w-[269px] h-[183px] rounded-[12px] px-2 mb-3"
+      onClick={handleBookTable}
+    >
       {/* Hotel Image */}
       <div className="relative w-full h-[132px]">
         <img

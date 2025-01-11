@@ -7,7 +7,7 @@ const FoodCard = ({ item }) => {
   const decrement = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
   return (
-    <div className="flex gap-4  text-white py-4 rounded-xl shadow-md  w-full px-4">
+    <div className="flex gap-4 text-white py-4 rounded-xl shadow-md  w-full px-4">
       {/* Image Section */}
       <div>
         <img

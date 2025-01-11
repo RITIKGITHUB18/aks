@@ -263,6 +263,7 @@ const countryCode = [
     code2l: "AF",
     name: "Afghanistan",
     emoji: AF,
+    dialingCode: "+93",
   },
   {
     id: "199",
@@ -271,6 +272,7 @@ const countryCode = [
     code2l: "AX",
     name: "Åland Islands",
     emoji: AX,
+    dialingCode: "+358",
   },
   {
     id: "2",
@@ -278,6 +280,7 @@ const countryCode = [
     code2l: "AL",
     name: "Albania",
     emoji: AL,
+    dialingCode: "+355",
   },
   {
     id: "3",
@@ -286,6 +289,7 @@ const countryCode = [
     code2l: "DZ",
     name: "Algeria",
     emoji: DZ,
+    dialingCode: "+213",
   },
   {
     id: "197",
@@ -294,6 +298,7 @@ const countryCode = [
     code2l: "AS",
     name: "American Samoa",
     emoji: AS,
+    dialingCode: "+1-684",
   },
   {
     id: "4",
@@ -302,6 +307,7 @@ const countryCode = [
     code2l: "AD",
     name: "Andorra",
     emoji: AD,
+    dialingCode: "+376",
   },
   {
     id: "5",
@@ -309,7 +315,8 @@ const countryCode = [
     code3l: "AGO",
     code2l: "AO",
     name: "Angola",
-    emoji: AQ,
+    emoji: AO,
+    dialingCode: "+244",
   },
   {
     id: "195",
@@ -318,6 +325,7 @@ const countryCode = [
     code2l: "AI",
     name: "Anguilla",
     emoji: AI,
+    dialingCode: "+1-264",
   },
   {
     id: "196",
@@ -326,6 +334,7 @@ const countryCode = [
     code2l: "AQ",
     name: "Antarctica",
     emoji: AQ,
+    dialingCode: "+672",
   },
   {
     id: "6",
@@ -334,6 +343,7 @@ const countryCode = [
     code2l: "AG",
     name: "Antigua and Barbuda",
     emoji: AG,
+    dialingCode: "+1-268",
   },
   {
     id: "7",
@@ -342,6 +352,7 @@ const countryCode = [
     code2l: "AR",
     name: "Argentina",
     emoji: AR,
+    dialingCode: "+54",
   },
   {
     id: "8",
@@ -350,6 +361,7 @@ const countryCode = [
     code2l: "AM",
     name: "Armenia",
     emoji: AM,
+    dialingCode: "+374",
   },
   {
     id: "198",
@@ -358,6 +370,7 @@ const countryCode = [
     code2l: "AW",
     name: "Aruba",
     emoji: AW,
+    dialingCode: "+297",
   },
   {
     id: "9",
@@ -366,6 +379,7 @@ const countryCode = [
     code2l: "AU",
     name: "Australia",
     emoji: AU,
+    dialingCode: "+61",
   },
   {
     id: "10",
@@ -374,6 +388,7 @@ const countryCode = [
     code2l: "AT",
     name: "Austria",
     emoji: AT,
+    dialingCode: "+43",
   },
   {
     id: "11",
@@ -382,6 +397,7 @@ const countryCode = [
     code2l: "AZ",
     name: "Azerbaijan",
     emoji: AZ,
+    dialingCode: "+994",
   },
   {
     id: "12",
@@ -390,6 +406,7 @@ const countryCode = [
     code2l: "BS",
     name: "Bahamas",
     emoji: BS,
+    dialingCode: "+1-242",
   },
   {
     id: "13",
@@ -398,6 +415,7 @@ const countryCode = [
     code2l: "BH",
     name: "Bahrain",
     emoji: BH,
+    dialingCode: "+973",
   },
   {
     id: "14",
@@ -406,6 +424,7 @@ const countryCode = [
     code2l: "BD",
     name: "Bangladesh",
     emoji: BD,
+    dialingCode: "+880",
   },
   {
     id: "15",
@@ -414,6 +433,7 @@ const countryCode = [
     code2l: "BB",
     name: "Barbados",
     emoji: BB,
+    dialingCode: "+1-246",
   },
   {
     id: "16",
@@ -422,6 +442,7 @@ const countryCode = [
     code2l: "BY",
     name: "Belarus",
     emoji: BY,
+    dialingCode: "+375",
   },
   {
     id: "17",
@@ -430,6 +451,7 @@ const countryCode = [
     code2l: "BE",
     name: "Belgium",
     emoji: BE,
+    dialingCode: "+32",
   },
   {
     id: "18",
@@ -438,6 +460,7 @@ const countryCode = [
     code2l: "BZ",
     name: "Belize",
     emoji: BZ,
+    dialingCode: "+501",
   },
   {
     id: "19",
@@ -446,6 +469,7 @@ const countryCode = [
     code2l: "BJ",
     name: "Benin",
     emoji: BJ,
+    dialingCode: "+229",
   },
   {
     id: "201",
@@ -454,6 +478,7 @@ const countryCode = [
     code2l: "BM",
     name: "Bermuda",
     emoji: BM,
+    dialingCode: "+1-441",
   },
   {
     id: "20",
@@ -462,6 +487,7 @@ const countryCode = [
     code2l: "BT",
     name: "Bhutan",
     emoji: BT,
+    dialingCode: "+975",
   },
   {
     id: "182",
@@ -470,14 +496,16 @@ const countryCode = [
     code2l: "BO",
     name: "Bolivia (Plurinational State of)",
     emoji: BO,
+    dialingCode: "+591",
   },
   {
     id: "202",
     enabled: false,
     code3l: "BES",
     code2l: "BQ",
-    name: "Bonaire, Saint Eustatius And Saba",
+    name: "Bonaire, Saint Eustatius and Saba",
     emoji: BQ,
+    dialingCode: "+599",
   },
   {
     id: "21",
@@ -486,6 +514,7 @@ const countryCode = [
     code2l: "BA",
     name: "Bosnia and Herzegovina",
     emoji: BA,
+    dialingCode: "+387",
   },
   {
     id: "22",
@@ -494,6 +523,7 @@ const countryCode = [
     code2l: "BW",
     name: "Botswana",
     emoji: BW,
+    dialingCode: "+267",
   },
   {
     id: "203",
@@ -502,6 +532,7 @@ const countryCode = [
     code2l: "BV",
     name: "Bouvet Island",
     emoji: BV,
+    dialingCode: "+47",
   },
   {
     id: "23",
@@ -510,6 +541,7 @@ const countryCode = [
     code2l: "BR",
     name: "Brazil",
     emoji: BR,
+    dialingCode: "+55",
   },
   {
     id: "220",
@@ -518,6 +550,7 @@ const countryCode = [
     code2l: "IO",
     name: "British Indian Ocean Territory",
     emoji: IO,
+    dialingCode: "+246",
   },
   {
     id: "24",
@@ -526,6 +559,7 @@ const countryCode = [
     code2l: "BN",
     name: "Brunei Darussalam",
     emoji: BN,
+    dialingCode: "+673",
   },
   {
     id: "25",
@@ -534,6 +568,7 @@ const countryCode = [
     code2l: "BG",
     name: "Bulgaria",
     emoji: BG,
+    dialingCode: "+359",
   },
   {
     id: "26",
@@ -542,6 +577,7 @@ const countryCode = [
     code2l: "BF",
     name: "Burkina Faso",
     emoji: BF,
+    dialingCode: "+226",
   },
   {
     id: "27",
@@ -550,6 +586,7 @@ const countryCode = [
     code2l: "BI",
     name: "Burundi",
     emoji: BI,
+    dialingCode: "+257",
   },
   {
     id: "31",
@@ -558,6 +595,7 @@ const countryCode = [
     code2l: "CV",
     name: "Cabo Verde",
     emoji: CV,
+    dialingCode: "+238",
   },
   {
     id: "28",
@@ -566,6 +604,7 @@ const countryCode = [
     code2l: "KH",
     name: "Cambodia",
     emoji: KH,
+    dialingCode: "+855",
   },
   {
     id: "29",
@@ -574,6 +613,7 @@ const countryCode = [
     code2l: "CM",
     name: "Cameroon",
     emoji: CM,
+    dialingCode: "+237",
   },
   {
     id: "30",
@@ -582,6 +622,7 @@ const countryCode = [
     code2l: "CA",
     name: "Canada",
     emoji: CA,
+    dialingCode: "+1",
   },
   {
     id: "222",
@@ -590,6 +631,7 @@ const countryCode = [
     code2l: "KY",
     name: "Cayman Islands",
     emoji: KY,
+    dialingCode: "+1-345",
   },
   {
     id: "32",
@@ -598,6 +640,7 @@ const countryCode = [
     code2l: "CF",
     name: "Central African Republic",
     emoji: CF,
+    dialingCode: "+236",
   },
   {
     id: "33",
@@ -606,6 +649,7 @@ const countryCode = [
     code2l: "TD",
     name: "Chad",
     emoji: TD,
+    dialingCode: "+235",
   },
   {
     id: "34",
@@ -614,6 +658,7 @@ const countryCode = [
     code2l: "CL",
     name: "Chile",
     emoji: CL,
+    dialingCode: "+56",
   },
   {
     id: "35",
@@ -622,6 +667,7 @@ const countryCode = [
     code2l: "CN",
     name: "China",
     emoji: CN,
+    dialingCode: "+86",
   },
   {
     id: "206",
@@ -630,6 +676,7 @@ const countryCode = [
     code2l: "CX",
     name: "Christmas Island",
     emoji: CX,
+    dialingCode: "+61",
   },
   {
     id: "204",
@@ -638,6 +685,7 @@ const countryCode = [
     code2l: "CC",
     name: "Cocos (Keeling) Islands",
     emoji: CC,
+    dialingCode: "+61",
   },
   {
     id: "36",
@@ -646,6 +694,7 @@ const countryCode = [
     code2l: "CO",
     name: "Colombia",
     emoji: CO,
+    dialingCode: "+57",
   },
   {
     id: "37",
@@ -654,6 +703,7 @@ const countryCode = [
     code2l: "KM",
     name: "Comoros",
     emoji: KM,
+    dialingCode: "+269",
   },
   {
     id: "38",
@@ -662,6 +712,7 @@ const countryCode = [
     code2l: "CG",
     name: "Congo",
     emoji: CG,
+    dialingCode: "+242",
   },
   {
     id: "181",
@@ -670,6 +721,7 @@ const countryCode = [
     code2l: "CK",
     name: "Cook Islands",
     emoji: CK,
+    dialingCode: "+682",
   },
   {
     id: "39",
@@ -678,6 +730,7 @@ const countryCode = [
     code2l: "CR",
     name: "Costa Rica",
     emoji: CR,
+    dialingCode: "+506",
   },
   {
     id: "44",
@@ -686,6 +739,7 @@ const countryCode = [
     code2l: "CI",
     name: "Côte d'Ivoire",
     emoji: CI,
+    dialingCode: "+225",
   },
   {
     id: "40",
@@ -694,6 +748,7 @@ const countryCode = [
     code2l: "HR",
     name: "Croatia",
     emoji: HR,
+    dialingCode: "+385",
   },
   {
     id: "41",
@@ -702,6 +757,7 @@ const countryCode = [
     code2l: "CU",
     name: "Cuba",
     emoji: CU,
+    dialingCode: "+53",
   },
   {
     id: "205",
@@ -710,6 +766,7 @@ const countryCode = [
     code2l: "CW",
     name: "Curaçao",
     emoji: CW,
+    dialingCode: "+599",
   },
   {
     id: "42",
@@ -718,6 +775,7 @@ const countryCode = [
     code2l: "CY",
     name: "Cyprus",
     emoji: CY,
+    dialingCode: "+357",
   },
   {
     id: "43",
@@ -726,6 +784,7 @@ const countryCode = [
     code2l: "CZ",
     name: "Czechia",
     emoji: CZ,
+    dialingCode: "+420",
   },
   {
     id: "188",
@@ -734,6 +793,7 @@ const countryCode = [
     code2l: "KP",
     name: "Democratic People's Republic of Korea",
     emoji: KP,
+    dialingCode: "+850",
   },
   {
     id: "183",
@@ -742,6 +802,7 @@ const countryCode = [
     code2l: "CD",
     name: "Democratic Republic of the Congo",
     emoji: CD,
+    dialingCode: "+243",
   },
   {
     id: "45",
@@ -750,6 +811,7 @@ const countryCode = [
     code2l: "DK",
     name: "Denmark",
     emoji: DK,
+    dialingCode: "+45",
   },
   {
     id: "46",
@@ -758,6 +820,7 @@ const countryCode = [
     code2l: "DJ",
     name: "Djibouti",
     emoji: DJ,
+    dialingCode: "+253",
   },
   {
     id: "47",
@@ -766,6 +829,7 @@ const countryCode = [
     code2l: "DM",
     name: "Dominica",
     emoji: DM,
+    dialingCode: "+1-767",
   },
   {
     id: "48",
@@ -774,6 +838,7 @@ const countryCode = [
     code2l: "DO",
     name: "Dominican Republic",
     emoji: DO,
+    dialingCode: "+1-809, +1-829, +1-849",
   },
   {
     id: "49",
@@ -782,6 +847,7 @@ const countryCode = [
     code2l: "EC",
     name: "Ecuador",
     emoji: EC,
+    dialingCode: "+593",
   },
   {
     id: "50",
@@ -790,6 +856,7 @@ const countryCode = [
     code2l: "EG",
     name: "Egypt",
     emoji: EG,
+    dialingCode: "+20",
   },
   {
     id: "51",
@@ -798,6 +865,7 @@ const countryCode = [
     code2l: "SV",
     name: "El Salvador",
     emoji: SV,
+    dialingCode: "+503",
   },
   {
     id: "52",
@@ -806,6 +874,7 @@ const countryCode = [
     code2l: "GQ",
     name: "Equatorial Guinea",
     emoji: GQ,
+    dialingCode: "+240",
   },
   {
     id: "53",
@@ -814,6 +883,7 @@ const countryCode = [
     code2l: "ER",
     name: "Eritrea",
     emoji: ER,
+    dialingCode: "+291",
   },
   {
     id: "54",
@@ -822,6 +892,7 @@ const countryCode = [
     code2l: "EE",
     name: "Estonia",
     emoji: EE,
+    dialingCode: "+372",
   },
   {
     id: "157",
@@ -830,6 +901,7 @@ const countryCode = [
     code2l: "SZ",
     name: "Eswatini",
     emoji: SZ,
+    dialingCode: "+268",
   },
   {
     id: "55",
@@ -838,6 +910,7 @@ const countryCode = [
     code2l: "ET",
     name: "Ethiopia",
     emoji: ET,
+    dialingCode: "+251",
   },
   {
     id: "184",
@@ -846,6 +919,7 @@ const countryCode = [
     code2l: "EU",
     name: "European Union",
     emoji: EU,
+    dialingCode: "", // No single dialing code for the EU
   },
   {
     id: "208",
@@ -854,6 +928,7 @@ const countryCode = [
     code2l: "FK",
     name: "Falkland Islands (Malvinas)",
     emoji: FK,
+    dialingCode: "+500",
   },
   {
     id: "209",
@@ -862,6 +937,7 @@ const countryCode = [
     code2l: "FO",
     name: "Faroe Islands (Associate Member)",
     emoji: FO,
+    dialingCode: "+298",
   },
   {
     id: "56",
@@ -870,6 +946,7 @@ const countryCode = [
     code2l: "FJ",
     name: "Fiji",
     emoji: FJ,
+    dialingCode: "+679",
   },
   {
     id: "57",
@@ -878,6 +955,7 @@ const countryCode = [
     code2l: "FI",
     name: "Finland",
     emoji: FI,
+    dialingCode: "+358",
   },
   {
     id: "58",
@@ -886,6 +964,7 @@ const countryCode = [
     code2l: "FR",
     name: "France",
     emoji: FR,
+    dialingCode: "+33",
   },
   {
     id: "210",
@@ -894,6 +973,7 @@ const countryCode = [
     code2l: "GF",
     name: "French Guiana",
     emoji: GF,
+    dialingCode: "+594",
   },
   {
     id: "230",
@@ -902,6 +982,7 @@ const countryCode = [
     code2l: "PF",
     name: "French Polynesia",
     emoji: PF,
+    dialingCode: "+689",
   },
   {
     id: "240",
@@ -910,6 +991,7 @@ const countryCode = [
     code2l: "TF",
     name: "French Southern and Antarctic Lands",
     emoji: TF,
+    dialingCode: "+262",
   },
   {
     id: "59",
@@ -918,6 +1000,7 @@ const countryCode = [
     code2l: "GA",
     name: "Gabon",
     emoji: GA,
+    dialingCode: "+241",
   },
   {
     id: "60",
@@ -926,6 +1009,7 @@ const countryCode = [
     code2l: "GM",
     name: "Gambia",
     emoji: GM,
+    dialingCode: "+220",
   },
   {
     id: "61",
@@ -934,6 +1018,7 @@ const countryCode = [
     code2l: "GE",
     name: "Georgia",
     emoji: GE,
+    dialingCode: "+995",
   },
   {
     id: "62",
@@ -942,6 +1027,7 @@ const countryCode = [
     code2l: "DE",
     name: "Germany",
     emoji: DE,
+    dialingCode: "+49",
   },
   {
     id: "63",
@@ -950,6 +1036,7 @@ const countryCode = [
     code2l: "GH",
     name: "Ghana",
     emoji: GH,
+    dialingCode: "+233",
   },
   {
     id: "212",
@@ -958,6 +1045,7 @@ const countryCode = [
     code2l: "GI",
     name: "Gibraltar",
     emoji: GI,
+    dialingCode: "+350",
   },
   {
     id: "64",
@@ -966,6 +1054,7 @@ const countryCode = [
     code2l: "GR",
     name: "Greece",
     emoji: GR,
+    dialingCode: "+30",
   },
   {
     id: "213",
@@ -974,6 +1063,7 @@ const countryCode = [
     code2l: "GL",
     name: "Greenland",
     emoji: GL,
+    dialingCode: "+299",
   },
   {
     id: "65",
@@ -982,6 +1072,7 @@ const countryCode = [
     code2l: "GD",
     name: "Grenada",
     emoji: GD,
+    dialingCode: "+1-473",
   },
   {
     id: "214",
@@ -990,6 +1081,7 @@ const countryCode = [
     code2l: "GP",
     name: "Guadeloupe",
     emoji: GP,
+    dialingCode: "+590",
   },
   {
     id: "216",
@@ -998,6 +1090,7 @@ const countryCode = [
     code2l: "GU",
     name: "Guam",
     emoji: GU,
+    dialingCode: "+1-671",
   },
   {
     id: "66",
@@ -1006,6 +1099,7 @@ const countryCode = [
     code2l: "GT",
     name: "Guatemala",
     emoji: GT,
+    dialingCode: "+502",
   },
   {
     id: "211",
@@ -1014,6 +1108,7 @@ const countryCode = [
     code2l: "GG",
     name: "Guernsey",
     emoji: GG,
+    dialingCode: "+44-1481",
   },
   {
     id: "67",
@@ -1022,6 +1117,7 @@ const countryCode = [
     code2l: "GN",
     name: "Guinea",
     emoji: GN,
+    dialingCode: "+224",
   },
   {
     id: "68",
@@ -1030,6 +1126,7 @@ const countryCode = [
     code2l: "GW",
     name: "Guinea-Bissau",
     emoji: GW,
+    dialingCode: "+245",
   },
   {
     id: "69",
@@ -1038,6 +1135,7 @@ const countryCode = [
     code2l: "GY",
     name: "Guyana",
     emoji: GY,
+    dialingCode: "+592",
   },
   {
     id: "70",
@@ -1046,14 +1144,16 @@ const countryCode = [
     code2l: "HT",
     name: "Haiti",
     emoji: HT,
+    dialingCode: "+509",
   },
   {
     id: "218",
     enabled: false,
     code3l: "HMD",
     code2l: "HM",
-    name: "Heard Island And McDonald Islands",
+    name: "Heard Island and McDonald Islands",
     emoji: HM,
+    dialingCode: "+61", // Using Australia's dialing code
   },
   {
     id: "245",
@@ -1062,6 +1162,7 @@ const countryCode = [
     code2l: "VA",
     name: "Holy See",
     emoji: VA,
+    dialingCode: "", // No single dialing code
   },
   {
     id: "71",
@@ -1070,6 +1171,7 @@ const countryCode = [
     code2l: "HN",
     name: "Honduras",
     emoji: HN,
+    dialingCode: "+504",
   },
   {
     id: "217",
@@ -1078,6 +1180,7 @@ const countryCode = [
     code2l: "HK",
     name: "Hong Kong",
     emoji: HK,
+    dialingCode: "+852",
   },
   {
     id: "72",
@@ -1086,6 +1189,7 @@ const countryCode = [
     code2l: "HU",
     name: "Hungary",
     emoji: HU,
+    dialingCode: "+36",
   },
   {
     id: "73",
@@ -1094,6 +1198,7 @@ const countryCode = [
     code2l: "IS",
     name: "Iceland",
     emoji: IS,
+    dialingCode: "+354",
   },
   {
     id: "74",
@@ -1102,6 +1207,7 @@ const countryCode = [
     code2l: "IN",
     name: "India",
     emoji: IN,
+    dialingCode: "+91",
   },
   {
     id: "75",
@@ -1110,6 +1216,7 @@ const countryCode = [
     code2l: "ID",
     name: "Indonesia",
     emoji: ID,
+    dialingCode: "+62",
   },
   {
     id: "187",
@@ -1118,6 +1225,7 @@ const countryCode = [
     code2l: "IR",
     name: "Iran (Islamic Republic of)",
     emoji: IR,
+    dialingCode: "+98",
   },
   {
     id: "76",
@@ -1126,6 +1234,7 @@ const countryCode = [
     code2l: "IQ",
     name: "Iraq",
     emoji: IQ,
+    dialingCode: "+964",
   },
   {
     id: "77",
@@ -1134,6 +1243,7 @@ const countryCode = [
     code2l: "IE",
     name: "Ireland",
     emoji: IE,
+    dialingCode: "+353",
   },
   {
     id: "219",
@@ -1142,6 +1252,7 @@ const countryCode = [
     code2l: "IM",
     name: "Isle of Man",
     emoji: IM,
+    dialingCode: "+44-1624",
   },
   {
     id: "78",
@@ -1150,6 +1261,7 @@ const countryCode = [
     code2l: "IL",
     name: "Israel",
     emoji: IL,
+    dialingCode: "+972",
   },
   {
     id: "79",
@@ -1158,6 +1270,7 @@ const countryCode = [
     code2l: "IT",
     name: "Italy",
     emoji: IT,
+    dialingCode: "+39",
   },
   {
     id: "80",
@@ -1166,6 +1279,7 @@ const countryCode = [
     code2l: "JM",
     name: "Jamaica",
     emoji: JM,
+    dialingCode: "+1-876",
   },
   {
     id: "81",
@@ -1174,6 +1288,7 @@ const countryCode = [
     code2l: "JP",
     name: "Japan",
     emoji: JP,
+    dialingCode: "+81",
   },
   {
     id: "221",
@@ -1182,6 +1297,7 @@ const countryCode = [
     code2l: "JE",
     name: "Jersey",
     emoji: JE,
+    dialingCode: "+44-1534",
   },
   {
     id: "82",
@@ -1190,6 +1306,7 @@ const countryCode = [
     code2l: "JO",
     name: "Jordan",
     emoji: JO,
+    dialingCode: "+962",
   },
   {
     id: "83",
@@ -1198,6 +1315,7 @@ const countryCode = [
     code2l: "KZ",
     name: "Kazakhstan",
     emoji: KZ,
+    dialingCode: "+7",
   },
   {
     id: "84",
@@ -1206,6 +1324,7 @@ const countryCode = [
     code2l: "KE",
     name: "Kenya",
     emoji: KE,
+    dialingCode: "+254",
   },
   {
     id: "85",
@@ -1214,6 +1333,7 @@ const countryCode = [
     code2l: "KI",
     name: "Kiribati",
     emoji: KI,
+    dialingCode: "+686",
   },
   {
     id: "86",
@@ -1222,6 +1342,7 @@ const countryCode = [
     code2l: "KW",
     name: "Kuwait",
     emoji: KW,
+    dialingCode: "+965",
   },
   {
     id: "87",
@@ -1230,6 +1351,7 @@ const countryCode = [
     code2l: "KG",
     name: "Kyrgyzstan",
     emoji: KG,
+    dialingCode: "+996",
   },
   {
     id: "88",
@@ -1238,6 +1360,7 @@ const countryCode = [
     code2l: "LA",
     name: "Lao People's Democratic Republic",
     emoji: LA,
+    dialingCode: "+856",
   },
   {
     id: "89",
@@ -1246,6 +1369,7 @@ const countryCode = [
     code2l: "LV",
     name: "Latvia",
     emoji: LV,
+    dialingCode: "+371",
   },
   {
     id: "90",
@@ -1254,6 +1378,7 @@ const countryCode = [
     code2l: "LB",
     name: "Lebanon",
     emoji: LB,
+    dialingCode: "+961",
   },
   {
     id: "91",
@@ -1262,6 +1387,7 @@ const countryCode = [
     code2l: "LS",
     name: "Lesotho",
     emoji: LS,
+    dialingCode: "+266",
   },
   {
     id: "92",
@@ -1270,6 +1396,7 @@ const countryCode = [
     code2l: "LR",
     name: "Liberia",
     emoji: LR,
+    dialingCode: "+231",
   },
   {
     id: "93",
@@ -1278,6 +1405,7 @@ const countryCode = [
     code2l: "LY",
     name: "Libya",
     emoji: LY,
+    dialingCode: "+218",
   },
   {
     id: "94",
@@ -1286,6 +1414,7 @@ const countryCode = [
     code2l: "LI",
     name: "Liechtenstein",
     emoji: LI,
+    dialingCode: "+423",
   },
   {
     id: "95",
@@ -1294,6 +1423,7 @@ const countryCode = [
     code2l: "LT",
     name: "Lithuania",
     emoji: LT,
+    dialingCode: "+370",
   },
   {
     id: "96",
@@ -1302,6 +1432,7 @@ const countryCode = [
     code2l: "LU",
     name: "Luxembourg",
     emoji: LU,
+    dialingCode: "+352",
   },
   {
     id: "224",
@@ -1310,6 +1441,7 @@ const countryCode = [
     code2l: "MO",
     name: "Macao",
     emoji: MO,
+    dialingCode: "+853",
   },
   {
     id: "97",
@@ -1318,6 +1450,7 @@ const countryCode = [
     code2l: "MG",
     name: "Madagascar",
     emoji: MG,
+    dialingCode: "+261",
   },
   {
     id: "98",
@@ -1326,6 +1459,7 @@ const countryCode = [
     code2l: "MW",
     name: "Malawi",
     emoji: MW,
+    dialingCode: "+265",
   },
   {
     id: "99",
@@ -1334,6 +1468,7 @@ const countryCode = [
     code2l: "MY",
     name: "Malaysia",
     emoji: MY,
+    dialingCode: "+60",
   },
   {
     id: "100",
@@ -1342,6 +1477,7 @@ const countryCode = [
     code2l: "MV",
     name: "Maldives",
     emoji: MV,
+    dialingCode: "+960",
   },
   {
     id: "101",
@@ -1350,6 +1486,7 @@ const countryCode = [
     code2l: "ML",
     name: "Mali",
     emoji: ML,
+    dialingCode: "+223",
   },
   {
     id: "102",
@@ -1358,6 +1495,7 @@ const countryCode = [
     code2l: "MT",
     name: "Malta",
     emoji: MT,
+    dialingCode: "+356",
   },
   {
     id: "103",
@@ -1366,6 +1504,7 @@ const countryCode = [
     code2l: "MH",
     name: "Marshall Islands",
     emoji: MH,
+    dialingCode: "+692",
   },
   {
     id: "226",
@@ -1374,6 +1513,7 @@ const countryCode = [
     code2l: "MQ",
     name: "Martinique",
     emoji: MQ,
+    dialingCode: "+596",
   },
   {
     id: "104",
@@ -1382,6 +1522,7 @@ const countryCode = [
     code2l: "MR",
     name: "Mauritania",
     emoji: MR,
+    dialingCode: "+222",
   },
   {
     id: "105",
@@ -1390,6 +1531,7 @@ const countryCode = [
     code2l: "MU",
     name: "Mauritius",
     emoji: MU,
+    dialingCode: "+230",
   },
   {
     id: "249",
@@ -1398,6 +1540,7 @@ const countryCode = [
     code2l: "YT",
     name: "Mayotte",
     emoji: YT,
+    dialingCode: "+262",
   },
   {
     id: "106",
@@ -1406,6 +1549,7 @@ const countryCode = [
     code2l: "MX",
     name: "Mexico",
     emoji: MX,
+    dialingCode: "+52",
   },
   {
     id: "185",
@@ -1414,6 +1558,7 @@ const countryCode = [
     code2l: "FM",
     name: "Micronesia (Federated States of)",
     emoji: FM,
+    dialingCode: "+691",
   },
   {
     id: "107",
@@ -1422,6 +1567,7 @@ const countryCode = [
     code2l: "MC",
     name: "Monaco",
     emoji: MC,
+    dialingCode: "+377",
   },
   {
     id: "108",
@@ -1430,6 +1576,7 @@ const countryCode = [
     code2l: "MN",
     name: "Mongolia",
     emoji: MN,
+    dialingCode: "+976",
   },
   {
     id: "109",
@@ -1438,6 +1585,7 @@ const countryCode = [
     code2l: "ME",
     name: "Montenegro",
     emoji: ME,
+    dialingCode: "+382",
   },
   {
     id: "227",
@@ -1446,6 +1594,7 @@ const countryCode = [
     code2l: "MS",
     name: "Montserrat",
     emoji: MS,
+    dialingCode: "+1-664",
   },
   {
     id: "110",
@@ -1454,6 +1603,7 @@ const countryCode = [
     code2l: "MA",
     name: "Morocco",
     emoji: MA,
+    dialingCode: "+212",
   },
   {
     id: "111",
@@ -1462,6 +1612,7 @@ const countryCode = [
     code2l: "MZ",
     name: "Mozambique",
     emoji: MZ,
+    dialingCode: "+258",
   },
   {
     id: "112",
@@ -1470,6 +1621,7 @@ const countryCode = [
     code2l: "MM",
     name: "Myanmar",
     emoji: MM,
+    dialingCode: "+95",
   },
   {
     id: "113",
@@ -1478,6 +1630,7 @@ const countryCode = [
     code2l: "NA",
     name: "Namibia",
     emoji: NA,
+    dialingCode: "+264",
   },
   {
     id: "114",
@@ -1486,6 +1639,7 @@ const countryCode = [
     code2l: "NR",
     name: "Nauru",
     emoji: NR,
+    dialingCode: "+674",
   },
   {
     id: "115",
@@ -1494,6 +1648,7 @@ const countryCode = [
     code2l: "NP",
     name: "Nepal",
     emoji: NP,
+    dialingCode: "+977",
   },
   {
     id: "116",
@@ -1502,6 +1657,7 @@ const countryCode = [
     code2l: "NL",
     name: "Netherlands",
     emoji: NL,
+    dialingCode: "+31",
   },
   {
     id: "228",
@@ -1510,6 +1666,7 @@ const countryCode = [
     code2l: "NC",
     name: "New Caledonia",
     emoji: NC,
+    dialingCode: "+687",
   },
   {
     id: "117",
@@ -1518,6 +1675,7 @@ const countryCode = [
     code2l: "NZ",
     name: "New Zealand",
     emoji: NZ,
+    dialingCode: "+64",
   },
   {
     id: "118",
@@ -1526,6 +1684,7 @@ const countryCode = [
     code2l: "NI",
     name: "Nicaragua",
     emoji: NI,
+    dialingCode: "+505",
   },
   {
     id: "119",
@@ -1534,6 +1693,7 @@ const countryCode = [
     code2l: "NE",
     name: "Niger",
     emoji: NE,
+    dialingCode: "+227",
   },
   {
     id: "120",
@@ -1542,6 +1702,7 @@ const countryCode = [
     code2l: "NG",
     name: "Nigeria",
     emoji: NG,
+    dialingCode: "+234",
   },
   {
     id: "192",
@@ -1550,6 +1711,7 @@ const countryCode = [
     code2l: "NU",
     name: "Niue",
     emoji: NU,
+    dialingCode: "+683",
   },
   {
     id: "229",
@@ -1558,6 +1720,7 @@ const countryCode = [
     code2l: "NF",
     name: "Norfolk Island",
     emoji: NF,
+    dialingCode: "+672",
   },
   {
     id: "191",
@@ -1566,6 +1729,7 @@ const countryCode = [
     code2l: "MK",
     name: "North Macedonia",
     emoji: MK,
+    dialingCode: "+389",
   },
   {
     id: "225",
@@ -1574,6 +1738,7 @@ const countryCode = [
     code2l: "MP",
     name: "Northern Mariana Islands",
     emoji: MP,
+    dialingCode: "+1-670",
   },
   {
     id: "121",
@@ -1582,6 +1747,7 @@ const countryCode = [
     code2l: "NO",
     name: "Norway",
     emoji: NO,
+    dialingCode: "+47",
   },
   {
     id: "122",
@@ -1590,6 +1756,7 @@ const countryCode = [
     code2l: "OM",
     name: "Oman",
     emoji: OM,
+    dialingCode: "+968",
   },
   {
     id: "123",
@@ -1598,6 +1765,7 @@ const countryCode = [
     code2l: "PK",
     name: "Pakistan",
     emoji: PK,
+    dialingCode: "+92",
   },
   {
     id: "124",
@@ -1606,6 +1774,7 @@ const countryCode = [
     code2l: "PW",
     name: "Palau",
     emoji: PW,
+    dialingCode: "+680",
   },
   {
     id: "234",
@@ -1614,6 +1783,7 @@ const countryCode = [
     code2l: "PS",
     name: "Palestinian Territory, Occupied",
     emoji: PS,
+    dialingCode: "+970",
   },
   {
     id: "125",
@@ -1622,6 +1792,7 @@ const countryCode = [
     code2l: "PA",
     name: "Panama",
     emoji: PA,
+    dialingCode: "+507",
   },
   {
     id: "126",
@@ -1630,6 +1801,7 @@ const countryCode = [
     code2l: "PG",
     name: "Papua New Guinea",
     emoji: PG,
+    dialingCode: "+675",
   },
   {
     id: "127",
@@ -1638,6 +1810,7 @@ const countryCode = [
     code2l: "PY",
     name: "Paraguay",
     emoji: PY,
+    dialingCode: "+595",
   },
   {
     id: "128",
@@ -1646,6 +1819,7 @@ const countryCode = [
     code2l: "PE",
     name: "Peru",
     emoji: PE,
+    dialingCode: "+51",
   },
   {
     id: "129",
@@ -1654,6 +1828,7 @@ const countryCode = [
     code2l: "PH",
     name: "Philippines",
     emoji: PH,
+    dialingCode: "+63",
   },
   {
     id: "232",
@@ -1662,6 +1837,7 @@ const countryCode = [
     code2l: "PN",
     name: "Pitcairn Islands",
     emoji: PN,
+    dialingCode: "+872",
   },
   {
     id: "130",
@@ -1670,6 +1846,7 @@ const countryCode = [
     code2l: "PL",
     name: "Poland",
     emoji: PL,
+    dialingCode: "+48",
   },
   {
     id: "131",
@@ -1678,6 +1855,7 @@ const countryCode = [
     code2l: "PT",
     name: "Portugal",
     emoji: PT,
+    dialingCode: "+351",
   },
   {
     id: "233",
@@ -1686,6 +1864,7 @@ const countryCode = [
     code2l: "PR",
     name: "Puerto Rico",
     emoji: PR,
+    dialingCode: "+1-787, +1-939",
   },
   {
     id: "132",
@@ -1694,6 +1873,7 @@ const countryCode = [
     code2l: "QA",
     name: "Qatar",
     emoji: QA,
+    dialingCode: "+974",
   },
   {
     id: "189",
@@ -1702,6 +1882,7 @@ const countryCode = [
     code2l: "KR",
     name: "Republic of Korea",
     emoji: KR,
+    dialingCode: "+82",
   },
   {
     id: "190",
@@ -1710,6 +1891,7 @@ const countryCode = [
     code2l: "MD",
     name: "Republic of Moldova",
     emoji: MD,
+    dialingCode: "+373",
   },
   {
     id: "235",
@@ -1718,6 +1900,7 @@ const countryCode = [
     code2l: "RE",
     name: "Réunion",
     emoji: RE,
+    dialingCode: "+262",
   },
   {
     id: "133",
@@ -1726,6 +1909,7 @@ const countryCode = [
     code2l: "RO",
     name: "Romania",
     emoji: RO,
+    dialingCode: "+40",
   },
   {
     id: "134",
@@ -1734,6 +1918,7 @@ const countryCode = [
     code2l: "RU",
     name: "Russian Federation",
     emoji: RU,
+    dialingCode: "+7",
   },
   {
     id: "135",
@@ -1742,6 +1927,7 @@ const countryCode = [
     code2l: "RW",
     name: "Rwanda",
     emoji: RW,
+    dialingCode: "+250",
   },
   {
     id: "200",
@@ -1750,6 +1936,7 @@ const countryCode = [
     code2l: "BL",
     name: "Saint Barthélemy",
     emoji: BL,
+    dialingCode: "+590",
   },
   {
     id: "236",
@@ -1758,6 +1945,7 @@ const countryCode = [
     code2l: "SH",
     name: "Saint Helena, Ascension and Tristan da Cunha",
     emoji: SH,
+    dialingCode: "+290",
   },
   {
     id: "136",
@@ -1766,6 +1954,7 @@ const countryCode = [
     code2l: "KN",
     name: "Saint Kitts and Nevis",
     emoji: KN,
+    dialingCode: "+1-869",
   },
   {
     id: "137",
@@ -1774,6 +1963,7 @@ const countryCode = [
     code2l: "LC",
     name: "Saint Lucia",
     emoji: LC,
+    dialingCode: "+1-758",
   },
   {
     id: "223",
@@ -1782,6 +1972,7 @@ const countryCode = [
     code2l: "MF",
     name: "Saint Martin",
     emoji: MF,
+    dialingCode: "+590",
   },
   {
     id: "231",
@@ -1790,6 +1981,7 @@ const countryCode = [
     code2l: "PM",
     name: "Saint Pierre and Miquelon",
     emoji: PM,
+    dialingCode: "+508",
   },
   {
     id: "138",
@@ -1798,6 +1990,7 @@ const countryCode = [
     code2l: "VC",
     name: "Saint Vincent and the Grenadines",
     emoji: VC,
+    dialingCode: "+1-784",
   },
   {
     id: "139",
@@ -1806,6 +1999,7 @@ const countryCode = [
     code2l: "WS",
     name: "Samoa",
     emoji: WS,
+    dialingCode: "+685",
   },
   {
     id: "140",
@@ -1814,6 +2008,7 @@ const countryCode = [
     code2l: "SM",
     name: "San Marino",
     emoji: SM,
+    dialingCode: "+378",
   },
   {
     id: "141",
@@ -1822,6 +2017,7 @@ const countryCode = [
     code2l: "ST",
     name: "Sao Tome and Principe",
     emoji: ST,
+    dialingCode: "+239",
   },
   {
     id: "142",
@@ -1830,6 +2026,7 @@ const countryCode = [
     code2l: "SA",
     name: "Saudi Arabia",
     emoji: SA,
+    dialingCode: "+966",
   },
   {
     id: "143",
@@ -1838,6 +2035,7 @@ const countryCode = [
     code2l: "SN",
     name: "Senegal",
     emoji: SN,
+    dialingCode: "+221",
   },
   {
     id: "144",
@@ -1846,6 +2044,7 @@ const countryCode = [
     code2l: "RS",
     name: "Serbia",
     emoji: RS,
+    dialingCode: "+381",
   },
   {
     id: "145",
@@ -1854,6 +2053,7 @@ const countryCode = [
     code2l: "SC",
     name: "Seychelles",
     emoji: SC,
+    dialingCode: "+248",
   },
   {
     id: "146",
@@ -1862,6 +2062,7 @@ const countryCode = [
     code2l: "SL",
     name: "Sierra Leone",
     emoji: SL,
+    dialingCode: "+232",
   },
   {
     id: "147",
@@ -1870,6 +2071,7 @@ const countryCode = [
     code2l: "SG",
     name: "Singapore",
     emoji: SG,
+    dialingCode: "+65",
   },
   {
     id: "238",
@@ -1878,6 +2080,7 @@ const countryCode = [
     code2l: "SX",
     name: "Sint Maarten",
     emoji: SX,
+    dialingCode: "+1-721",
   },
   {
     id: "148",
@@ -1886,6 +2089,7 @@ const countryCode = [
     code2l: "SK",
     name: "Slovakia",
     emoji: SK,
+    dialingCode: "+421",
   },
   {
     id: "149",
@@ -1894,6 +2098,7 @@ const countryCode = [
     code2l: "SI",
     name: "Slovenia",
     emoji: SI,
+    dialingCode: "+386",
   },
   {
     id: "150",
@@ -1902,6 +2107,7 @@ const countryCode = [
     code2l: "SB",
     name: "Solomon Islands",
     emoji: SB,
+    dialingCode: "+677",
   },
   {
     id: "151",
@@ -1910,6 +2116,7 @@ const countryCode = [
     code2l: "SO",
     name: "Somalia",
     emoji: SO,
+    dialingCode: "+252",
   },
   {
     id: "152",
@@ -1918,6 +2125,7 @@ const countryCode = [
     code2l: "ZA",
     name: "South Africa",
     emoji: ZA,
+    dialingCode: "+27",
   },
   {
     id: "215",
@@ -1926,6 +2134,7 @@ const countryCode = [
     code2l: "GS",
     name: "South Georgia and the South Sandwich Islands",
     emoji: GS,
+    dialingCode: "+500",
   },
   {
     id: "250",
@@ -1934,6 +2143,7 @@ const countryCode = [
     code2l: "SS",
     name: "South Sudan",
     emoji: SS,
+    dialingCode: "+211",
   },
   {
     id: "153",
@@ -1942,6 +2152,7 @@ const countryCode = [
     code2l: "ES",
     name: "Spain",
     emoji: ES,
+    dialingCode: "+34",
   },
   {
     id: "154",
@@ -1950,6 +2161,7 @@ const countryCode = [
     code2l: "LK",
     name: "Sri Lanka",
     emoji: LK,
+    dialingCode: "+94",
   },
   {
     id: "155",
@@ -1958,6 +2170,7 @@ const countryCode = [
     code2l: "SD",
     name: "Sudan",
     emoji: SD,
+    dialingCode: "+249",
   },
   {
     id: "156",
@@ -1966,6 +2179,7 @@ const countryCode = [
     code2l: "SR",
     name: "Suriname",
     emoji: SR,
+    dialingCode: "+597",
   },
   {
     id: "237",
@@ -1974,6 +2188,7 @@ const countryCode = [
     code2l: "SJ",
     name: "Svalbard and Jan Mayen",
     emoji: SJ,
+    dialingCode: "+47",
   },
   {
     id: "158",
@@ -1982,6 +2197,7 @@ const countryCode = [
     code2l: "SE",
     name: "Sweden",
     emoji: SE,
+    dialingCode: "+46",
   },
   {
     id: "159",
@@ -1990,6 +2206,7 @@ const countryCode = [
     code2l: "CH",
     name: "Switzerland",
     emoji: CH,
+    dialingCode: "+41",
   },
   {
     id: "160",
@@ -1998,6 +2215,7 @@ const countryCode = [
     code2l: "SY",
     name: "Syrian Arab Republic",
     emoji: SY,
+    dialingCode: "+963",
   },
   {
     id: "242",
@@ -2006,6 +2224,7 @@ const countryCode = [
     code2l: "TW",
     name: "Taiwan",
     emoji: TW,
+    dialingCode: "+886",
   },
   {
     id: "161",
@@ -2014,6 +2233,7 @@ const countryCode = [
     code2l: "TJ",
     name: "Tajikistan",
     emoji: TJ,
+    dialingCode: "+992",
   },
   {
     id: "162",
@@ -2022,6 +2242,7 @@ const countryCode = [
     code2l: "TH",
     name: "Thailand",
     emoji: TH,
+    dialingCode: "+66",
   },
   {
     id: "163",
@@ -2030,6 +2251,7 @@ const countryCode = [
     code2l: "TL",
     name: "Timor-Leste",
     emoji: TL,
+    dialingCode: "+670",
   },
   {
     id: "164",
@@ -2038,6 +2260,7 @@ const countryCode = [
     code2l: "TG",
     name: "Togo",
     emoji: TG,
+    dialingCode: "+228",
   },
   {
     id: "241",
@@ -2046,6 +2269,7 @@ const countryCode = [
     code2l: "TK",
     name: "Tokelau (Associate Member)",
     emoji: TK,
+    dialingCode: "+690",
   },
   {
     id: "165",
@@ -2054,6 +2278,7 @@ const countryCode = [
     code2l: "TO",
     name: "Tonga",
     emoji: TO,
+    dialingCode: "+676",
   },
   {
     id: "166",
@@ -2062,6 +2287,7 @@ const countryCode = [
     code2l: "TT",
     name: "Trinidad and Tobago",
     emoji: TT,
+    dialingCode: "+1-868",
   },
   {
     id: "167",
@@ -2070,6 +2296,7 @@ const countryCode = [
     code2l: "TN",
     name: "Tunisia",
     emoji: TN,
+    dialingCode: "+216",
   },
   {
     id: "168",
@@ -2078,6 +2305,7 @@ const countryCode = [
     code2l: "TR",
     name: "Türkiye",
     emoji: TR,
+    dialingCode: "+90",
   },
   {
     id: "169",
@@ -2086,6 +2314,7 @@ const countryCode = [
     code2l: "TM",
     name: "Turkmenistan",
     emoji: TM,
+    dialingCode: "+993",
   },
   {
     id: "239",
@@ -2094,6 +2323,7 @@ const countryCode = [
     code2l: "TC",
     name: "Turks and Caicos Islands",
     emoji: TC,
+    dialingCode: "+1-649",
   },
   {
     id: "170",
@@ -2102,6 +2332,7 @@ const countryCode = [
     code2l: "TV",
     name: "Tuvalu",
     emoji: TV,
+    dialingCode: "+688",
   },
   {
     id: "171",
@@ -2110,6 +2341,7 @@ const countryCode = [
     code2l: "UG",
     name: "Uganda",
     emoji: UG,
+    dialingCode: "+256",
   },
   {
     id: "172",
@@ -2118,6 +2350,7 @@ const countryCode = [
     code2l: "UA",
     name: "Ukraine",
     emoji: UA,
+    dialingCode: "+380",
   },
   {
     id: "173",
@@ -2126,6 +2359,7 @@ const countryCode = [
     code2l: "AE",
     name: "United Arab Emirates",
     emoji: AE,
+    dialingCode: "+971",
   },
   {
     id: "186",
@@ -2134,6 +2368,7 @@ const countryCode = [
     code2l: "GB",
     name: "United Kingdom",
     emoji: GB,
+    dialingCode: "+44",
   },
   {
     id: "193",
@@ -2142,6 +2377,7 @@ const countryCode = [
     code2l: "TZ",
     name: "United Republic of Tanzania",
     emoji: TZ,
+    dialingCode: "+255",
   },
   {
     id: "243",
@@ -2150,6 +2386,7 @@ const countryCode = [
     code2l: "UM",
     name: "United States Minor Outlying Islands",
     emoji: UM,
+    dialingCode: "", // No specific dialing code
   },
   {
     id: "244",
@@ -2158,6 +2395,7 @@ const countryCode = [
     code2l: "US",
     name: "United States of America",
     emoji: US,
+    dialingCode: "+1",
   },
   {
     id: "247",
@@ -2166,6 +2404,7 @@ const countryCode = [
     code2l: "VI",
     name: "United States Virgin Islands",
     emoji: VI,
+    dialingCode: "+1-340",
   },
   {
     id: "174",
@@ -2174,6 +2413,7 @@ const countryCode = [
     code2l: "UY",
     name: "Uruguay",
     emoji: UY,
+    dialingCode: "+598",
   },
   {
     id: "175",
@@ -2182,6 +2422,7 @@ const countryCode = [
     code2l: "UZ",
     name: "Uzbekistan",
     emoji: UZ,
+    dialingCode: "+998",
   },
   {
     id: "176",
@@ -2190,6 +2431,7 @@ const countryCode = [
     code2l: "VU",
     name: "Vanuatu",
     emoji: VU,
+    dialingCode: "+678",
   },
   {
     id: "194",
@@ -2198,6 +2440,7 @@ const countryCode = [
     code2l: "VE",
     name: "Venezuela (Bolivarian Republic of)",
     emoji: VE,
+    dialingCode: "+58",
   },
   {
     id: "177",
@@ -2206,6 +2449,7 @@ const countryCode = [
     code2l: "VN",
     name: "Viet Nam",
     emoji: VN,
+    dialingCode: "+84",
   },
   {
     id: "246",
@@ -2214,6 +2458,7 @@ const countryCode = [
     code2l: "VG",
     name: "Virgin Islands",
     emoji: VG,
+    dialingCode: "+1-284",
   },
   {
     id: "248",
@@ -2222,6 +2467,7 @@ const countryCode = [
     code2l: "WF",
     name: "Wallis and Futuna",
     emoji: WF,
+    dialingCode: "+681",
   },
   {
     id: "207",
@@ -2230,6 +2476,7 @@ const countryCode = [
     code2l: "EH",
     name: "Western Sahara",
     emoji: EH,
+    dialingCode: "+212",
   },
   {
     id: "178",
@@ -2238,6 +2485,7 @@ const countryCode = [
     code2l: "YE",
     name: "Yemen",
     emoji: YE,
+    dialingCode: "+967",
   },
   {
     id: "179",
@@ -2246,6 +2494,7 @@ const countryCode = [
     code2l: "ZM",
     name: "Zambia",
     emoji: ZM,
+    dialingCode: "+260",
   },
   {
     id: "180",
@@ -2254,6 +2503,7 @@ const countryCode = [
     code2l: "ZW",
     name: "Zimbabwe",
     emoji: ZW,
+    dialingCode: "+263",
   },
 ];
 

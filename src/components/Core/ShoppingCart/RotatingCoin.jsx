@@ -1,7 +1,7 @@
-import React from 'react'
-import CustomButton from '../../common/CustomButton'
-import { Coin } from '../../../assets/Images'
-import { Link } from 'react-router-dom'
+import React from "react";
+import CustomButton from "../../common/CustomButton";
+import { Coin } from "../../../assets/Images";
+import { Link } from "react-router-dom";
 
 const RotatingCoin = () => {
   return (
@@ -22,20 +22,20 @@ const RotatingCoin = () => {
 
       {/* Buttons */}
       <div className="mt-8 space-y-4 w-full px-4">
-      <CustomButton
-            text="View Receipt"
-            buttonStyle="w-[353px] h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-[600] mt-6"
-            type="submit"
-          />
-          <br />
+        <CustomButton
+          text="View Receipt"
+          buttonStyle="w-[353px] h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[104px] font-[500] text-[15px] mt-6"
+          type="submit"
+        />
+        <br />
         <Link to="/home">
-          <button className="w-[353px] h-[56px] mx-auto py-3 bg-[#15181F] hover:bg-gray-800 rounded-full text-white font-semibold">
+          <button className="w-[353px] h-[56px] mx-auto py-3 bg-[#162130] hover:bg-gray-800 rounded-[105px] text-[#3579DD] font-[500] text-[15px]">
             Back to Home
           </button>
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RotatingCoin
+export default RotatingCoin;

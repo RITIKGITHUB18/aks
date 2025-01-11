@@ -12,11 +12,11 @@ const GetStartedPage = () => {
       style={{
         backgroundImage: `url(${crackersCelebration})`,
       }}
-      className="flex flex-col justify-end w-[393px] max-w-[400px] h-screen bg-no-repeat bg-cover"
+      className="flex flex-col justify-end w-[450px] h-screen bg-no-repeat bg-cover"
     >
       {/* Overlay section */}
       <div
-        className="flex flex-col w-full text-white transform -translate-y-0"
+        className="fixed w-[450px] bottom-0 flex flex-col text-white transform p-4 -translate-y-0"
         style={{
           height: "33vh",
           background:
