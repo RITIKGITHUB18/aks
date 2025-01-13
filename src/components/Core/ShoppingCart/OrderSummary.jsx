@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import CustomButton from "../../common/CustomButton";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { leftArrow, qrimage } from "../../../assets/Images";
 import RotatingCoin from "./RotatingCoin";
+import { useSelector } from "react-redux";
 
 const orderData = {
   qrCodeValue: "123456789",
@@ -20,11 +21,42 @@ const orderData = {
 };
 
 const OrderSummary = () => {
+  const location = useLocation();
+  const { cartItems, totalPrice } = location.state || {};
+
+  if (!cartItems || !totalPrice) {
+    return (
+      <div className="text-white text-center mt-20">
+        <p className="text-lg">No items in your cart.</p>
+      </div>
+    );
+  }
+
+  console.log("cartItem in Order Summary: ", cartItems);
+  // const [orderState,setOrderState] = useState(
+  //   {
+  //     cartItem:cartItems,
+  //     orderNumber:
+  //   }
+  // )
+
   const [checkout, setCheckout] = useState(false);
   const [showRotatingCoin, setShowRotatingCoin] = useState(false);
 
   const handleCheckout = () => {
     setCheckout(true);
+  };
+
+  const calculateDiscountedPrice = (price) => {
+    return price * 0.2;
+  };
+  const merchantFee = (price) => {
+    return price * 0.05;
+  };
+  const generateOrderId = () => {
+    const timestamp = Date.now().toString(36); // Base-36 timestamp
+    const randomString = Math.random().toString(36).substring(2, 8); // Random string of 6 characters
+    return `ORD-${timestamp}-${randomString}`.toUpperCase();
   };
 
   useEffect(() => {
@@ -80,30 +112,35 @@ const OrderSummary = () => {
 
             <div className="mt-6 text-sm">
               <h3 className="text-lg font-bold mb-4">Order Summary</h3>
-              <div className="space-y-2">
-                {orderData.orderDetails.map((detail, index) => (
-                  <div
+              <ul className="space-y-2">
+                <p>OrderID: {generateOrderId()}</p>
+                {cartItems.map((item, index) => (
+                  <li
                     className="flex justify-between text-gray-400"
                     key={index}
                   >
-                    <span>{detail.label}</span>
-                    <span>{detail.value}</span>
-                  </div>
+                    <span>{item.label}</span>
+                    <span>{item.value}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               <hr className="my-4 border-gray-700" />
-
               <div className="space-y-2">
-                {orderData.summaryDetails.map((detail, index) => (
-                  <div
-                    className="flex justify-between text-gray-400"
-                    key={index}
-                  >
-                    <span>{detail.label}</span>
-                    <span>{detail.value}</span>
-                  </div>
-                ))}
+                <div className="flex justify-between text-gray-400">
+                  <span>Total Amount :</span>
+                  <span>${totalPrice.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-gray-400">
+                  <span>Discount (20%) :</span>
+                  <span>
+                    ${calculateDiscountedPrice(totalPrice.toFixed(2))}
+                  </span>
+                </div>
+                <div className="flex justify-between text-gray-400">
+                  <span>Merchant fee (5%) :</span>
+                  <span>${merchantFee(totalPrice.toFixed(2))}</span>
+                </div>
               </div>
 
               <CustomButton

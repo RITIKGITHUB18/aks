@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+// import { useCart } from "../common/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { setDateTime } from "../../slice/hotelSlice";
 
 const DateTimeComponent = () => {
+  const dispatch = useDispatch();
+  const { dateTime } = useSelector((state) => state.hotel); // Access dateTime from Redux state
+
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const times = [
     "08:00",
@@ -12,13 +18,20 @@ const DateTimeComponent = () => {
     "20:00",
     "22:00",
   ];
+
   const [selectedDate, setSelectedDate] = useState({
-    day: null,
-    date: new Date().getDate(),
-    month: new Date().getMonth(),
-    year: new Date().getFullYear(),
-    time: "12:00",
+    day: dateTime?.day || null,
+    date: dateTime?.date || new Date().getDate(),
+    month: dateTime?.month || new Date().getMonth(),
+    year: dateTime?.year || new Date().getFullYear(),
+    time: dateTime?.time || "",
   });
+
+  useEffect(() => {
+    if (dateTime) {
+      setSelectedDate(dateTime);
+    }
+  }, [dateTime]);
 
   // Generate all dates for the selected month
   const getDatesForMonth = (month, year) => {
@@ -61,8 +74,19 @@ const DateTimeComponent = () => {
     });
   };
 
+  const handleDateSelection = (day, date) => {
+    const updatedDate = { ...selectedDate, day, date };
+    setSelectedDate(updatedDate);
+    dispatch(setDateTime(updatedDate)); // Update Redux state
+  };
+
+  const handleTimeSelection = (time) => {
+    const updatedDate = { ...selectedDate, time };
+    setSelectedDate(updatedDate);
+    dispatch(setDateTime(updatedDate)); // Update Redux state
+  };
   return (
-    <div className="w-full max-w-[393px] mx-auto">
+    <div className="w-[390px] mx-auto ">
       {/* Month and Year Navigation */}
       <div className="flex items-center justify-center mb-4 px-4">
         <button
@@ -83,19 +107,12 @@ const DateTimeComponent = () => {
       </div>
 
       {/* Scrollable Dates */}
-      <div className="flex overflow-x-auto gap-4 px-4 mb-6 scrollbar-hide">
+      <div className="flex w-[342px] mx-5 overflow-x-auto gap-x-4 px-2 mb-6 scrollbar-hide">
         {allDates.map((weekDate, index) => (
           <button
             key={index}
-            onClick={() => {
-              setSelectedDate((prev) => ({
-                ...prev,
-                day: weekDate.day,
-                date: weekDate.date,
-              }));
-              setShowCartButtons(true);
-            }}
-            className={`flex-shrink-0 w-[80px] h-[60px] rounded-lg p-2 text-center ${
+            onClick={() => handleDateSelection(weekDate.day, weekDate.date)}
+            className={`flex-shrink-0 w-[70px] h-[60px] rounded-lg p-2 text-center ${
               selectedDate.date === weekDate.date
                 ? "bg-blue-500 text-white"
                 : "bg-gray-800 text-gray-300"
@@ -107,14 +124,11 @@ const DateTimeComponent = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-4 gap-4 rounded-[8px] px-4">
+      <div className="grid grid-cols-4 gap-4 rounded-[8px] w-[342px] mx-5 px-2">
         {times.map((time) => (
           <button
             key={time}
-            onClick={() => {
-              setSelectedDate((prev) => ({ ...prev, time }));
-              setShowCartButtons(true);
-            }}
+            onClick={() => handleTimeSelection(time)}
             className={`p-2 rounded-lg text-[14px] font-[400] leading-5 ${
               selectedDate.time === time
                 ? "bg-blue-500 text-white"

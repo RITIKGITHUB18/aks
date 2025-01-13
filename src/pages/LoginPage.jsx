@@ -17,7 +17,9 @@ const LoginPage = () => {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: "http://localhost:5173/auth/callback",
+          // emailRedirectTo: "http://localhost:5173/auth/callback",
+          emailRedirectTo:
+            "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback",
         },
       });
 

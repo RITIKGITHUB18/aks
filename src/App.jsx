@@ -17,6 +17,8 @@ import ProfilePage from "./pages/ProfilePage";
 import HistoryPage from "./pages/History";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AuthCallback from "./helper/AuthCallback";
+import { PaymentPage } from "./pages/PaymentPage";
+import HotelRecommendationPage from "./pages/HotelRecommendationPage";
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
         <Route path="/map" element={<MapPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/history" element={<HistoryPage />} />
+        <Route path="/payment-method" element={<PaymentPage />} />
+        <Route path="/recommendation" element={<HotelRecommendationPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>

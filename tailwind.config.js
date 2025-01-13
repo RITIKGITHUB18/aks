@@ -20,6 +20,7 @@ export default {
           /* Hide scrollbar for Webkit browsers */
           "&::-webkit-scrollbar": {
             display: "none",
+            width: "100px",
           },
           /* Hide scrollbar for other browsers */
           "-ms-overflow-style": "none" /* IE and Edge */,

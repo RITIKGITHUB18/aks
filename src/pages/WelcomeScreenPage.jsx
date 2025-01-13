@@ -16,7 +16,6 @@ const WelcomeScreen = () => {
       }}
       className="flex flex-col relative justify-center items-center text-center w-[450px] h-[1000px] bg-no-repeat bg-center bg-cover"
     >
-      {/* Overlay with gradient */}
       <div
         style={{
           background:
@@ -27,7 +26,7 @@ const WelcomeScreen = () => {
         <div className="mt-[500px]">
           <div className="">
             <h1 className="font-[700] text-white text-[32px] leading-8">
-              Welcome, {user.email}
+              Welcome
             </h1>
             <p className="text-[#A5A5A5] font-[600] text-[16px] mt-2 w-[200px]">
               Emmerse yourself into the world of AKS

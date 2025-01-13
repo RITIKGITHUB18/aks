@@ -14,9 +14,11 @@ import { coupanData } from "../data/coupanData";
 import { hotelData } from "../data/hotelData";
 import { useState } from "react";
 import { useAuth } from "../helper/AuthContext";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
   const { user, signOut } = useAuth();
+  const { totalCoins } = useSelector((state) => state.coins);
 
   const navigate = useNavigate();
   const [location, setLocation] = useState("Kawungcarang road no 28...");
@@ -35,6 +37,10 @@ const HomePage = () => {
 
   const handleProfileOnClick = () => {
     navigate("/profile");
+  };
+
+  const handleSeeAllOnclick = () => {
+    navigate("/recommendation");
   };
 
   return (
@@ -86,21 +92,22 @@ const HomePage = () => {
             <p className="text-[13px] leading-[18px] text-white mt-4">
               Earned Points
             </p>
-            <p className="text-[60px] font-[700] leading-[72px] mt-4">3222</p>
+            <p className="text-[60px] font-[700] leading-[72px] mt-4">
+              {totalCoins}
+            </p>
           </div>
         </div>
       </div>
 
       {/* Content Section */}
       <div className="mt-[0px] px-4 flex-1">
-        <div className="flex items-center h-[50px] px-6 mt-8 mb-12">
+        <div className="flex items-center h-[50px] px-6 mt-4 mb-8">
           <CouponsCarousel couponsData={coupanData} />
         </div>
 
-        {/* Location Component Placeholder */}
         <div
           onClick={handleLocationClick}
-          className="relative mx-auto bg-[#161C25] rounded-[56px] w-[340px] h-[62px] mb-6 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
+          className="relative mx-auto bg-[#161C25] rounded-[56px] w-[320px] h-[62px] mb-4 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
         >
           <div className="absolute transform left-0 flex items-center justify-center">
             <img
@@ -111,7 +118,7 @@ const HomePage = () => {
               <p className="text-[#FFFFFF]">Your Location</p>
               <p className="text-[#83858A]">{location}</p>
             </div>
-            <img src={arrowRightIcon} className="translate-x-[25px]" />
+            <img src={arrowRightIcon} className="translate-x-[10px]" />
           </div>
         </div>
 
@@ -121,9 +128,12 @@ const HomePage = () => {
             <p className="text-white font-[500] text-[18px] leading-[24px]">
               Recommended for You
             </p>
-            <p className="text-[#3579DD] text-[14px] font-[500] leading-[18px] cursor-pointer">
+            <button
+              onClick={handleSeeAllOnclick}
+              className="text-[#3579DD] text-[14px] font-[500] leading-[18px] cursor-pointer"
+            >
               See All
-            </p>
+            </button>
           </div>
           <div className="mt-5">
             <CarouselComponent carouselData={hotelData} />
@@ -132,9 +142,9 @@ const HomePage = () => {
       </div>
 
       {/* Navbar Component Placeholder */}
-      <div className="w-[393px] h-[60px] flex justify-center items-center">
-        <Footer />
-      </div>
+      {/* <div className="fixed bottom-10 w-[450px] h-[60px] flex gap-x-[80px] justify-center items-center border-t-[1px] border-slate-700"> */}
+      <Footer />
+      {/* </div> */}
     </div>
   );
 };

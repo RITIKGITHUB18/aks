@@ -5,14 +5,21 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import ToastContainerLocal from "./components/common/ToastContainerLocal.jsx";
 import { AuthProvider } from "./helper/AuthContext.jsx";
+import { CartProvider } from "./components/common/CartContext.jsx";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <BrowserRouter>
-        <App />
-        <ToastContainerLocal />
-      </BrowserRouter>
+      {/* <CartProvider> */}
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+          <ToastContainerLocal />
+        </BrowserRouter>
+      </Provider>
+      {/* </CartProvider> */}
     </AuthProvider>
   </StrictMode>
 );

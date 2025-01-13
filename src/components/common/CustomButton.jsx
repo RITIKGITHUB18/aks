@@ -11,7 +11,7 @@ const CustomButton = ({
     <div className={`flex items-center justify-center ${style}`}>
       <button
         onClick={onClick}
-        className={`px-6 py-2 rounded-[24px] text-white bg-blue-500 hover:bg-blue-600 active:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed ${buttonStyle}`}
+        className={`px-6 py-2 rounded-[24px] text-white disabled:bg-gray-300 disabled:cursor-not-allowed cursor-pointer ${buttonStyle}`}
         disabled={disabled}
         {...rest}
       >

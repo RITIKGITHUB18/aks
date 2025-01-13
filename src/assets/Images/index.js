@@ -40,8 +40,22 @@ import Coin from "./Coin.svg";
 import qrimage from "./qrImage.svg";
 import EditIcon from "./editIcon.svg";
 import passwordViewOff from "./passwordViewOff.svg";
+import EmptyShoppingCart from "./EmptyShoppingCart.svg";
+import walletIcon from "./walletIcon.svg";
+import applePayIcon from "./applePayIcon.svg";
+import masterCardIcon from "./masterCardIcon.svg";
+import stripeIcon from "./stripeIcon.svg";
+import paypalIcon from "./paypalIcon.svg";
+import crown from "./Crown.svg";
 
 export {
+  crown,
+  applePayIcon,
+  masterCardIcon,
+  stripeIcon,
+  paypalIcon,
+  walletIcon,
+  EmptyShoppingCart,
   passwordViewOff,
   EditIcon,
   activeHistoryIcon,
