@@ -39,8 +39,9 @@
 // export default AuthCallback;
 
 // src/pages/AuthCallback.js
+
 import React, { useEffect } from "react";
-import { supabase } from "../helper/supabaseConfig"; // Adjust path as needed
+import { supabase } from "../helper/supabaseConfig";
 import { useNavigate } from "react-router-dom";
 
 const AuthCallback = () => {
@@ -59,11 +60,11 @@ const AuthCallback = () => {
           navigate("/login"); // Redirect on error
         } else {
           console.log("Session Data:", data); // Log session data for debugging
-          navigate("/welcome-to-aks"); // Redirect to welcome page
+          navigate("/welcome-to-aks");
         }
       } catch (err) {
         console.error("Unexpected error during auth callback:", err);
-        navigate("/login"); // Fallback to login on unexpected errors
+        navigate("/login");
       }
     };
 

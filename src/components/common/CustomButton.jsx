@@ -8,11 +8,11 @@ const CustomButton = ({
   ...rest
 }) => {
   return (
-    <div className={`flex items-center justify-center ${style}`}>
+    <div className={`flex items-center justify-center rounded-[24px] ${style}`}>
       <button
         onClick={onClick}
         className={`px-6 py-2 rounded-[24px] text-white disabled:bg-gray-300 disabled:cursor-not-allowed cursor-pointer ${buttonStyle}`}
-        disabled={disabled}
+        // disabled={disabled}
         {...rest}
       >
         {icon && <span className="mr-2">{icon}</span>}

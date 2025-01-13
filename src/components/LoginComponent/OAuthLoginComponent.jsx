@@ -26,7 +26,7 @@ const OAuthLoginComponent = ({ items, style }) => {
         <div
           key={index}
           onClick={() => handleOAuthLogin(item.provider)}
-          className={`flex flex-col justify-center w-[360px] h-[52.46px] bg-[#1E293B] rounded-[24px] ${style} mb-3`}
+          className={`flex flex-col justify-center w-[360px] h-[52.46px] bg-[#1E293B] rounded-[24px] cursor-pointer ${style} mb-3`}
         >
           <div className="flex items-center">
             <div className="flex pl-8">

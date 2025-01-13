@@ -11,6 +11,8 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const isEmailEntered = email.trim().length > 0;
+
   const handleOnClick = async () => {
     try {
       console.log("PRINTING EMAIL: ", email);
@@ -61,7 +63,13 @@ const LoginPage = () => {
           <CustomButton
             text="Continue"
             onClick={handleOnClick}
-            buttonStyle="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold"
+            disabled={!isEmailEntered}
+            style="bg-[#1E293B] rounded-[24px]"
+            buttonStyle={`w-full ${
+              isEmailEntered
+                ? "bg-blue-500 hover:bg-blue-600 cursor-pointer"
+                : "bg-[#1E293B] "
+            } text-white py-2 rounded-[24px] font-semibold`}
           />
         </div>
 
