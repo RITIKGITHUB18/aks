@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { rotatingCoinAnimation } from "../../../assets/animation";
 import { useDispatch } from "react-redux";
-import { addCoins } from "../../../slice/CoinsSlice";
+import { addCoins } from "../../../slice/coinsSlice";
 
 const RotatingCoin = () => {
   const navigate = useNavigate();
