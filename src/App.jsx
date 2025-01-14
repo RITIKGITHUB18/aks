@@ -21,7 +21,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AuthCallback from "./helper/AuthCallback";
 import { PaymentPage } from "./pages/PaymentPage";
 import HotelRecommendationPage from "./pages/HotelRecommendationPage";
-import WalletPage from "./pages/walletPage";
+import WalletPage from "./pages/WalletPage";
 import ChatPage from "./pages/ChatPage";
 import Receipt from "./pages/Receipt";
 
