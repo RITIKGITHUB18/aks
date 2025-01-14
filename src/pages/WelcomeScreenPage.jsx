@@ -6,7 +6,7 @@ const WelcomeScreen = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const handleOnClick = () => {
-    navigate("/home");
+    navigate("/phone-auth");
   };
 
   return (

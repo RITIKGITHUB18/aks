@@ -22,7 +22,7 @@ const SelectDob = () => {
   };
 
   const handleDobSubmit = () => {
-    navigate("/welcome-to-aks");
+    navigate("/home");
   };
 
   return (
