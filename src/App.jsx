@@ -19,6 +19,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AuthCallback from "./helper/AuthCallback";
 import { PaymentPage } from "./pages/PaymentPage";
 import HotelRecommendationPage from "./pages/HotelRecommendationPage";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   return (
@@ -37,12 +38,13 @@ function App() {
         <Route path="/book-table/:id" element={<BookTable />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
         <Route path="/order-completion" element={<OrderCompleted />} />
-        <Route path="/map" element={<MapPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/payment-method" element={<PaymentPage />} />
         <Route path="/recommendation" element={<HotelRecommendationPage />} />
       </Route>
+      <Route path="/map" element={<MapPage />} />
+      <Route path="/chat-with-us" element={<ChatPage />} />
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );
