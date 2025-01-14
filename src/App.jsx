@@ -14,6 +14,7 @@ import MapPage from "./pages/MapPage";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderCompleted from "./pages/OrderCompleted";
 import ProfilePage from "./pages/ProfilePage";
+import ShareYourMusic from "./pages/ShareYourMusic";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <Route path="/order-completion" element={<OrderCompleted />} />
       <Route path="/map" element={<MapPage />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/share-your-music" element={<ShareYourMusic />} />
     </Routes>
   );
 }
