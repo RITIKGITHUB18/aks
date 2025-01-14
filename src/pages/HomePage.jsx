@@ -44,16 +44,14 @@ const HomePage = () => {
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] max-w-[440px] flex flex-col mx-auto">
+    <div className="bg-[#090D14] w-[393px] max-w-[440px] h-screen flex flex-col mx-auto">
       <div
         style={{
           backgroundImage: `url(${homeBg})`,
         }}
         className="bg-no-repeat bg-cover bg-center w-full h-[350px] relative"
       >
-        {/* Top Bar: Cart and Profile Icons */}
         <div className="absolute flex mt-6 right-2 gap-4  p-4">
-          {/* Cart Icon */}
           <div
             onClick={handleCartOnClick}
             className="flex items-center justify-center w-[44px] h-[44px] border-2 border-slate-500 cursor-pointer rounded-full p-[10px]"
@@ -73,9 +71,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Rewards Section */}
         <div className="absolute flex flex-col bottom-[50px] left-1/2 transform -translate-x-1/2 translate-y-[50px] rounded-[16px] w-[350px] p-4 items-center">
-          {/* Vibgyor Icon */}
           <div className="w-[60px] h-[60px]">
             <img
               src={vibgyorBlub}
@@ -99,8 +95,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Content Section */}
-      <div className="mt-[0px] px-4 flex-1">
+      <div className="mt-[20px] px-4 flex-1">
         <div className="flex items-center h-[50px] px-6 mt-4 mb-8">
           <CouponsCarousel couponsData={coupanData} />
         </div>
@@ -123,7 +118,7 @@ const HomePage = () => {
         </div>
 
         {/* Recommendation Section Placeholder */}
-        <div>
+        <div className="">
           <div className="flex justify-between items-center h-[50px] px-4">
             <p className="text-white font-[500] text-[18px] leading-[24px]">
               Recommended for You
@@ -142,9 +137,9 @@ const HomePage = () => {
       </div>
 
       {/* Navbar Component Placeholder */}
-      {/* <div className="fixed bottom-10 w-[450px] h-[60px] flex gap-x-[80px] justify-center items-center border-t-[1px] border-slate-700"> */}
-      <Footer />
-      {/* </div> */}
+      <div className="fixed bottom-0 z-10 bg-solid-[#090D14]">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -2,6 +2,10 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      xs: "393px",
+      sm: "440px",
+    },
     fontFamily: {
       fontFamily: {
         switzer: ["Switzer-Regular", "sans-serif"],

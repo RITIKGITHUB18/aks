@@ -41,7 +41,7 @@ const CarouselCard = ({ cardData }) => {
       </div>
 
       {/* Hotel Details */}
-      <div className="absolute flex flex-col w-full px-2 transform translate-y-[140px]">
+      <div className="absolute flex flex-col w-full px-4 transform translate-y-[140px]">
         {/* Hotel Name and Rating */}
         <div className="flex justify-between items-center">
           {/* Hotel Name and Rating */}

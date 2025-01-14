@@ -33,7 +33,6 @@ const DateTimeComponent = () => {
     }
   }, [dateTime]);
 
-  // Generate all dates for the selected month
   const getDatesForMonth = (month, year) => {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     return Array.from({ length: daysInMonth }, (_, i) => {
@@ -86,12 +85,11 @@ const DateTimeComponent = () => {
     dispatch(setDateTime(updatedDate)); // Update Redux state
   };
   return (
-    <div className="w-[390px] mx-auto ">
-      {/* Month and Year Navigation */}
+    <div className="w-[390px] mx-auto relative">
       <div className="flex items-center justify-center mb-4 px-4">
         <button
           onClick={handlePrevMonth}
-          className="text-white px-3 rounded-lg fixed -translate-x-[80px]"
+          className="text-white px-3 rounded-lg -translate-x-[30px]"
         >
           {"<"}
         </button>
@@ -100,13 +98,12 @@ const DateTimeComponent = () => {
         </h3>
         <button
           onClick={handleNextMonth}
-          className="text-white px-3 rounded-lg fixed translate-x-[80px]"
+          className="text-white px-3 rounded-lg  translate-x-[30px]"
         >
           {">"}
         </button>
       </div>
 
-      {/* Scrollable Dates */}
       <div className="flex w-[342px] mx-5 overflow-x-auto gap-x-4 px-2 mb-6 scrollbar-hide">
         {allDates.map((weekDate, index) => (
           <button

@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="fixed z-10 bottom-10 w-[393px] bg-[#090D14] border-t-[0.75px] border-[#202938] py-3 flex justify-around items-center">
+      <div className="z-10 w-[393px] bg-[#090D14] border-t-[0.75px] border-[#202938] pb-4 pt-4 flex justify-around items-center">
         {navbarData.map((tab) => (
           <div
             key={tab.id}

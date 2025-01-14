@@ -33,12 +33,6 @@ const OrderSummary = () => {
   }
 
   console.log("cartItem in Order Summary: ", cartItems);
-  // const [orderState,setOrderState] = useState(
-  //   {
-  //     cartItem:cartItems,
-  //     orderNumber:
-  //   }
-  // )
 
   const [checkout, setCheckout] = useState(false);
   const [showRotatingCoin, setShowRotatingCoin] = useState(false);
@@ -50,9 +44,11 @@ const OrderSummary = () => {
   const calculateDiscountedPrice = (price) => {
     return price * 0.2;
   };
+
   const merchantFee = (price) => {
     return price * 0.05;
   };
+
   const generateOrderId = () => {
     const timestamp = Date.now().toString(36); // Base-36 timestamp
     const randomString = Math.random().toString(36).substring(2, 8); // Random string of 6 characters

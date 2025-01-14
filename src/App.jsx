@@ -19,6 +19,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AuthCallback from "./helper/AuthCallback";
 import { PaymentPage } from "./pages/PaymentPage";
 import HotelRecommendationPage from "./pages/HotelRecommendationPage";
+import WalletPage from "./pages/walletPage";
 
 function App() {
   return (
@@ -26,12 +27,13 @@ function App() {
       <Route path="/getStarted" element={<GetStartedPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/verify-email" element={<VerifyEmailPage />} />
-      <Route path="/verify-phone" element={<VerifyPhonePage />} />
-      <Route path="/phone-auth" element={<PhoneAuth />} />
-      <Route path="/select-country" element={<SelectCountry />} />
-      <Route path="/select-dob" element={<SelectDob />} />
+      {/* <Route path="/phone-auth" element={<PhoneAuth />} /> */}
       <Route path="/auth/v1/callback" element={<AuthCallback />} />
       <Route element={<ProtectedRoute />}>
+        <Route path="/select-dob" element={<SelectDob />} />
+        <Route path="/verify-phone" element={<VerifyPhonePage />} />
+        <Route path="/select-country" element={<SelectCountry />} />
+        <Route path="/phone-auth" element={<PhoneAuth />} />
         <Route path="/" element={<WelcomeScreen />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/book-table/:id" element={<BookTable />} />
@@ -41,6 +43,7 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/payment-method" element={<PaymentPage />} />
+        <Route path="/wallet" element={<WalletPage />} />
         <Route path="/recommendation" element={<HotelRecommendationPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" />} />

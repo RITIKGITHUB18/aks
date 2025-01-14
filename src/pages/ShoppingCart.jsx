@@ -69,7 +69,7 @@ const ShoppingCart = () => {
       </div>
 
       {cartItems.length > 0 && (
-        <div className="self-start text-start mt-[36px] mb-[24px] px-4 w-full ">
+        <div className="self-start text-start mt-[16px] mb-[24px] px-4 w-full ">
           <div className="flex items-center  bg-[#1c1c1c]  z-30 rounded-2xl border-[1px] border-[#E19C34] px-3 py-2 ">
             <div className="flex items-center gap-2">
               <div className="bg-[#E19C34] rounded-full p-1 h-[20px] w-[20px] flex items-center justify-center">
@@ -84,7 +84,7 @@ const ShoppingCart = () => {
         </div>
       )}
 
-      <div className="self-start text-start  w-full h-[420px] overflow-y-auto scrollbar-hide">
+      <div className="self-start text-start w-full h-[520px] overflow-y-auto scrollbar-hide px-3  pb-10">
         <div className="flex flex-col items-center w-full ">
           {cartItems.length > 0 ? (
             cartItems.map((item, index) => (
@@ -122,7 +122,7 @@ const ShoppingCart = () => {
       {/* Apply promos before you order */}
       {/* <hr className="w-full h-[0.75px] border-t-[0.75px] -[#202938]" /> */}
       {cartItems.length > 0 && (
-        <div className="fixed bottom-16 flex flex-col  border-[#202938] items-center justify-center ml-2">
+        <div className="fixed bottom-0 flex flex-col border-[#202938] items-center justify-center ml-2 bg-[#090D14] pb-5 pt-1">
           <div className="self-start text-start ml-2">
             <h1 className="text-[20px] font-[700] leading-[40px]">
               Order Summary

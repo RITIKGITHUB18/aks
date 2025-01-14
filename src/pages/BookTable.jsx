@@ -156,7 +156,7 @@ const BookTable = () => {
 
         {/* Cart Buttons */}
         {showCartButtons && (
-          <div className="fixed bottom-12 border-t-[0.75px] border-[#202938] bg-[#090D14] py-4 px-5 w-[456px]">
+          <div className="fixed bottom-0 border-t-[0.75px] border-[#202938] bg-[#090D14] pb-4 px-5 pt-4 w-[456px]">
             <div className="flex items-center justify-center gap-x-10 w-[343px]">
               <button
                 onClick={() => handleAddToCart("addToCart")}

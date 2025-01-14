@@ -28,13 +28,14 @@ export const PaymentPage = () => {
   );
 
   const { cartItems, totalPrice } = location.state || {};
-  const receiptData = { cartItem: [...cartItems], totalPrice: totalPrice };
+
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
   const [showApplePayAnimation, setApplePayAnimation] = useState(false);
   const [showCardAnimation, setShowCardAnimation] = useState(false);
   const [error, setError] = useState(false);
 
   const checkedOutItems = [...selectedDrinks, ...selectedPackages];
+  const receiptData = { cartItem: [...cartItems], totalPrice: totalPrice };
 
   console.log("CheckedOutItems: ", checkedOutItems);
 
@@ -88,13 +89,11 @@ export const PaymentPage = () => {
             navigate("/order-completion", {
               state: {
                 payment: selectedPaymentMethod,
-                cartItems: cartItems,
-                totalPrice: totalPrice,
               },
             });
             dispatch(resetCart());
-          }, 10000);
-        }, 10000);
+          }, 3000);
+        }, 5000);
       } else {
         setShowCardAnimation(true);
         setTimeout(() => {
@@ -104,12 +103,10 @@ export const PaymentPage = () => {
           navigate("/order-completion", {
             state: {
               payment: selectedPaymentMethod,
-              cartItems: cartItems,
-              totalPrice: totalPrice,
             },
           });
           dispatch(resetCart());
-        }, 10000);
+        }, 5000);
       }
     } else {
       setError(true);

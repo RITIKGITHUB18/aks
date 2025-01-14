@@ -26,7 +26,7 @@ const HotelRecommendationPage = () => {
           </p>
         </div>
 
-        <div className="h-[600px] overflow-y-auto scrollbar-hide">
+        <div className="h-[600px] overflow-y-auto scrollbar-hide rounded-[20px]">
           {<RecommendationCard data={hotelData} />}
         </div>
       </div>

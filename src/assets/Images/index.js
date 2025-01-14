@@ -47,8 +47,12 @@ import masterCardIcon from "./masterCardIcon.svg";
 import stripeIcon from "./stripeIcon.svg";
 import paypalIcon from "./paypalIcon.svg";
 import crown from "./Crown.svg";
+import more from "./More.svg";
+import card from "./card.svg";
 
 export {
+  card,
+  more,
   crown,
   applePayIcon,
   masterCardIcon,
