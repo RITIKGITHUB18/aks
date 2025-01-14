@@ -13,10 +13,12 @@ const VerifyPage = ({
   redirectPath,
   backPath,
 }) => {
-  const [otp, setOtp] = useState(""); // OTP state
-  const [error, setError] = useState(""); // Error state for invalid OTP
-  const [resendCount, setResendCount] = useState(0); // Counter for resending OTP
+  const [otp, setOtp] = useState("");
+  const [error, setError] = useState("");
+  const [resendCount, setResendCount] = useState(0);
   const navigate = useNavigate();
+
+  const isOtpEntered = otp.length === 5 && parseInt(otp) >= 9999;
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -36,10 +38,10 @@ const VerifyPage = ({
       );
       return;
     }
-    setOtp(""); // Clear the OTP input
-    setResendCount(resendCount + 1); // Increment resend count
-    setError(""); // Clear any existing error
-    if (onResend) onResend(); // Call onResend callback if provided
+    setOtp("");
+    setResendCount(resendCount + 1);
+    setError("");
+    if (onResend) onResend();
   };
 
   return (
@@ -86,7 +88,6 @@ const VerifyPage = ({
             )}
           />
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-
           {/* Resend Section */}
           <div className="flex items-center justify-center gap-2 mt-[52px]">
             <p className="text-[#EEEEEEEE] text-[16px] font-[400] leading-5">
@@ -101,13 +102,17 @@ const VerifyPage = ({
               Resend
             </button>
           </div>
-
           {/* Verify Button */}
           <CustomButton
             text="Verify"
-            style="bg-slate-700"
-            buttonStyle="w-[353px] h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-[600] mt-6"
-            type="submit"
+            onClick={handleOnSubmit}
+            disabled={!isOtpEntered}
+            style="bg-[#1E293B] rounded-[24px] mt-5"
+            buttonStyle={`w-[353px] h-[56px] ${
+              isOtpEntered
+                ? "bg-blue-500 hover:bg-blue-600 cursor-pointer"
+                : "bg-[#4D4D4D] "
+            } text-white py-2 rounded-[24px] font-semibold`}
           />
         </form>
       </div>
