@@ -19,6 +19,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AuthCallback from "./helper/AuthCallback";
 import { PaymentPage } from "./pages/PaymentPage";
 import HotelRecommendationPage from "./pages/HotelRecommendationPage";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/payment-method" element={<PaymentPage />} />
         <Route path="/recommendation" element={<HotelRecommendationPage />} />
       </Route>
+      <Route path="/chat-with-us" element={<ChatPage />} />
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );

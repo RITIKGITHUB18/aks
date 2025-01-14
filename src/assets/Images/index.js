@@ -47,6 +47,9 @@ import masterCardIcon from "./masterCardIcon.svg";
 import stripeIcon from "./stripeIcon.svg";
 import paypalIcon from "./paypalIcon.svg";
 import crown from "./Crown.svg";
+import Avatar from "./Avatar.svg";
+import phone from "./phone.svg";
+import Send from "./Send.svg";
 
 export {
   crown,
@@ -98,4 +101,7 @@ export {
   food2,
   Coin,
   qrimage,
+  Avatar,
+  phone,
+  Send,
 };
