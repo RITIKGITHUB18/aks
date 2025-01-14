@@ -153,7 +153,7 @@ const ShareYourMusic = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 w-[355px]  bg-gray-900 py-4">
+      <div className="fixed bottom-0 w-[355px]  bg-gray-900 py-2">
         <div className="max-w-screen-sm mx-auto flex justify-around items-center">
           <div className="text-center">
             <svg
