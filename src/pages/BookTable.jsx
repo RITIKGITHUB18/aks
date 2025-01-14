@@ -1,279 +1,187 @@
-import React, { useState } from "react";
-import { HiArrowNarrowLeft } from "react-icons/hi"; // Back arrow icon
-import { FaPlus } from "react-icons/fa";
-import { BookTableImg, cartIcon, affordableImg1, affordableImg2 } from "../assets/Images";
+import { useMemo, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { BookTableImg, cartIcon, leftArrow } from "../assets/Images";
+import DrinksComponent from "../components/BookingComponent/DrinksComponent";
+import DateTimeComponent from "../components/BookingComponent/DateTimeComponent";
+import PackagesComponent from "../components/BookingComponent/AffordablePackages";
+import { useCart } from "../components/common/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { setDateTime } from "../slice/hotelSlice";
+import {
+  addDrink,
+  addPackage,
+  removeDrink,
+  removePackage,
+} from "../slice/cartSlice";
 
 const BookTable = () => {
   const [activeTab, setActiveTab] = useState("dateTime");
-  const [selectedDate, setSelectedDate] = useState({
-    day: null,
-    date: "21",
-    month: new Date().getMonth(),
-    year: new Date().getFullYear(),
-    time: "12:00",
-  });
-  const [showCartButtons, setShowCartButtons] = useState(false); // To control visibility of "Add to Cart" and "Buy Now"
+  // const [showButton, setShowButton] = useState("false");
+  const [activeButton, setActiveButton] = useState("buyNow");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const hotelData = location.state?.hotelData;
 
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  const times = ["08:00", "10:00", "12:00", "14:00"];
-  const currentMonthName = new Date(selectedDate.year, selectedDate.month).toLocaleString("default", { month: "long" });
-
-  const handlePrevMonth = () => {
-    setSelectedDate((prev) => {
-      const newDate = new Date(prev.year, prev.month - 1);
-      return {
-        ...prev,
-        month: newDate.getMonth(),
-        year: newDate.getFullYear(),
-      };
-    });
-  };
-
-  const handleNextMonth = () => {
-    setSelectedDate((prev) => {
-      const newDate = new Date(prev.year, prev.month + 1);
-      return {
-        ...prev,
-        month: newDate.getMonth(),
-        year: newDate.getFullYear(),
-      };
-    });
-  };
-
-  const weekDates = Array.from({ length: 7 }, (_, i) => {
-    const currentDay = new Date(selectedDate.year, selectedDate.month, i + 1);
-    return {
-      day: days[currentDay.getDay()],
-      date: currentDay.getDate(),
-    };
-  });
-
-  const handleAddToCart = () => {
-    setShowCartButtons(true); // Show "Add to Cart" and "Buy Now" when something is added
-  };
-
-  const DateTimeComponent = () => (
-    <div>
-      <div className="flex items-center justify-between mb-4">
-        <button
-          onClick={handlePrevMonth}
-          className="text-white bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-700"
-        >
-          {"<"}
-        </button>
-        <h3 className="text-lg font-semibold text-white">
-          {currentMonthName} {selectedDate.year}
-        </h3>
-        <button
-          onClick={handleNextMonth}
-          className="text-white bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-700"
-        >
-          {">"}
-        </button>
-      </div>
-
-      <div className="grid grid-cols-7 gap-2 mb-6">
-        {weekDates.map((weekDate, index) => (
-          <button
-            key={index}
-            onClick={() =>
-              setSelectedDate((prev) => ({
-                ...prev,
-                day: weekDate.day,
-                date: weekDate.date,
-              }))
-            }
-            className={`p-2 rounded-lg ${
-              selectedDate.date === weekDate.date
-                ? "bg-blue-500 text-white"
-                : "bg-gray-800 text-gray-300"
-            }`}
-          >
-            <p>{weekDate.day}</p>
-            <p>{weekDate.date}</p>
-          </button>
-        ))}
-      </div>
-
-      <h3 className="text-lg font-semibold text-white mb-2">Select a Time</h3>
-      <div className="grid grid-cols-4 gap-4">
-        {times.map((time) => (
-          <button
-            key={time}
-            onClick={() =>
-              setSelectedDate((prev) => ({ ...prev, time: time }))
-            }
-            className={`p-2 rounded-lg ${
-              selectedDate.time === time
-                ? "bg-blue-500 text-white"
-                : "bg-gray-800 text-gray-300"
-            }`}
-          >
-            {time}
-          </button>
-        ))}
-      </div>
-    </div>
+  const dispatch = useDispatch();
+  const { selectedPackages, selectedDrinks } = useSelector(
+    (state) => state.cart
   );
 
-  const PackagesComponent = () => {
-    const packages = [
-      {
-        name: "Bachelor",
-        image: affordableImg1,
-      },
-      {
-        name: "Family",
-        image: affordableImg2,
-      },
-    ];
-
+  // Show cart buttons if any packages or drinks are selected
+  const showCartButtons = useMemo(() => {
     return (
-      <div>
-        <h3 className="text-lg font-semibold text-white">Available Packages</h3>
-        <div className="space-y-4 mt-4">
-          {packages.map((pkg, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-between  p-4 rounded-lg"
-            >
-              <div className="flex items-center space-x-4">
-                <img
-                  src={pkg.image}
-                  alt={pkg.name}
-                  className="w-16 h-16 rounded-lg object-cover"
-                />
-                <h4 className="font-semibold text-white">{pkg.name}</h4>
-              </div>
-              <button
-                onClick={handleAddToCart}
-                className="px-4 py-2 flex items-center border border-blue-500 text-blue-500 rounded-lg bg-transparent hover:bg-gray-800"
-              >
-                <FaPlus className="mr-2" /> Add
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
+      selectedPackages.some((pkg) => pkg.quantity > 0) ||
+      selectedDrinks.some((drink) => drink.quantity > 0)
     );
+  }, [selectedPackages, selectedDrinks]);
+
+  const bookingTabs = [
+    { id: "dateTime", name: "Time and Date" },
+    { id: "packages", name: "Affordable Packages" },
+    { id: "drinks", name: "Drinks" },
+  ];
+
+  const handleAddToCart = (buttonType) => {
+    navigate("/shopping-cart", { state: { action: buttonType } });
   };
 
-  const DrinksComponent = () => {
-    const drinks = [
-      {
-        name: "JD Cinnamon",
-        image: affordableImg1,
-      },
-      {
-        name: "JD Honey",
-        image: affordableImg2,
-      },
-    ];
-
-    return (
-      <div>
-        <h3 className="text-lg font-semibold text-white">Available Drinks</h3>
-        <div className="space-y-4 mt-4">
-          {drinks.map((drink, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-between  p-4 rounded-lg"
-            >
-              <div className="flex items-center space-x-4">
-                <img
-                  src={drink.image}
-                  alt={drink.name}
-                  className="w-16 h-16 rounded-lg object-cover"
-                />
-                <h4 className="font-semibold text-white">{drink.name}</h4>
-              </div>
-              <button
-                onClick={handleAddToCart}
-                className="px-4 py-2 flex items-center border border-blue-500 text-blue-500 rounded-lg bg-transparent hover:bg-gray-800"
-              >
-                <FaPlus className="mr-2" /> Add
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+  const renderActiveTab = () => {
+    switch (activeTab) {
+      case "dateTime":
+        return (
+          <DateTimeComponent
+            onSave={(dateTime) => dispatch(setDateTime(dateTime))}
+          />
+        );
+      case "packages":
+        return (
+          <PackagesComponent
+            packagesInfo={hotelData.affordablePackages}
+            onAdd={(pkg) => dispatch(addPackage(pkg))}
+            onRemove={(pkg) => dispatch(removePackage(pkg))}
+          />
+        );
+      case "drinks":
+        return (
+          <DrinksComponent
+            drinksInfo={hotelData.drinks}
+            onAdd={(drink) => dispatch(addDrink(drink))}
+            onRemove={(drink) => dispatch(removeDrink(drink))}
+          />
+        );
+      default:
+        return null;
+    }
   };
 
+  if (!hotelData) {
+    return (
+      <div className="flex flex-col items-center justify-center text-center text-white mt-10">
+        <p>Hotel data not available. Redirecting to the home page...</p>
+        {setTimeout(() => navigate("/home"), 2000)}
+      </div>
+    );
+  }
   return (
-    <div className="bg-black text-white min-h-screen">
-      <div className="relative">
-        <img
-          src={BookTableImg}
-          alt="Restaurant"
-          className="w-full h-[300px] object-cover"
-        />
-        <div className="absolute top-2 left-4 flex items-center space-x-2 justify-between">
-          <button className="text-white text-xl bg-gray-800 p-2 rounded-full">
-            <HiArrowNarrowLeft />
-          </button>
-        </div>
-        <div className="absolute top-4 right-4">
-          <img src={cartIcon} alt="Cart Icon" className="w-[24px] h-[24px]" />
-        </div>
-      </div>
-
-      <div className="p-4 flex items-center justify-between">
-        <div>
-          <h2 className="text-2xl font-semibold">AKS Night</h2>
-          <p className="text-gray-400">2.8 km away · 16 minutes</p>
-        </div>
-        <button className="px-6 py-2 border border-blue-500 text-blue-500 rounded-full bg-transparent hover:bg-gray-800">
-          Message
-        </button>
-      </div>
-
-      <div className="p-4">
-        <h2 className="text-3xl font-semibold mb-4">Book a Table</h2>
-        <div className="flex overflow-x-auto space-x-2  p-2 rounded-xl">
-          {[
-            { id: "dateTime", label: "Time and Date" },
-            { id: "packages", label: "Affordable Package" },
-            { id: "drinks", label: "Drinks" },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-3 py-2 text-sm rounded-xl ${
-                activeTab === tab.id
-                  ? "border border-blue-500 text-blue-500"
-                  : "border border-gray-700 text-white"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="p-4">
-        {activeTab === "dateTime" && <DateTimeComponent />}
-        {activeTab === "packages" && <PackagesComponent />}
-        {activeTab === "drinks" && <DrinksComponent />}
-      </div>
-
-      {/* Add to Cart and Buy Now Buttons */}
-      {showCartButtons && (
-        <div className="fixed bottom-0  bg-gray-900 p-4 w-[395px]">
-          <div className="flex items-center justify-between ">
-            <button
-              className="px-6 py-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700"
-            >
-              Add to Cart
-            </button>
-            <button
-              className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-            >
-              Buy Now
-            </button>
+    <div
+      style={{
+        height: "100vh",
+      }}
+      className="bg-[#090D14] w-[440px] max-w-[440px] text-white flex flex-col items-center mx-auto overflow-hidden"
+    >
+      {/* Header Section */}
+      <div
+        style={{
+          backgroundImage: `url(${BookTableImg})`,
+        }}
+        className="bg-no-repeat sticky bg-cover bg-center w-[456px] h-[350px]"
+      >
+        <div className="absolute flex mt-10 justify-around">
+          <Link to="/home" className="fixed self-start ml-20">
+            <div className="rounded-full p-[10px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1.5px] border-slate-500 flex items-center justify-center transform translate-x-[25px]">
+              <img src={leftArrow} alt="Back" className="w-6 h-6" />
+            </div>
+          </Link>
+          <div
+            className="flex fixed items-center justify-center w-[44px] h-[44px] border-[1.5px] bg-[#090D14] border-slate-500 cursor-pointer rounded-full p-[10px] transform translate-x-[375px] hover:bg-gray-600"
+            onClick={() => navigate("/shopping-cart")}
+          >
+            <img src={cartIcon} alt="Cart Icon" className="w-[24px] h-[24px]" />
           </div>
         </div>
-      )}
+      </div>
+
+      {/* Main Content */}
+      <div className="mt-5">
+        {/* Hotel Details */}
+        <div className="px-[10px] py-[18px] flex items-center justify-between">
+          <div className="ml-4">
+            <h2 className="text-[18px] font-[500] leading-[23.4px]">
+              {hotelData.name}
+            </h2>
+            <p className="text-[#83858A] font-[400] text-[12px] leading-[19.2px]">
+              {hotelData.distance}
+            </p>
+          </div>
+          <button className="flex items-center justify-center mr-2 py-2 w-[75px] h-[32px] border border-blue-500 text-blue-500 rounded-[100px] bg-transparent">
+            <p className="text-[12px] leading-[15.6px] ">Message</p>
+          </button>
+        </div>
+
+        {/* Booking Tabs */}
+        <h2 className="text-[18px] font-[500] mt-2 flex items-center justify-start ml-7 leading-[23.4px] text-[#FFFFFF]">
+          Book a Table
+        </h2>
+        <div className="flex flex-col items-center justify-center px-[21px] mt-7">
+          <div className="flex overflow-x-auto space-x-2 p-1">
+            {bookingTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-3 py-2 text-sm rounded-[56px] leading-[18.2px] ${
+                  activeTab === tab.id
+                    ? "border-[1px] border-blue-500 text-blue-500 bg-[#161C25]"
+                    : "border-[1px] border-gray-700 text-white"
+                } `}
+                aria-label={`switch to ${tab.name}`}
+              >
+                {tab.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Active Tab Content */}
+        <div className="p-4 w-[393px]">{renderActiveTab()}</div>
+
+        {/* Cart Buttons */}
+        {showCartButtons && (
+          <div className="fixed bottom-12 border-t-[0.75px] border-[#202938] bg-[#090D14] py-4 px-5 w-[456px]">
+            <div className="flex items-center justify-center gap-x-10 w-[343px]">
+              <button
+                onClick={() => handleAddToCart("addToCart")}
+                className={`px-6 py-3 text-[12px] leading-[15.6px] font-[500] border-[1px] rounded-[100px] ml-10 w-[165px] ${
+                  activeButton === "addToCart"
+                    ? "bg-[#3579DD] text-white border-[1px] border-[#3579DD]"
+                    : "text-[#3579DD] border-[#3579DD] hover:bg-[#3579DD] hover:text-white"
+                }`}
+              >
+                Add to Cart
+              </button>
+              <button
+                onClick={() => handleAddToCart("BuyNow")}
+                className={`px-6 py-3 text-[12px] leading-[15.6px] font-[500] border-[1px] rounded-[100px] w-[165px] ${
+                  activeButton === "buyNow"
+                    ? "bg-[#3579DD] text-white border-[1px] border-[#3579DD]"
+                    : "text-[#3579DD] border-[#3579DD] hover:bg-[#3579DD] hover:text-white"
+                }`}
+              >
+                Buy Now
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

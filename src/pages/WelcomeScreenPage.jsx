@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { welcomeScreenImg } from "../assets/Images";
+import { useAuth } from "../helper/AuthContext";
 
 const WelcomeScreen = () => {
+  const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const handleOnClick = () => {
     navigate("/home");
@@ -12,15 +14,14 @@ const WelcomeScreen = () => {
       style={{
         backgroundImage: `url(${welcomeScreenImg})`,
       }}
-      className="flex flex-col relative justify-center items-center text-center w-[393px] h-[900px] bg-no-repeat bg-center bg-cover"
+      className="flex flex-col relative justify-center items-center text-center w-[450px] h-[1000px] bg-no-repeat bg-center bg-cover"
     >
-      {/* Overlay with gradient */}
       <div
         style={{
           background:
             "linear-gradient(to bottom, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.8) 100%)",
         }}
-        className="absolute flex flex-col justify-center items-center text-center w-[393px] h-[900px]"
+        className="absolute flex flex-col justify-center items-center text-center w-[450px] h-[1000px]"
       >
         <div className="mt-[500px]">
           <div className="">

@@ -105,6 +105,7 @@ const VerifyPage = ({
           {/* Verify Button */}
           <CustomButton
             text="Verify"
+            style="bg-slate-700"
             buttonStyle="w-[353px] h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-[600] mt-6"
             type="submit"
           />

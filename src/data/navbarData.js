@@ -27,7 +27,7 @@ const navbarData = [
     name: "Music",
     activeIcon: activeMusicIcon,
     inActiveIcon: inActiveMusicIcon,
-    path: "/music",
+    path: "/home",
   },
 ];
 export { navbarData };

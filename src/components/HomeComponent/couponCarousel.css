@@ -1,18 +1,18 @@
-/* .couponsSwiper { */
-/* width: 240px; */
-/* height: 90px; */
-/* border-radius: 24px; */
-/* } */
+.couponsSwiper {
+  width: 315px;
+  border-radius: 52px;
+}
 
-/* .couponsSwiper .swiper-slide { */
-/* display: flex; */
-/* align-items: center; */
-/* justify-content: center; */
-/* border-radius: 18px; */
-/* font-size: 22px; */
-/* font-weight: bold; */
-/* color: #fff; */
-/* } */
+.couponsSwiper .swiper-slide {
+  border-radius: 52px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* border-radius: 18px; */
+  /* font-size: 22px; */
+  /* font-weight: bold; */
+  /* color: #fff; */
+}
 
 /* .couponsSwiper .swiper-slide:nth-child(1n) {
   background-color: rgb(206, 17, 17);

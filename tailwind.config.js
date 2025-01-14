@@ -14,5 +14,20 @@ export default {
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],
-
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".scrollbar-hide": {
+          /* Hide scrollbar for Webkit browsers */
+          "&::-webkit-scrollbar": {
+            display: "none",
+            width: "100px",
+          },
+          /* Hide scrollbar for other browsers */
+          "-ms-overflow-style": "none" /* IE and Edge */,
+          "scrollbar-width": "none" /* Firefox */,
+        },
+      });
+    },
+  ],
 };

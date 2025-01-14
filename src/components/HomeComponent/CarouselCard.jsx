@@ -1,8 +1,23 @@
-import { ratingStar } from "../../assets/Images";
+import { useNavigate } from "react-router-dom";
+import { crown, ratingStar, RecommendedIcon } from "../../assets/Images";
+import { useDispatch } from "react-redux";
+import { selectHotel } from "../../slice/hotelSlice";
 
 const CarouselCard = ({ cardData }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleBookTable = () => {
+    dispatch(selectHotel(cardData));
+    const url = `/book-table/${cardData.id}`;
+    navigate(url, { state: { hotelData: cardData } });
+  };
+
   return (
-    <div className="relative flex flex-col w-[269px] h-[183px] rounded-[12px] px-2 mb-3">
+    <div
+      className="relative flex flex-col w-[269px] h-[183px] rounded-[12px] px-2 mb-3"
+      onClick={handleBookTable}
+    >
       {/* Hotel Image */}
       <div className="relative w-full h-[132px]">
         <img
@@ -10,6 +25,19 @@ const CarouselCard = ({ cardData }) => {
           alt={cardData.name}
           className="w-full h-full object-cover rounded-[12px]"
         />
+
+        {cardData.recommendedIcon && (
+          <img
+            src={RecommendedIcon}
+            style={{
+              width: "110px",
+              height: "26px",
+              top: 5,
+              right: 5,
+              position: "absolute",
+            }}
+          />
+        )}
       </div>
 
       {/* Hotel Details */}
