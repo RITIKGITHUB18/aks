@@ -43,6 +43,7 @@
 import React, { useEffect } from "react";
 import { supabase } from "../helper/supabaseConfig";
 import { useNavigate } from "react-router-dom";
+import { FallingLines } from "react-loader-spinner";
 
 const AuthCallback = () => {
   const navigate = useNavigate();
@@ -73,7 +74,14 @@ const AuthCallback = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-[#090D14] text-white">
-      <div>Loading...</div>
+      <div className="flex items-center justify-center h-screen">
+        <FallingLines
+          color="#3579DD"
+          width="100"
+          visible={true}
+          ariaLabel="falling-circles-loading"
+        />
+      </div>
     </div>
   );
 };
