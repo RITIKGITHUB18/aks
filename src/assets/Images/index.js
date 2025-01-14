@@ -38,6 +38,15 @@ import food1 from "./food1.svg";
 import food2 from "./food2.svg";
 import Coin from "./Coin.svg";
 import qrimage from "./qrImage.svg";
+
+import Song01 from "./Song01.svg";
+import Song02 from "./Song02.svg";
+import Song03 from "./Song03.svg";
+import Song04 from "./Song04.svg";
+import Playlist01 from "./Playlist01.svg";
+import Playlist02 from "./Playlist02.svg";
+
+
 import EditIcon from "./editIcon.svg";
 import passwordViewOff from "./passwordViewOff.svg";
 import EmptyShoppingCart from "./EmptyShoppingCart.svg";
@@ -49,6 +58,10 @@ import paypalIcon from "./paypalIcon.svg";
 import crown from "./Crown.svg";
 import more from "./More.svg";
 import card from "./card.svg";
+import Avatar from "./Avatar.svg";
+import phone from "./phone.svg";
+import Send from "./Send.svg";
+
 
 export {
   card,
@@ -102,4 +115,13 @@ export {
   food2,
   Coin,
   qrimage,
+  Song01,
+  Song02,
+  Song03,
+  Song04,
+  Playlist01,
+  Playlist02,
+  Avatar,
+  phone,
+  Send,
 };
