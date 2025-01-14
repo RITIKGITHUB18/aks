@@ -12,22 +12,21 @@ import {
   addPackage,
   removeDrink,
   removePackage,
+  setNewCartItem,
 } from "../slice/cartSlice";
 
 const BookTable = () => {
   const [activeTab, setActiveTab] = useState("dateTime");
-  // const [showButton, setShowButton] = useState("false");
   const [activeButton, setActiveButton] = useState("buyNow");
   const navigate = useNavigate();
   const location = useLocation();
   const hotelData = location.state?.hotelData;
 
   const dispatch = useDispatch();
-  const { selectedPackages, selectedDrinks } = useSelector(
+  const { selectedPackages, selectedDrinks, newItem } = useSelector(
     (state) => state.cart
   );
 
-  // Show cart buttons if any packages or drinks are selected
   const showCartButtons = useMemo(() => {
     return (
       selectedPackages.some((pkg) => pkg.quantity > 0) ||
@@ -42,6 +41,7 @@ const BookTable = () => {
   ];
 
   const handleAddToCart = (buttonType) => {
+    dispatch(setNewCartItem(true));
     navigate("/shopping-cart", { state: { action: buttonType } });
   };
 
@@ -74,6 +74,12 @@ const BookTable = () => {
     }
   };
 
+  const handleChat = () => {
+    navigate("/chat-with-us", {
+      state: { hotelData: hotelData },
+    });
+  };
+
   if (!hotelData) {
     return (
       <div className="flex flex-col items-center justify-center text-center text-white mt-10">
@@ -87,7 +93,7 @@ const BookTable = () => {
       style={{
         height: "100vh",
       }}
-      className="bg-[#090D14] w-[440px] max-w-[440px] text-white flex flex-col items-center mx-auto overflow-hidden"
+      className="bg-[#090D14] w-[430px] max-w-[440px] text-white flex flex-col items-center mx-auto overflow-hidden"
     >
       {/* Header Section */}
       <div
@@ -106,6 +112,9 @@ const BookTable = () => {
             className="flex fixed items-center justify-center w-[44px] h-[44px] border-[1.5px] bg-[#090D14] border-slate-500 cursor-pointer rounded-full p-[10px] transform translate-x-[375px] hover:bg-gray-600"
             onClick={() => navigate("/shopping-cart")}
           >
+            {newItem && (
+              <div className="absolute h-[14px] w-[14px] bg-red-700  translate-x-[10px] translate-y-[17px] rounded-full"></div>
+            )}
             <img src={cartIcon} alt="Cart Icon" className="w-[24px] h-[24px]" />
           </div>
         </div>
@@ -123,7 +132,10 @@ const BookTable = () => {
               {hotelData.distance}
             </p>
           </div>
-          <button className="flex items-center justify-center mr-2 py-2 w-[75px] h-[32px] border border-blue-500 text-blue-500 rounded-[100px] bg-transparent">
+          <button
+            onClick={handleChat}
+            className="flex items-center justify-center mr-2 py-2 w-[75px] h-[32px] border border-blue-500 text-blue-500 rounded-[100px] bg-transparent"
+          >
             <p className="text-[12px] leading-[15.6px] ">Message</p>
           </button>
         </div>
@@ -156,7 +168,7 @@ const BookTable = () => {
 
         {/* Cart Buttons */}
         {showCartButtons && (
-          <div className="fixed bottom-0 border-t-[0.75px] border-[#202938] bg-[#090D14] pb-4 px-5 pt-4 w-[456px]">
+          <div className="fixed bottom-0 border-t-[0.75px] border-[#202938] bg-[#090D14] pb-10 px-5 pt-4 w-[456px]">
             <div className="flex items-center justify-center gap-x-10 w-[343px]">
               <button
                 onClick={() => handleAddToCart("addToCart")}

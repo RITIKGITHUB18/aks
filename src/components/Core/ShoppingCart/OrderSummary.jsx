@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import CustomButton from "../../common/CustomButton";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { leftArrow, qrimage } from "../../../assets/Images";
 import RotatingCoin from "./RotatingCoin";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { resetCart } from "../../../slice/cartSlice";
 
 const orderData = {
   qrCodeValue: "123456789",
@@ -21,10 +22,11 @@ const orderData = {
 };
 
 const OrderSummary = () => {
-  const location = useLocation();
-  const { cartItems, totalPrice } = location.state || {};
+  const dispatch = useDispatch();
+  const { receiptData } = useSelector((state) => state.cart);
+  const { cartItem, totalPrice } = receiptData || {};
 
-  if (!cartItems || !totalPrice) {
+  if (!cartItem || !totalPrice) {
     return (
       <div className="text-white text-center mt-20">
         <p className="text-lg">No items in your cart.</p>
@@ -32,12 +34,13 @@ const OrderSummary = () => {
     );
   }
 
-  console.log("cartItem in Order Summary: ", cartItems);
+  console.log("cartItem in Order Summary: ", cartItem);
 
   const [checkout, setCheckout] = useState(false);
   const [showRotatingCoin, setShowRotatingCoin] = useState(false);
 
   const handleCheckout = () => {
+    // dispatch(resetCart());
     setCheckout(true);
   };
 
@@ -73,10 +76,10 @@ const OrderSummary = () => {
               <img src={leftArrow} alt="Back" className="w-6 h-6" />
             </div>
           </Link>
-          <div className="flex items-center justify-center mb-12 mt-[80px] px-5">
-            <img src={qrimage} alt="gr" />
+          <div className="flex items-center justify-center mb-12 mt-[130px] px-5">
+            <img src={qrimage} alt="QR Code" className="w-[80px] h-[80px]" />
           </div>
-          <div className=" p-6 rounded-xl w-full max-w-lg text-center border-gray-500 border-[1px] relative animate-slide-in">
+          <div className="p-6 rounded-xl w-full max-w-lg text-center border-gray-500 border-[1px] relative animate-slide-in">
             <div className="flex justify-center mb-4 absolute top-[-20px] left-1/2 transform -translate-x-1/2">
               <div className="bg-[#203921] p-2 rounded-full">
                 <div className="bg-[#32B638] p-2 rounded-full">
@@ -110,13 +113,15 @@ const OrderSummary = () => {
               <h3 className="text-lg font-bold mb-4">Order Summary</h3>
               <ul className="space-y-2">
                 <p>OrderID: {generateOrderId()}</p>
-                {cartItems.map((item, index) => (
+                {cartItem.map((item, index) => (
                   <li
                     className="flex justify-between text-gray-400"
                     key={index}
                   >
-                    <span>{item.label}</span>
-                    <span>{item.value}</span>
+                    <span>{item?.name || item?.itemName}</span>
+                    <span>
+                      {item.quantity} x $ {item.price}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -125,17 +130,17 @@ const OrderSummary = () => {
               <div className="space-y-2">
                 <div className="flex justify-between text-gray-400">
                   <span>Total Amount :</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <span>$ {totalPrice.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-gray-400">
                   <span>Discount (20%) :</span>
                   <span>
-                    ${calculateDiscountedPrice(totalPrice.toFixed(2))}
+                    $ {calculateDiscountedPrice(totalPrice.toFixed(2))}
                   </span>
                 </div>
                 <div className="flex justify-between text-gray-400">
                   <span>Merchant fee (5%) :</span>
-                  <span>${merchantFee(totalPrice.toFixed(2))}</span>
+                  <span>$ {merchantFee(totalPrice.toFixed(2))}</span>
                 </div>
               </div>
 

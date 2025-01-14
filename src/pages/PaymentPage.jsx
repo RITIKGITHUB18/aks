@@ -8,7 +8,7 @@ import {
   stripeIcon,
   walletIcon,
 } from "../assets/Images";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../components/common/CustomButton";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { applePayAnimation, cardAnimation } from "../assets/animation";
@@ -21,19 +21,20 @@ import {
 import { resetCart } from "../slice/cartSlice";
 
 export const PaymentPage = () => {
-  const location = useLocation();
   const dispatch = useDispatch();
-  const { selectedPackages, selectedDrinks } = useSelector(
+  const { selectedPackages, selectedDrinks, receiptData } = useSelector(
     (state) => state.cart
   );
 
-  const { cartItems, totalPrice } = location.state || {};
-  const receiptData = { cartItem: [...cartItems], totalPrice: totalPrice };
+  const { cartItem, totalPrice } = receiptData || {};
+  const receipt = { cartItem: [...cartItem], totalPrice: totalPrice };
+  console.log("Receipt Data: ", receipt);
+
+  // const [receipt, setReceipt] = useState(receiptData);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
   const [showApplePayAnimation, setApplePayAnimation] = useState(false);
   const [showCardAnimation, setShowCardAnimation] = useState(false);
   const [error, setError] = useState(false);
-
   const checkedOutItems = [...selectedDrinks, ...selectedPackages];
 
   console.log("CheckedOutItems: ", checkedOutItems);
@@ -84,40 +85,34 @@ export const PaymentPage = () => {
           setTimeout(() => {
             dispatch(addCompletedOrder(completedOrder));
             dispatch(setNewOrder(true));
-            dispatch(addReceipt(receiptData));
+            dispatch(addReceipt(receipt));
             navigate("/order-completion", {
               state: {
                 payment: selectedPaymentMethod,
-                cartItems: cartItems,
+                cartItems: cartItem,
                 totalPrice: totalPrice,
               },
             });
-            dispatch(resetCart());
-          }, 10000);
-        }, 10000);
+          }, 3000);
+        }, 4000);
       } else {
         setShowCardAnimation(true);
         setTimeout(() => {
           dispatch(addCompletedOrder(completedOrder));
           dispatch(setNewOrder(true));
-          dispatch(addReceipt(receiptData));
+          dispatch(addReceipt(receipt));
           navigate("/order-completion", {
             state: {
               payment: selectedPaymentMethod,
-              cartItems: cartItems,
+              cartItems: cartItem,
               totalPrice: totalPrice,
             },
           });
-          dispatch(resetCart());
-        }, 10000);
+        }, 4000);
       }
     } else {
       setError(true);
     }
-  };
-
-  const handleWalletClick = () => {
-    navigate("/wallet");
   };
 
   return (
@@ -157,24 +152,26 @@ export const PaymentPage = () => {
           </div>
 
           {/* Wallet Option */}
-          <div
-            onClick={handleWalletClick}
-            className="relative mx-auto bg-[#161C25] rounded-[56px] w-[330px] h-[62px] mb-4 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
-          >
-            <div className="absolute transform left-0 flex items-center justify-center">
-              <img
-                src={walletIcon}
-                className="w-[80px] h-[80px] translate-y-2 translate-x-[-9px]"
-              />
-              <div className="">
-                <p className="text-[#FFFFFF] translate-x-[-18px]">wallet</p>
-                <p className="text-[#83858A] translate-x-[-18px]">
-                  Available balance: $183.43
-                </p>
+          <Link to="/wallet">
+            <div
+              // onClick={handleWalletClick}
+              className="relative mx-auto bg-[#161C25] rounded-[56px] w-[330px] h-[62px] mb-4 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
+            >
+              <div className="absolute transform left-0 flex items-center justify-center">
+                <img
+                  src={walletIcon}
+                  className="w-[80px] h-[80px] translate-y-2 translate-x-[-9px]"
+                />
+                <div className="">
+                  <p className="text-[#FFFFFF] translate-x-[-18px]">wallet</p>
+                  <p className="text-[#83858A] translate-x-[-18px]">
+                    Available balance: $183.43
+                  </p>
+                </div>
+                <img src={arrowRightIcon} className="translate-x-[20px]" />
               </div>
-              <img src={arrowRightIcon} className="translate-x-[20px]" />
             </div>
-          </div>
+          </Link>
 
           {/* Other Methods Header */}
           <h1 className="absolute top-[275px] transform -translate-x-[100px] font-[500] text-[18px]  leading-[23.4px] text-[#FFFFFF]">

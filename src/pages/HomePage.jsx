@@ -51,7 +51,7 @@ const HomePage = () => {
         }}
         className="bg-no-repeat bg-cover bg-center w-full h-[350px] relative"
       >
-        <div className="absolute flex mt-6 right-2 gap-4  p-4">
+        <div className="absolute flex mt-10 right-2 gap-4  p-4">
           <div
             onClick={handleCartOnClick}
             className="flex items-center justify-center w-[44px] h-[44px] border-2 border-slate-500 cursor-pointer rounded-full p-[10px]"

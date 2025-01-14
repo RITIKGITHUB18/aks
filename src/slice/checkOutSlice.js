@@ -5,7 +5,7 @@ const initialState = {
     ? JSON.parse(localStorage.getItem("completedOrders"))
     : [],
   newOrder: false,
-  reciept: localStorage.getItem("receipt")
+  receipt: localStorage.getItem("receipt")
     ? JSON.parse(localStorage.getItem("receipt"))
     : [],
 };
@@ -22,8 +22,8 @@ const checkoutSlice = createSlice({
       );
     },
     addReceipt: (state, action) => {
-      state.reciept.push(action.payload);
-      localStorage.setItem("receipt", JSON.stringify(state.reciept));
+      state.receipt.push(action.payload);
+      localStorage.setItem("receipt", JSON.stringify(state.receipt));
     },
     setNewOrder: (state, action) => {
       state.newOrder = action.payload;

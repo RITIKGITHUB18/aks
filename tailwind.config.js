@@ -7,9 +7,8 @@ export default {
       sm: "440px",
     },
     fontFamily: {
-      fontFamily: {
-        switzer: ["Switzer-Regular", "sans-serif"],
-      },
+      switzer: ["Switzer-Regular", "sans-serif"],
+      openSans: ["Open Sans", "serif"],
     },
     extend: {
       maxWidth: {
@@ -17,7 +16,6 @@ export default {
       },
     },
   },
-  plugins: [require("tailwind-scrollbar-hide")],
   plugins: [
     function ({ addUtilities }) {
       addUtilities({

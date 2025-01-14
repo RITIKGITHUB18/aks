@@ -6,6 +6,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { rotatingCoinAnimation } from "../../../assets/animation";
 import { useDispatch } from "react-redux";
 import { addCoins } from "../../../slice/coinsSlice";
+import { resetCart } from "../../../slice/cartSlice";
 
 const RotatingCoin = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const RotatingCoin = () => {
 
   const handleBackToHome = () => {
     dispatch(addCoins(20));
+    dispatch(resetCart());
     navigate("/home");
   };
 

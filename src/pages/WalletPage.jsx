@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { card, leftArrow, more, walletIcon } from "../assets/Images";
 
 const lastTransaction = [
@@ -36,14 +36,12 @@ const lastTransaction = [
 const WalletPage = () => {
   return (
     <div className="bg-[#090D14] w-full text-white flex flex-col items-center">
-      {/* Back Button */}
-      <Link to="/payment-method" className="self-start translate-x-[-23px]">
+      <Link className="self-start translate-x-[-23px]" to="/payment-method">
         <div className="rounded-full mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center">
           <img src={leftArrow} alt="Back" className="w-6 h-6" />
         </div>
       </Link>
 
-      {/* Wallet Info */}
       <div className="flex flex-col text-start mt-[32px] mb-[24px] border border-[#202938] w-[340px] h-[170px] rounded-[12px] translate-x-2">
         <div className="flex flex-row items-center justify-between mt-2 px-2">
           <img src={walletIcon} className="w-[80px] h-auto" alt="wallet-icon" />

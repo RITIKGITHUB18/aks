@@ -23,6 +23,7 @@ import { PaymentPage } from "./pages/PaymentPage";
 import HotelRecommendationPage from "./pages/HotelRecommendationPage";
 import WalletPage from "./pages/walletPage";
 import ChatPage from "./pages/ChatPage";
+import Receipt from "./pages/Receipt";
 
 function App() {
   return (
@@ -47,11 +48,13 @@ function App() {
         <Route path="/payment-method" element={<PaymentPage />} />
         <Route path="/wallet" element={<WalletPage />} />
         <Route path="/recommendation" element={<HotelRecommendationPage />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/share-your-music" element={<ShareYourMusic />} />
+        <Route path="/chat-with-us" element={<ChatPage />} />
+        <Route path="/view-receipt" element={<Receipt />} />
       </Route>
-      <Route path="/map" element={<MapPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/share-your-music" element={<ShareYourMusic />} />
-      <Route path="/chat-with-us" element={<ChatPage />} />
+
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );

@@ -27,7 +27,7 @@ const navbarData = [
     name: "Music",
     activeIcon: activeMusicIcon,
     inActiveIcon: inActiveMusicIcon,
-    path: "/home",
+    path: "/share-your-music",
   },
 ];
 export { navbarData };

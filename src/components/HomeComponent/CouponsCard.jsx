@@ -1,23 +1,17 @@
 import { copyIcon, coupanMedal } from "../../assets/Images";
 import copy from "copy-to-clipboard";
+import { useState } from "react";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CouponsCard = ({ coupon }) => {
+  const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(coupon.promoCode).then(() => {
-      const toastId = coupon.promoCode;
-      toast.info(`🦄${toastId} copied`, {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        toastId: toastId,
-      });
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 1000);
     });
   };
   return (
@@ -49,6 +43,11 @@ const CouponsCard = ({ coupon }) => {
           />
         </div>
       </div>
+      {copied && (
+        <div className="absolute bottom-[10px] right-[10px] bg-[#090D14] text-white text-xs px-3 py-1 rounded-full -translate-x-[50px] -translate-y-[30px]">
+          Copied
+        </div>
+      )}
     </div>
   );
 };

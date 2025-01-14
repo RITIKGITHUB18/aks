@@ -46,7 +46,6 @@ import Song04 from "./Song04.svg";
 import Playlist01 from "./Playlist01.svg";
 import Playlist02 from "./Playlist02.svg";
 
-
 import EditIcon from "./editIcon.svg";
 import passwordViewOff from "./passwordViewOff.svg";
 import EmptyShoppingCart from "./EmptyShoppingCart.svg";
@@ -61,9 +60,10 @@ import card from "./card.svg";
 import Avatar from "./Avatar.svg";
 import phone from "./phone.svg";
 import Send from "./Send.svg";
-
+import location from "./location.svg";
 
 export {
+  location,
   card,
   more,
   crown,

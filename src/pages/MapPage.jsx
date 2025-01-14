@@ -19,18 +19,17 @@ const MapPage = () => {
   return (
     <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center">
       {/* Back Button */}
-      <Link to="/home" className="self-start">
-        <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
-          <img src={leftArrow} alt="Back" className="w-6 h-6" />
-        </div>
-      </Link>
 
-      {/* Map Section */}
       {isMapVisible && <MapContainer />}
 
       {/* Header Section */}
       {!isMapVisible && (
         <>
+          <Link to="/home" className="self-start">
+            <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
+              <img src={leftArrow} alt="Back" className="w-6 h-6" />
+            </div>
+          </Link>
           <div className="self-start text-start mt-[32px] mb-[24px] px-10">
             <h1 className="text-[24px] font-[500] leading-[32px] text-white">
               Pick location
@@ -43,7 +42,10 @@ const MapPage = () => {
           {/* Search Section */}
           <div className="w-[353px] flex flex-col gap-4">
             <div className="relative flex items-center w-full">
-              <div className="absolute top-[16px] left-5" onClick={toggleMapVisibility}>
+              <div
+                className="absolute top-[16px] left-5"
+                onClick={toggleMapVisibility}
+              >
                 <img
                   src={locationSearchIcon}
                   alt="Search Icon"
@@ -59,8 +61,10 @@ const MapPage = () => {
           </div>
 
           {/* Address Options */}
-          <div className="w-[336px] mt-4 flex flex-col h-[139px] leading-8">
-            {/* Add Address */}
+          <div
+            className="w-[336px] mt-4 flex flex-col h-[139px] leading-8"
+            onClick={toggleMapVisibility}
+          >
             <div className="flex items-center justify-between bg-[#161C25] border-[1px] border-[#202938] rounded-t-[8px] rounded-b-none p-4 cursor-pointer">
               <div className="flex items-center gap-2">
                 <img

@@ -8,14 +8,11 @@ const ToastContainerLocal = () => {
         autoClose={5000}
         hideProgressBar
         stacked
-        // newestOnTop
         closeOnClick
-        // rtl
         pauseOnFocusLoss
         draggable
         pauseOnHover
         theme="light"
-        // transition={Bounce}
       />
     </div>
   );

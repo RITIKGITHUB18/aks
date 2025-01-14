@@ -1,12 +1,23 @@
-const CheckoutCard = ({ checkoutData, isLatest }) => {
+import { useNavigate } from "react-router-dom";
+
+const CheckoutCard = ({ checkoutData, isLatest, viewReceipt }) => {
+  const navigate = useNavigate();
+  const handleViewReceipt = () => {
+    navigate("/view-receipt");
+  };
+
   return (
     <div className="bg-[#090D14] w-[340px] rounded-lg p-4">
-      {/* Conditionally render UPCOMING label if this is the latest order */}
       {isLatest && (
-        <div className="flex mb-2">
-          <span>Order status</span>
-          <span className="bg-green-600 text-[12px] px-2 py-1 rounded-full text-white font-medium translate-x-[140px] visible">
-            UPCOMING
+        <div className="flex mb-2 gap-x-2">
+          <span className="bg-green-600 text-[12px] px-2 py-1 rounded-full text-white font-medium translate-x-[125px] visible">
+            Upcoming
+          </span>
+          <span
+            onClick={handleViewReceipt}
+            className="bg-[#3579DD] text-[12px] px-2 py-1 rounded-full text-white font-medium translate-x-[135px] visible"
+          >
+            View Reciept
           </span>
         </div>
       )}
