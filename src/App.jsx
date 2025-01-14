@@ -14,6 +14,8 @@ import MapPage from "./pages/MapPage";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderCompleted from "./pages/OrderCompleted";
 import ProfilePage from "./pages/ProfilePage";
+
+import ShareYourMusic from "./pages/ShareYourMusic";
 import HistoryPage from "./pages/History";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AuthCallback from "./helper/AuthCallback";
@@ -44,6 +46,8 @@ function App() {
         <Route path="/recommendation" element={<HotelRecommendationPage />} />
       </Route>
       <Route path="/map" element={<MapPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/share-your-music" element={<ShareYourMusic />} />
       <Route path="/chat-with-us" element={<ChatPage />} />
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
