@@ -61,7 +61,7 @@ const AuthCallback = () => {
           navigate("/login"); // Redirect on error
         } else {
           console.log("Session Data:", data); // Log session data for debugging
-          navigate("/welcome-to-aks");
+          navigate("/phone-auth");
         }
       } catch (err) {
         console.error("Unexpected error during auth callback:", err);
