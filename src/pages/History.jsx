@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { leftArrow } from "../assets/Images";
 import CheckoutCard from "../components/common/CheckoutCard";
 import Footer from "../components/common/Footer";
@@ -8,16 +8,21 @@ import { setNewOrder } from "../slice/checkOutSlice";
 
 const HistoryPage = () => {
   const { completedOrders, newOrder } = useSelector((state) => state.checkout);
+  const navigate = useNavigate();
   const isCheckOutData = completedOrders.length > 0 ? true : false;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setNewOrder(false));
   }, [newOrder]);
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="bg-[#090D14] w-[393px]  text-white flex flex-col items-center relative scrollbar-hide">
       <div className="fixed top-0 z-50 bg-[#090D14] px-4 pt-2 pb-4 w-[393px] max-w-[440px] h-[180px] ">
-        <Link to="/home">
+        <Link onClick={handleBack}>
           <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[50px]">
             <img src={leftArrow} alt="Back" className="w-6 h-6" />
           </div>

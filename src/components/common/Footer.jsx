@@ -37,7 +37,7 @@ const Footer = () => {
           </p>
 
           {tab.name === "History" && newOrder && (
-            <div className="bg-red-700 w-[14px] h-[14px] absolute rounded-full top-[-2px] right-[-2px] transform -translate-x-[182px] translate-y-[29px]" />
+            <div className="bg-red-700 w-[14px] h-[14px] fixed flex items-center justify-center rounded-full bottom-0 transform -translate-y-[36px] translate-x-2" />
           )}
         </div>
       ))}

@@ -14,7 +14,7 @@ const SelectCountry = () => {
   const [selectedCountry, setSelectedCountry] = useState(currentCountry || {});
 
   const handleCountryClick = (country) => {
-    setSelectedCountry(country); // Update the selected country
+    setSelectedCountry(country);
   };
 
   const handleContinue = () => {
@@ -25,14 +25,20 @@ const SelectCountry = () => {
     country.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const handleBack = () => {
+    navigate(-1, {
+      state: { selectedCountry: currentCountry },
+    });
+  };
+
   return (
     <div className="bg-[#090D14] w-[393px] text-white">
-      {/* Back Button */}
-      <Link to="/phone-auth" state={{ selectedCountry: currentCountry }}>
-        <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
-          <img src={leftArrow} alt="Back" className="w-6 h-6" />
-        </div>
-      </Link>
+      <div
+        onClick={handleBack}
+        className="rounded-full p-[10px] cursor-pointer mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center"
+      >
+        <img src={leftArrow} alt="Back" className="w-6 h-6" />
+      </div>
 
       <div className="self-start text-start mt-[32px] mb-[24px] px-5">
         <h1 className="text-[30px] font-[700] leading-[40px] text-white">
@@ -43,7 +49,6 @@ const SelectCountry = () => {
         </p>
       </div>
 
-      {/* Search Bar */}
       <div className="relative mb-4 mt-6 px-5">
         <img
           src={searchIcon}
@@ -59,7 +64,6 @@ const SelectCountry = () => {
         />
       </div>
 
-      {/* Selected Country */}
       {selectedCountry.name && (
         <div
           className="flex relative items-center p-4 mb-4 mx-5 bg-[#3579DD] text-white rounded-md scrollbar-hide"
@@ -68,7 +72,7 @@ const SelectCountry = () => {
           <img
             src={selectedCountry.emoji}
             alt={selectedCountry.name}
-            className="w-6 h-6 mr-4"
+            className="w-6 h-6 mr-4 "
           />
           <p>{selectedCountry.name}</p>
           <p className="px-2">({selectedCountry?.dialingCode})</p>
@@ -78,7 +82,6 @@ const SelectCountry = () => {
         </div>
       )}
 
-      {/* Country List */}
       <div className="h-[300px] overflow-y-auto px-5 scrollbar-hide">
         {filteredCountries.map((country) => (
           <div
@@ -86,7 +89,7 @@ const SelectCountry = () => {
             className={`flex items-center p-4 border-b border-gray-900 cursor-pointer  ${
               selectedCountry?.code2l === country.code2l
                 ? "bg-gray-700 bg-opacity-40 text-white rounded-[24px]"
-                : "hover:bg-gray-700 text-white"
+                : "hover:bg-slate-800 rounded-[24px] text-white"
             }`}
             onClick={() => handleCountryClick(country)}
           >
@@ -104,7 +107,7 @@ const SelectCountry = () => {
         <CustomButton
           onClick={handleContinue}
           text="Continue"
-          buttonStyle="w-full h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white rounded-[24px] font-[600] mt-6"
+          buttonStyle="w-full h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white rounded-[24px] font-[600] mt-8"
         />
       </div>
     </div>

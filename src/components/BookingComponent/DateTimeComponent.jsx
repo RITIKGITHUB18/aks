@@ -86,7 +86,7 @@ const DateTimeComponent = () => {
   };
   return (
     <div className="w-[390px] mx-auto relative">
-      <div className="flex items-center justify-center mb-4 px-4">
+      <div className="flex items-center justify-center mb-4 px-4 cursor-pointer">
         <button
           onClick={handlePrevMonth}
           className="text-white px-3 rounded-lg -translate-x-[30px]"
@@ -104,7 +104,7 @@ const DateTimeComponent = () => {
         </button>
       </div>
 
-      <div className="flex w-[342px] mx-5 overflow-x-auto gap-x-4 px-2 mb-6 scrollbar-hide">
+      <div className="flex w-[342px] mx-5 overflow-x-auto gap-x-4 px-2 mb-6 scrollbar-hide cursor-pointer">
         {allDates.map((weekDate, index) => (
           <button
             key={index}

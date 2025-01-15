@@ -29,9 +29,9 @@ const Receipt = () => {
   };
 
   return (
-    <div className="w-[393px] text-white animate-fade-in mt-14">
-      <Link to="/history" className="self-start">
-        <div className="rounded-full p-[10px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
+    <div className="w-[350px] xs:w-[393px] text-white animate-fade-in mt-14">
+      <Link to="/history" className="self-start ">
+        <div className="rounded-full p-[8px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
           <img src={leftArrow} alt="Back" className="w-6 h-6" />
         </div>
       </Link>

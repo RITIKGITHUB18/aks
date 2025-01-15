@@ -61,8 +61,12 @@ import Avatar from "./Avatar.svg";
 import phone from "./phone.svg";
 import Send from "./Send.svg";
 import location from "./location.svg";
+import hussh from "./hussh.jpg";
+import toastQr from "./toastQr.svg";
 
 export {
+  toastQr,
+  hussh,
   location,
   card,
   more,

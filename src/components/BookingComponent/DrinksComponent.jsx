@@ -66,7 +66,7 @@ const DrinksComponent = ({ drinksInfo }) => {
 
             {/* Add/Quantity Buttons */}
             {drinkQuantities[index] > 0 ? (
-              <div className="relative flex items-center justify-center w-[75px] h-[30px] bg-[#161C25] rounded-[56px] px-1 py-2 border-[#202938] border-[1px]">
+              <div className="relative flex items-center justify-center w-[75px] h-[30px] bg-[#161C25] rounded-[56px] px-1 py-2 border-[#202938] border-[1px] cursor-pointer">
                 <button
                   className="absolute flex items-center justify-center text-lg hover:text-white w-[24px] h-[24px] rounded-full bg-black text-blue-500 p-2  border-[#202938] border-[1px] transform -translate-x-[22px]"
                   onClick={() => decrementDrink(index)}

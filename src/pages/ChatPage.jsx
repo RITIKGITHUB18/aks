@@ -28,7 +28,7 @@ const ChatPage = () => {
   ];
 
   const handleBackOnclick = () => {
-    navigate("/home");
+    navigate(-1);
   };
 
   return (

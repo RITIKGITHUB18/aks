@@ -111,20 +111,22 @@ const OrderSummary = () => {
 
             <div className="mt-6 text-sm">
               <h3 className="text-lg font-bold mb-4">Order Summary</h3>
-              <ul className="space-y-2">
-                <p>OrderID: {generateOrderId()}</p>
-                {cartItem.map((item, index) => (
-                  <li
-                    className="flex justify-between text-gray-400"
-                    key={index}
-                  >
-                    <span>{item?.name || item?.itemName}</span>
-                    <span>
-                      {item.quantity} x $ {item.price}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="max-h-[180px] overflow-y-auto scrollbar-hide">
+                <ul className="space-y-2">
+                  <p>OrderID: {generateOrderId()}</p>
+                  {cartItem.map((item, index) => (
+                    <li
+                      className="flex justify-between text-gray-400"
+                      key={index}
+                    >
+                      <span>{item?.name || item?.itemName}</span>
+                      <span>
+                        {item.quantity} x $ {item.price}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               <hr className="my-4 border-gray-700" />
               <div className="space-y-2">
@@ -146,7 +148,8 @@ const OrderSummary = () => {
 
               <CustomButton
                 text="Download Receipt"
-                buttonStyle="w-full h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-semibold mt-6"
+                style="cursor-pointer"
+                buttonStyle="w-full h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-semibold mt-6 cursor-pointer"
                 type="button"
                 onClick={handleCheckout}
               />

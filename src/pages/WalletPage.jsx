@@ -34,13 +34,18 @@ const lastTransaction = [
 ];
 
 const WalletPage = () => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="bg-[#090D14] w-full text-white flex flex-col items-center">
-      <Link className="self-start translate-x-[-23px]" to="/payment-method">
-        <div className="rounded-full mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center">
-          <img src={leftArrow} alt="Back" className="w-6 h-6" />
-        </div>
-      </Link>
+      <div
+        onClick={handleBack}
+        className="self-start rounded-full mt-[52px] cursor-pointer hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center"
+      >
+        <img src={leftArrow} alt="Back" className="w-6 h-6" />
+      </div>
 
       <div className="flex flex-col text-start mt-[32px] mb-[24px] border border-[#202938] w-[340px] h-[170px] rounded-[12px] translate-x-2">
         <div className="flex flex-row items-center justify-between mt-2 px-2">

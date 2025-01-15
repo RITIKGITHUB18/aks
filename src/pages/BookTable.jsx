@@ -27,6 +27,8 @@ const BookTable = () => {
     (state) => state.cart
   );
 
+  const totalItems = selectedDrinks?.length + selectedPackages?.length;
+
   const showCartButtons = useMemo(() => {
     return (
       selectedPackages.some((pkg) => pkg.quantity > 0) ||
@@ -88,6 +90,10 @@ const BookTable = () => {
       </div>
     );
   }
+
+  const handleBack = () => {
+    navigate(-1);
+  };
   return (
     <div
       style={{
@@ -102,18 +108,21 @@ const BookTable = () => {
         }}
         className="bg-no-repeat sticky bg-cover bg-center w-[456px] h-[350px]"
       >
-        <div className="absolute flex mt-10 justify-around">
-          <Link to="/home" className="fixed self-start ml-20">
-            <div className="rounded-full p-[10px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1.5px] border-slate-500 flex items-center justify-center transform translate-x-[25px]">
-              <img src={leftArrow} alt="Back" className="w-6 h-6" />
-            </div>
-          </Link>
+        <div className="absolute flex mt-16 justify-around">
           <div
-            className="flex fixed items-center justify-center w-[44px] h-[44px] border-[1.5px] bg-[#090D14] border-slate-500 cursor-pointer rounded-full p-[10px] transform translate-x-[375px] hover:bg-gray-600"
+            onClick={handleBack}
+            className="self-start rounded-full p-[10px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1.5px] border-slate-500 flex items-center justify-center transform translate-x-[40px] cursor-pointer"
+          >
+            <img src={leftArrow} alt="Back" className="w-6 h-6" />
+          </div>
+          <div
+            className="flex fixed items-center justify-center w-[44px] h-[44px] border-[1.5px] bg-[#090D14] border-slate-500 cursor-pointer rounded-full p-[10px] transform translate-x-[350px] hover:bg-gray-600"
             onClick={() => navigate("/shopping-cart")}
           >
             {newItem && (
-              <div className="absolute h-[14px] w-[14px] bg-red-700  translate-x-[10px] translate-y-[17px] rounded-full"></div>
+              <div className="absolute h-[18px] w-[18px] bg-red-500 flex items-center justify-center  translate-x-[10px] translate-y-[17px] rounded-full">
+                <p className="text-[11px]">{totalItems}</p>
+              </div>
             )}
             <img src={cartIcon} alt="Cart Icon" className="w-[24px] h-[24px]" />
           </div>

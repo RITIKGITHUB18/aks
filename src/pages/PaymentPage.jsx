@@ -28,9 +28,6 @@ export const PaymentPage = () => {
 
   const { cartItem, totalPrice } = receiptData || {};
   const receipt = { cartItem: [...cartItem], totalPrice: totalPrice };
-  console.log("Receipt Data: ", receipt);
-
-  // const [receipt, setReceipt] = useState(receiptData);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
   const [showApplePayAnimation, setApplePayAnimation] = useState(false);
   const [showCardAnimation, setShowCardAnimation] = useState(false);
@@ -115,6 +112,10 @@ export const PaymentPage = () => {
     }
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center">
       {!error && showApplePayAnimation ? (
@@ -139,7 +140,10 @@ export const PaymentPage = () => {
         <>
           {/* Back Button */}
           <Link to="/shopping-cart" className="self-start">
-            <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
+            <div
+              onClick={handleBack}
+              className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center"
+            >
               <img src={leftArrow} alt="Back" className="w-6 h-6" />
             </div>
           </Link>
