@@ -24,7 +24,7 @@ const SelectDob = () => {
   };
 
   return (
-    <div className="bg-[#090D14] min-h-screen w-full text-white flex flex-col items-center px-4 mt-[52px]">
+    <div className="bg-[#090D14] min-h-screen w-full text-white flex flex-col items-center px-4 mt-[14px]">
       {/* Back Button */}
       <Link to="/verify-phone" className="self-start ml-4">
         <div className="rounded-full p-3 hover:bg-gray-600 w-11 h-11 bg-[#090D14] border border-[#202938] flex items-center justify-center">
