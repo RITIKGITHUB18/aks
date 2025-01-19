@@ -30,7 +30,7 @@ const FoodCard = ({ item }) => {
           {/* <p className="text-sm text-gray-400 mt-2">{item.description}</p> */}
         </div>
         <div className="flex justify-between py-3">
-          <p className="text-[14px] font-semibold mt-2 px-4">
+          <p className="text-[16px] font-[500] mt-2 px-4">
             $ {itemsPrice(item.price)}
           </p>
           {/* <div className="flex items-center bg-[#161C25] rounded-full px-1 py-2 gap-3 border-[#202938] border-[1px]">

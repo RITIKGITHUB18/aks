@@ -32,10 +32,9 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] h-screen text-white flex flex-col items-center relative scrollbar-hide ">
+    <div className="bg-[#090D14] w-full h-screen text-white flex flex-col items-center justify-center relative scrollbar-hide">
       <div className="fixed top-0 z-50 bg-[#090D14] px-1 pb-4 w-[393px] pr-3">
-        <div className="flex justify-between mt-[24px] w-full border-gray-600 pb-6 px-2">
-          {/* <Link to={`/book-table/${hotelData.id}`}> */}
+        <div className="flex justify-between mt-[35px] w-full border-gray-600 pb-6 px-2">
           <div
             onClick={handleBackOnclick}
             className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center"
@@ -70,7 +69,7 @@ const ChatPage = () => {
         ))}
       </div>
 
-      <div className="fixed bottom-0 z-50 bg-[#090D14] px-4  pb-4 w-[393px]">
+      <div className="sticky bottom-0 z-50 bg-[#090D14] px-4  pb-4 w-[393px]">
         <div className="flex justify-between mt-[20px] w-full items-center px-2 pb-2">
           <div className=" gap-4">
             <input

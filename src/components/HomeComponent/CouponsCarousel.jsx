@@ -1,22 +1,20 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
-// import "swiper/css/effect-cards";
-import "./couponCarousel.css";
 import { EffectCards } from "swiper/modules";
+import "./couponCarousel.css";
 import CouponsCard from "./CouponsCard";
 
 const CouponsCarousel = ({ couponsData }) => {
   return (
-    <div className="relative w-full">
-      <div className="absolute inset-0 rounded-[30px] bg-[#0ECCB3] transform -translate-y-[6px] h-[70px] opacity-50"></div>
-      <div className="absolute inset-0 rounded-[35px] bg-[#0ECCB3] transform -translate-y-[12px] h-[70px] opacity-60"></div>
-      {/* <div className="absolute inset-0 rounded-[40px] bg-[#0ECCB3] transform -translate-y-[15px] h-[70px] opacity-75"></div> */}
+    <div className="relative w-full flex items-center justify-center">
+      {/* Decorative gradients behind the coupon cards */}
+      <div className="absolute inset-0 max-w-sm w-full rounded-[45px] bg-[#0ECCB3] transform -translate-y-1 h-[70px] opacity-50 mx-auto"></div>
+      <div className="absolute inset-0 max-w-sm w-full rounded-[45px] bg-[#0ECCB3] transform -translate-y-2 h-[70px] opacity-60 mx-auto"></div>
       <Swiper
-        effect={"cards"}
+        effect="cards"
         grabCursor={true}
         centeredSlides={true}
         modules={[EffectCards]}
-        className="couponsSwiper"
+        className="couponsSwiper w-full max-w-sm" // Adjust max width as needed
       >
         {couponsData.map((data) => (
           <SwiperSlide key={data.id}>

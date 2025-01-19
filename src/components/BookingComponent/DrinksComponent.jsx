@@ -46,7 +46,7 @@ const DrinksComponent = ({ drinksInfo }) => {
       </div>
 
       {/* Scrollable Drinks List */}
-      <div className="mt-4 h-[200px] overflow-y-auto scrollbar-hide space-y-2">
+      <div className="mt-4 overflow-y-auto scrollbar-hide space-y-2">
         {drinksInfo.map((drink, index) => (
           <div
             key={drink.id}

@@ -39,10 +39,10 @@ const WalletPage = () => {
     navigate(-1);
   };
   return (
-    <div className="bg-[#090D14] w-full text-white flex flex-col items-center">
+    <div className="w-full text-white flex flex-col items-center justify-center">
       <div
         onClick={handleBack}
-        className="self-start rounded-full mt-[52px] cursor-pointer hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center"
+        className="self-start rounded-full mt-[52px] ml-4 sm:ml-10  cursor-pointer hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center"
       >
         <img src={leftArrow} alt="Back" className="w-6 h-6" />
       </div>
@@ -65,7 +65,7 @@ const WalletPage = () => {
       </div>
 
       {/* Last Transactions */}
-      <div className="self-start px-5 w-[343px] mt-4">
+      <div className="flex-col items-center px-5 w-full xs:w-[375px] mt-4 mx-auto ">
         <h1 className="font-[500] text-[18px] leading-[23.4px] text-white mb-5">
           Last Transaction
         </h1>

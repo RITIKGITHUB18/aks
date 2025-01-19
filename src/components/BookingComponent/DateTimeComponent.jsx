@@ -85,7 +85,7 @@ const DateTimeComponent = () => {
     dispatch(setDateTime(updatedDate)); // Update Redux state
   };
   return (
-    <div className="w-[390px] mx-auto relative">
+    <div className="w-[393px] mx-auto relative">
       <div className="flex items-center justify-center mb-4 px-4 cursor-pointer">
         <button
           onClick={handlePrevMonth}
@@ -104,7 +104,7 @@ const DateTimeComponent = () => {
         </button>
       </div>
 
-      <div className="flex w-[342px] mx-5 overflow-x-auto gap-x-4 px-2 mb-6 scrollbar-hide cursor-pointer">
+      <div className="flex w-[380px] mx-auto overflow-x-auto gap-x-4 px-2 mb-6 scrollbar-hide cursor-pointer">
         {allDates.map((weekDate, index) => (
           <button
             key={index}
@@ -121,7 +121,7 @@ const DateTimeComponent = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-4 gap-4 rounded-[8px] w-[342px] mx-5 px-2">
+      <div className="grid grid-cols-4 gap-4 rounded-[8px] w-full mx-auto px-2 mb-10">
         {times.map((time) => (
           <button
             key={time}

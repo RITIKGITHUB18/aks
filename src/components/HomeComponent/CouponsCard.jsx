@@ -15,8 +15,8 @@ const CouponsCard = ({ coupon }) => {
     });
   };
   return (
-    <div className="relative flex items-center justify-between w-full max-w-[330px] h-[66px]">
-      <div className="absolute flex items-center justify-between bg-[#0ECCB3] text-black w-full h-full rounded-[24px] shadow-md px-4 ">
+    <div className="relative flex items-center justify-between w-full max-w-[385px] h-[66px]">
+      <div className="absolute flex items-center justify-between bg-[#0ECCB3] text-black w-full h-full rounded-[45px] shadow-md px-4 ">
         <div className="absolute flex items-center gap-3 mb-2">
           <div className="flex items-center justify-center w-[40px] h-[40px] rounded-full">
             <img
@@ -33,7 +33,7 @@ const CouponsCard = ({ coupon }) => {
           </div>
         </div>
         <div
-          className="absolute transform -translate-y-[8px] translate-x-[260px]"
+          className="absolute transform -translate-y-[60%] right-9"
           onClick={handleCopy}
         >
           <img

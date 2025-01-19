@@ -68,15 +68,15 @@ const OrderSummary = () => {
   }, [checkout]);
 
   return (
-    <div className="text-white w-[393px] min-h-screen flex flex-col items-center p-2">
+    <div className="text-white w-[393px] flex flex-col items-center p-2 mt-10 overflow-y-auto scrollbar-hide">
       {!checkout && !showRotatingCoin ? (
-        <div className="animate-fade-in">
-          <Link to="/home" className="self-start fixed mb-4 mt-[30px]">
-            <div className="rounded-full p-[10px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
+        <div className="animate-fade-in mb-5">
+          <Link to="/home" className="self-start">
+            <div className="rounded-full p-[10px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
               <img src={leftArrow} alt="Back" className="w-6 h-6" />
             </div>
           </Link>
-          <div className="flex items-center justify-center mb-12 mt-[130px] px-5">
+          <div className="flex items-center justify-center mb-12 mt-10 px-5">
             <img src={qrimage} alt="QR Code" className="w-[80px] h-[80px]" />
           </div>
           <div className="p-6 rounded-xl w-full max-w-lg text-center border-gray-500 border-[1px] relative animate-slide-in">

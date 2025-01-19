@@ -8,44 +8,48 @@ const GetStartedPage = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${crackersCelebration})`,
-      }}
-      className="flex flex-col justify-end w-[450px] h-screen bg-no-repeat bg-cover"
-    >
-      {/* Overlay section */}
+    <div className="relative min-h-screen w-full">
+      {/* Background Image */}
       <div
-        className="fixed w-[450px] bottom-0 flex flex-col text-white transform p-4 -translate-y-0"
         style={{
-          height: "33vh",
-          background:
-            "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, #0F172A 100%)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
+          backgroundImage: `url(${crackersCelebration})`,
         }}
-      >
-        <div className="flex flex-col w-[353px] max-w-[400px] text-start px-4 mt-3">
-          <h2 className="font-[700] text-[24px] leading-8">
-            Experience the Best
-          </h2>
-          <h2 className="font-[700] text-[24px] pt-1 leading-8">
-            Night Life With AKS
-          </h2>
-          <p className="font-[400] text-[14px] text-gray-300 pt-2">
-            Come join us at the exciting surfing events at Dubai.
-          </p>
-          <p className="font-[400] text-[14px] text-gray-300 pt-1">
-            Register yourself now!
-          </p>
-        </div>
-        <div className="flex items-center justify-center w-full mt-8 pb-4">
-          <button
-            onClick={handleGetStarted}
-            className="bg-white rounded-[24px] w-[90%] max-w-[350px] h-[50px] text-[#0F172A] font-[500] text-[16px] flex items-center justify-center"
-          >
-            Get Started
-          </button>
+        className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover"
+      ></div>
+      <div className="relative flex flex-col justify-between min-h-screen">
+        <div className="flex-grow"></div>{" "}
+        <div
+          className="flex flex-col justify-center items-center text-white px-6 "
+          style={{
+            height: "35vh",
+            background:
+              "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, #0F172A 100%)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+          }}
+        >
+          <div className="flex flex-col justify-center text-start px-4 mt-3 w-full">
+            <h2 className="font-bold text-[20px] sm:text-[24px] leading-8">
+              Experience the Best
+            </h2>
+            <h2 className="font-bold text-[20px] sm:text-[24px] pt-1 leading-8">
+              Night Life With AKS
+            </h2>
+            <p className="font-medium text-[12px] sm:text-[14px] text-gray-300 pt-2">
+              Come join us at the exciting surfing events at Dubai.
+            </p>
+            <p className="font-medium text-[12px] sm:text-[14px] text-gray-300 pt-1">
+              Register yourself now!
+            </p>
+          </div>
+          <div className="flex items-center w-full justify-center mt-6 sm:mt-8 pb-4">
+            <button
+              onClick={handleGetStarted}
+              className="bg-white rounded-[24px] w-[90%] sm:w-[80%] max-w-[400px] h-[50px] text-[#0F172A] font-medium text-[14px] sm:text-[16px] flex items-center justify-center"
+            >
+              Get Started
+            </button>
+          </div>
         </div>
       </div>
     </div>

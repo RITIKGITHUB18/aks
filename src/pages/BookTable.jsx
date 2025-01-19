@@ -4,7 +4,6 @@ import { BookTableImg, cartIcon, leftArrow } from "../assets/Images";
 import DrinksComponent from "../components/BookingComponent/DrinksComponent";
 import DateTimeComponent from "../components/BookingComponent/DateTimeComponent";
 import PackagesComponent from "../components/BookingComponent/AffordablePackages";
-import { useCart } from "../components/common/CartContext";
 import { useDispatch, useSelector } from "react-redux";
 import { setDateTime } from "../slice/hotelSlice";
 import {
@@ -27,7 +26,8 @@ const BookTable = () => {
     (state) => state.cart
   );
 
-  const totalItems = selectedDrinks?.length + selectedPackages?.length;
+  const totalItems =
+    (selectedDrinks?.length || 0) + (selectedPackages?.length || 0);
 
   const showCartButtons = useMemo(() => {
     return (
@@ -94,115 +94,109 @@ const BookTable = () => {
   const handleBack = () => {
     navigate(-1);
   };
+
   return (
-    <div
-      style={{
-        height: "100vh",
-      }}
-      className="bg-[#090D14] w-[430px] max-w-[440px] text-white flex flex-col items-center mx-auto overflow-hidden"
-    >
-      {/* Header Section */}
+    <div className="text-white flex flex-col items-center mx-auto h-auto overflow-y-auto w-full max-w-md relative">
       <div
-        style={{
-          backgroundImage: `url(${BookTableImg})`,
-        }}
-        className="bg-no-repeat sticky bg-cover bg-center w-[456px] h-[350px]"
+        style={{ backgroundImage: `url(${BookTableImg})` }}
+        className="w-full bg-no-repeat bg-cover bg-center min-h-[250px] xs:min-h-[320px] sm:min-h-[340px] md:h-auto relative"
       >
-        <div className="absolute flex mt-16 justify-around">
+        <div className="absolute mt-12 left-5 right-8 flex items-center justify-between">
           <div
             onClick={handleBack}
-            className="self-start rounded-full p-[10px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1.5px] border-slate-500 flex items-center justify-center transform translate-x-[40px] cursor-pointer"
+            className="w-10 h-10 bg-[#090D14] border border-slate-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-600"
           >
-            <img src={leftArrow} alt="Back" className="w-6 h-6" />
+            <img src={leftArrow} alt="Back" className="w-5 h-5" />
           </div>
           <div
-            className="flex fixed items-center justify-center w-[44px] h-[44px] border-[1.5px] bg-[#090D14] border-slate-500 cursor-pointer rounded-full p-[10px] transform translate-x-[350px] hover:bg-gray-600"
+            className="w-10 h-10 bg-[#090D14] border border-slate-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-600 relative"
             onClick={() => navigate("/shopping-cart")}
           >
+            <img src={cartIcon} alt="Cart Icon" className="w-5 h-5" />
             {newItem && (
-              <div className="absolute h-[18px] w-[18px] bg-red-500 flex items-center justify-center  translate-x-[10px] translate-y-[17px] rounded-full">
-                <p className="text-[11px]">{totalItems}</p>
+              <div className="absolute top-12 flex items-center justify-center bg-red-500  rounded-full w-[18px] h-[18px] translate-x-[12px] -translate-y-[20px] text-white">
+                <p className="text-[11px] ">{totalItems}</p>
               </div>
             )}
-            <img src={cartIcon} alt="Cart Icon" className="w-[24px] h-[24px]" />
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="mt-5">
+      <div className="w-full px-6 mt-5">
         {/* Hotel Details */}
-        <div className="px-[10px] py-[18px] flex items-center justify-between">
-          <div className="ml-4">
-            <h2 className="text-[18px] font-[500] leading-[23.4px]">
-              {hotelData.name}
-            </h2>
-            <p className="text-[#83858A] font-[400] text-[12px] leading-[19.2px]">
-              {hotelData.distance}
-            </p>
+        <div className="flex items-center justify-between mb-3">
+          <div>
+            <h2 className="text-lg font-medium">{hotelData.name}</h2>
+            <p className="text-xs text-[#83858A]">{hotelData.distance}</p>
           </div>
           <button
             onClick={handleChat}
-            className="flex items-center justify-center mr-2 py-2 w-[75px] h-[32px] border border-blue-500 text-blue-500 rounded-[100px] bg-transparent"
+            className="py-1 px-3 border border-blue-500 text-blue-500 rounded-full text-sm hover:bg-blue-500 hover:text-white transition-all"
           >
-            <p className="text-[12px] leading-[15.6px] ">Message</p>
+            Message
           </button>
         </div>
 
+        {/* Book a Table Heading */}
+        <h2 className="text-lg font-medium mb-10">Book a Table</h2>
+
         {/* Booking Tabs */}
-        <h2 className="text-[18px] font-[500] mt-2 flex items-center justify-start ml-7 leading-[23.4px] text-[#FFFFFF]">
-          Book a Table
-        </h2>
-        <div className="flex flex-col items-center justify-center px-[21px] mt-7">
-          <div className="flex overflow-x-auto space-x-2 p-1">
-            {bookingTabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-2 text-sm rounded-[56px] leading-[18.2px] ${
+        <div className="flex overflow-x-auto xs:space-x-3 mb-4 items-center justify-center">
+          {bookingTabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-3 py-2 text-sm rounded-full whitespace-nowrap
+                ${
                   activeTab === tab.id
-                    ? "border-[1px] border-blue-500 text-blue-500 bg-[#161C25]"
-                    : "border-[1px] border-gray-700 text-white"
-                } `}
-                aria-label={`switch to ${tab.name}`}
-              >
-                {tab.name}
-              </button>
-            ))}
-          </div>
+                    ? "border border-blue-500 text-blue-500 bg-[#161C25]"
+                    : "border border-gray-700 text-white"
+                }
+              `}
+            >
+              {tab.name}
+            </button>
+          ))}
         </div>
 
         {/* Active Tab Content */}
-        <div className="p-4 w-[393px]">{renderActiveTab()}</div>
-
-        {/* Cart Buttons */}
-        {showCartButtons && (
-          <div className="fixed bottom-0 border-t-[0.75px] border-[#202938] bg-[#090D14] pb-10 px-5 pt-4 w-[456px]">
-            <div className="flex items-center justify-center gap-x-10 w-[343px]">
-              <button
-                onClick={() => handleAddToCart("addToCart")}
-                className={`px-6 py-3 text-[12px] leading-[15.6px] font-[500] border-[1px] rounded-[100px] ml-10 w-[165px] ${
-                  activeButton === "addToCart"
-                    ? "bg-[#3579DD] text-white border-[1px] border-[#3579DD]"
-                    : "text-[#3579DD] border-[#3579DD] hover:bg-[#3579DD] hover:text-white"
-                }`}
-              >
-                Add to Cart
-              </button>
-              <button
-                onClick={() => handleAddToCart("BuyNow")}
-                className={`px-6 py-3 text-[12px] leading-[15.6px] font-[500] border-[1px] rounded-[100px] w-[165px] ${
-                  activeButton === "buyNow"
-                    ? "bg-[#3579DD] text-white border-[1px] border-[#3579DD]"
-                    : "text-[#3579DD] border-[#3579DD] hover:bg-[#3579DD] hover:text-white"
-                }`}
-              >
-                Buy Now
-              </button>
-            </div>
-          </div>
-        )}
+        <div className="w-full mt-8 flex items-center justify-center">
+          {renderActiveTab()}
+        </div>
       </div>
+
+      {/* Cart Buttons (fixed at bottom if items are selected) */}
+      {showCartButtons && activeTab !== "dateTime" && (
+        <div className="sticky bottom-0 left-0 w-full bg-[#090D14] border-t border-[#202938] pt-4 pb-6 px-4">
+          <div className="flex justify-evenly">
+            <button
+              onClick={() => handleAddToCart("addToCart")}
+              className={`px-6 py-2 text-sm font-medium rounded-full 
+                ${
+                  activeButton === "addToCart"
+                    ? "bg-[#3579DD] text-white border border-[#3579DD]"
+                    : "text-[#3579DD] border border-[#3579DD] hover:bg-[#3579DD] hover:text-white"
+                }
+              `}
+            >
+              Add to Cart
+            </button>
+            <button
+              onClick={() => handleAddToCart("BuyNow")}
+              className={`px-6 py-2 text-sm font-medium rounded-full
+                ${
+                  activeButton === "buyNow"
+                    ? "bg-[#3579DD] text-white border border-[#3579DD]"
+                    : "text-[#3579DD] border border-[#3579DD] hover:bg-[#3579DD] hover:text-white"
+                }
+              `}
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -35,9 +35,9 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center">
+    <div className="w-full text-white flex flex-col items-center justify-center">
       {/* Back Button */}
-      <Link to="/home" className="self-start">
+      <Link to="/home" className="self-start ml-4 sm:ml-8">
         <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
           <img src={leftArrow} alt="Back" className="w-6 h-6" />
         </div>
@@ -57,10 +57,10 @@ const ProfilePage = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="w-full px-6 mt-8 flex flex-col gap-6"
+        className="w-full px-6 mt-8 flex flex-col gap-6 items-center"
       >
         {/* Email Field */}
-        <div className="flex flex-col">
+        <div className="flex flex-col xs:w-[340px] sm:w-[393px] justify-center">
           <label
             htmlFor="email"
             className="text-white text-sm mb-4 leading-4 font-[600]"
@@ -79,7 +79,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Phone Field */}
-        <div className="flex flex-col">
+        <div className="flex flex-col xs:w-[340px] sm:w-[393px]">
           <label
             htmlFor="phone"
             className="text-white text-sm mb-4 leading-4 font-[600]"
@@ -98,7 +98,7 @@ const ProfilePage = () => {
         </div>
 
         {/* DOB Field */}
-        <div className="flex flex-col">
+        <div className="flex flex-col xs:w-[340px] sm:w-[393px]">
           <label
             htmlFor="dob"
             className="text-white text-sm mb-4 leading-4 font-[600]"
@@ -115,7 +115,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Password Field */}
-        <div className="flex flex-col">
+        <div className="flex flex-col xs:w-[340px] sm:w-[393px]">
           <label
             htmlFor="password"
             className="text-white text-sm mb-4 leading-4 font-[600]"
@@ -142,7 +142,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Submit Button */}
-        <button className="w-full h-[56px] border border-[#3579DD] text-[#3579DD] rounded-[56px] font-[600] mt-6 leading-6">
+        <button className="mb-10 xs:mb-10 w-full max-w-[393px] h-[56px] border border-[#3579DD] text-[#3579DD] rounded-[56px] font-[600] mt-6 leading-6">
           Logout
         </button>
       </form>

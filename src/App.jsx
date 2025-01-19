@@ -31,7 +31,6 @@ function App() {
       <Route path="/getStarted" element={<GetStartedPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/verify-email" element={<VerifyEmailPage />} />
-      {/* <Route path="/phone-auth" element={<PhoneAuth />} /> */}
       <Route path="/auth/v1/callback" element={<AuthCallback />} />
       <Route element={<ProtectedRoute />}>
         <Route path="/select-dob" element={<SelectDob />} />

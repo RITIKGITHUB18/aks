@@ -57,23 +57,22 @@ const ShoppingCart = () => {
     navigate(-1);
   };
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col ">
-      <div className="ml-2 mr-2">
-        <div
-          onClick={handleBack}
-          className="self-start rounded-full p-[10px] mt-[70px] ml-[10px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center cursor-pointer"
-        >
-          <img src={leftArrow} alt="Back" className="w-6 h-6" />
-        </div>
-        {/* Header Section */}
-        <div className="self-start text-start mt-[36px] mb-[24px] px-4">
-          <h1 className="text-[24px] font-[500] leading-[31px] text-white">
-            Shopping Cart
-          </h1>
-        </div>
+    <div className="w-full justify-center text-white flex flex-col ">
+      <div className="fixed top-0 z-50 bg-[#090D14] px-4 pt-2 pb-4 w-full h-[180px] ml-4 sm:ml-10">
+        <Link onClick={handleBack}>
+          <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[50px]">
+            <img src={leftArrow} alt="Back" className="w-6 h-6" />
+          </div>
+        </Link>
 
+        <h1 className="flex mt-10 ml-2 sm:ml-8 text-[24px] font-[500] leading-[31.2px] translate-y-[50px]">
+          Shopping Cart
+        </h1>
+      </div>
+
+      <div className="flex flex-col mx-auto mt-[180px] items-center justify-center">
         {cartItems.length > 0 && (
-          <div className="self-start text-start mt-[16px] mb-[24px] px-4 w-full ">
+          <div className="self-start text-start mt-[16px] mb-[24px] px-4 w-full">
             <div className="flex items-center  bg-[#1c1c1c]  z-30 rounded-2xl border-[1px] border-[#E19C34] px-3 py-2 ">
               <div className="flex items-center gap-2">
                 <div className="bg-[#E19C34] rounded-full p-1 h-[20px] w-[20px] flex items-center justify-center">
@@ -88,7 +87,7 @@ const ShoppingCart = () => {
           </div>
         )}
 
-        <div className="self-start text-start w-full h-[520px] overflow-y-auto scrollbar-hide px-3  pb-10">
+        <div className="self-start text-start w-full h-[500px] overflow-y-auto scrollbar-hide px-3  pb-10">
           <div className="flex flex-col items-center w-full ">
             {cartItems.length > 0 ? (
               cartItems.map((item, index) => (
@@ -126,7 +125,7 @@ const ShoppingCart = () => {
         {/* Apply promos before you order */}
         {/* <hr className="w-full h-[0.75px] border-t-[0.75px] -[#202938]" /> */}
         {cartItems.length > 0 && (
-          <div className="fixed bottom-0 flex flex-col border-[#202938] items-center justify-center ml-2 bg-[#090D14] pb-5 pt-1">
+          <div className="fixed bottom-0 flex flex-col bg-solid-[#090D14] border-t-[1px] border-[#202938] items-center justify-center ml-2 bg-[#090D14] pb-5 pt-1">
             <div className="self-start text-start ml-2">
               <h1 className="text-[20px] font-[700] leading-[40px]">
                 Order Summary

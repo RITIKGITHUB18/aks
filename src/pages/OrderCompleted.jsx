@@ -3,7 +3,7 @@ import OrderSummary from "../components/Core/ShoppingCart/OrderSummary";
 
 const OrderCompleted = () => {
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col ">
+    <div className="w-full text-white flex flex-col items-center overflow-y-auto ">
       <OrderSummary></OrderSummary>
     </div>
   );

@@ -39,16 +39,16 @@ const PhoneAuth = () => {
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center">
+    <div className="bg-[#090D14] w-full text-white flex flex-col items-center justify-center mt-[30px]">
       {/* Back Button */}
-      <Link onClick={handleBack} className="self-start">
+      <Link onClick={handleBack} className="self-start sm:ml-8">
         <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
           <img src={leftArrow} alt="Back" className="w-6 h-6" />
         </div>
       </Link>
 
       {/* Header Section */}
-      <div className="self-start text-start mt-[32px] mb-[24px] px-10">
+      <div className="flex flex-col items-start justify-start mt-[32px] mb-[24px]">
         <h1 className="text-[30px] font-[700] leading-[40px] text-white">
           Hi there!
         </h1>
@@ -57,12 +57,11 @@ const PhoneAuth = () => {
         </p>
       </div>
 
-      {/* Phone Number Input Section */}
-      <div className="w-[353px] flex flex-col gap-4">
+      <div className="w-full flex flex-col items-center gap-4">
         <div className="flex items-center gap-2">
           <div
             onClick={handleSelectCountry}
-            className="flex items-center cursor-pointer justify-center gap-x-1 w-[80px] h-[56px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-center text-white focus:outline-none"
+            className="flex items-center cursor-pointer justify-center gap-x-1 sm:w-[90px] h-[56px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-center text-white focus:outline-none"
           >
             <img src={selectedCountry?.emoji} className="w-[20px] h-[20px]" />
             <p>{selectedCountry?.code2l}</p>
@@ -74,11 +73,12 @@ const PhoneAuth = () => {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             placeholder="Enter phone number"
-            className="flex-grow h-[56px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-white px-4 focus:outline-none"
+            className="flex h-[56px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-white px-4 focus:outline-none"
           />
         </div>
         <CustomButton
           onClick={handlePhoneAuth}
+          style="w-full sm:w-[390px] px-10"
           text="Send OTP"
           buttonStyle="w-full h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white rounded-[24px] font-[600] mt-6 leading-6"
         />

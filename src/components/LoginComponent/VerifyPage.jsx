@@ -3,6 +3,7 @@ import CustomButton from "../common/CustomButton";
 import OTPInput from "react-otp-input";
 import { Link, useNavigate } from "react-router-dom";
 import { leftArrow } from "../../assets/Images";
+import { supabase } from "../../helper/supabaseConfig";
 
 const VerifyPage = ({
   header,
@@ -12,27 +13,54 @@ const VerifyPage = ({
   onSuccess,
   redirectPath,
   backPath,
+  type,
 }) => {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const [resendCount, setResendCount] = useState(0);
   const navigate = useNavigate();
 
-  const isOtpEntered = otp.length === 5 && parseInt(otp) >= 9999;
+  // const isOtpEntered = otp.length === 5 && parseInt(otp) >= 9999;
+  const isOtpEntered = otp.length === 6 && parseInt(otp) >= 9999;
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
-    if (otp === "12345") {
-      setError("");
-      if (onSuccess) onSuccess();
-      navigate(redirectPath);
+    if (type === "email") {
+      try {
+        const { data, error: supabaseError } = await supabase.auth.verifyOtp({
+          email: emailOrPhone,
+          token: otp,
+          type: "email",
+        });
+
+        if (supabaseError) {
+          setError(supabaseError.message);
+          return;
+        }
+
+        setError("");
+        if (onSuccess) {
+          onSuccess();
+        }
+
+        navigate(redirectPath);
+      } catch (error) {
+        console.error("Error verifying OTP: ", error);
+        setError("Something went wrong. Please try again.");
+      }
     } else {
-      setError("Invalid OTP. Please try again.");
+      if (otp === "123456") {
+        setError("");
+        if (onSuccess) onSuccess();
+        navigate(redirectPath);
+      } else {
+        setError("Invalid OTP. Please try again.");
+      }
     }
   };
 
   const handleResend = () => {
-    if (resendCount >= 3) {
+    if (resendCount >= 2) {
       setError(
         "You have exceeded the maximum resend attempts. Try again later."
       );
@@ -45,9 +73,9 @@ const VerifyPage = ({
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center justify-center ">
+    <div className="relative w-full text-white flex flex-col items-center justify-center ">
       {/* Back Button */}
-      <Link to={backPath} className="self-start ">
+      <Link to={backPath} className="self-start mx-6 md:mx-10">
         <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px]  bg-[#090D14] border-[1px] border-[#202938]">
           <img
             src={leftArrow}
@@ -58,7 +86,7 @@ const VerifyPage = ({
       </Link>
 
       {/* Header */}
-      <div className="flex flex-col self-start items-center text-center mt-[82px] mb-[24px] px-7">
+      <div className="flex flex-col items-center text-center mt-[82px] mb-[24px] px-7">
         <h1 className="text-[30px] font-[700] mb-2 leading-10">{header}</h1>
         <p className="text-slate-400 font-[400] text-[16px] leading-5">
           {description}{" "}
@@ -77,13 +105,13 @@ const VerifyPage = ({
           <OTPInput
             value={otp}
             onChange={setOtp}
-            numInputs={5}
+            numInputs={6}
             renderSeparator={<span className="text-[#090D14] text-xl">-</span>}
             renderInput={(props) => (
               <input
                 {...props}
-                style={{ justifyContent: "space-between", gap: "0 6px" }}
-                className="w-[61px] h-[61px] bg-[#090D14] aspect-square  border border-[#3579DD] rounded-md text-center text-lg text-white focus:outline-none focus:ring-2 focus:ring-[#3579DD] gap-2"
+                style={{ justifyContent: "space-between", gap: "0 5px" }}
+                className="w-[50px] h-[50px] bg-[#090D14] aspect-square  border border-[#3579DD] rounded-md text-center text-lg text-white focus:outline-none focus:ring-2 focus:ring-[#3579DD] gap-2"
               />
             )}
           />

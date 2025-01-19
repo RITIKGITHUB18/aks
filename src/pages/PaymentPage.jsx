@@ -117,7 +117,7 @@ export const PaymentPage = () => {
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center">
+    <div className="w-full text-white flex flex-col items-center justify-center">
       {!error && showApplePayAnimation ? (
         <div className="fixed inset-0 bg-[#090D14] bg-opacity-60 z-10 flex items-center justify-center">
           <Player
@@ -139,7 +139,7 @@ export const PaymentPage = () => {
       ) : (
         <>
           {/* Back Button */}
-          <Link to="/shopping-cart" className="self-start">
+          <Link to="/shopping-cart" className="self-start ml-5">
             <div
               onClick={handleBack}
               className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center"
@@ -149,13 +149,12 @@ export const PaymentPage = () => {
           </Link>
 
           {/* Header Section */}
-          <div className="self-start text-start mt-[32px] mb-[24px] px-8">
+          <div className="self-start text-start mt-[32px] mb-[24px] px-8 ml-2 md:ml-20 sm:ml-4">
             <h1 className="text-[24px] font-[500] leading-[31.2px] text-white">
               Payment Method
             </h1>
           </div>
 
-          {/* Wallet Option */}
           <Link to="/wallet">
             <div
               // onClick={handleWalletClick}
@@ -183,7 +182,7 @@ export const PaymentPage = () => {
           </h1>
 
           {/* Payment Methods */}
-          <div className="w-full px-8 mt-20">
+          <div className="w-full px-8 mt-20 flex flex-col items-center">
             {cardData.map((card) => (
               <div
                 key={card.id}

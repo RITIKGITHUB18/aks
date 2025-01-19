@@ -8,7 +8,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check active session
     const session = supabase.auth.getSession();
 
     session.then(({ data: { session }, error }) => {
@@ -16,14 +15,13 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     });
 
-    // Listen for changes in auth state
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setUser(session?.user ?? null);
+        setLoading(false);
       }
     );
 
-    // Cleanup subscription on unmount
     return () => {
       authListener.subscription.unsubscribe();
     };

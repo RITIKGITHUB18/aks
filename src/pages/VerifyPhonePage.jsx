@@ -17,6 +17,7 @@ const VerifyPhonePage = () => {
       onSuccess={() => navigate("/dashboard")}
       redirectPath="/select-dob"
       backPath="/phone-auth"
+      type="phone"
     />
   );
 };

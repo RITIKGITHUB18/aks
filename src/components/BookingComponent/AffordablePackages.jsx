@@ -40,7 +40,7 @@ const PackagesComponent = ({ packagesInfo }) => {
   };
 
   return (
-    <div className="w-[393px] mx-auto">
+    <div className="w-[393px] mx-auto scrollbar-hide">
       {/* Header */}
       <div className="ml-4">
         <h3 className="text-[14px] font-[500] text-white leading-[18.2px]">
@@ -49,7 +49,7 @@ const PackagesComponent = ({ packagesInfo }) => {
       </div>
 
       {/* Packages List */}
-      <div className="mt-4 h-[200px] overflow-y-auto scrollbar-hide space-y-2">
+      <div className="mt-4 h-auto overflow-y-auto scrollbar-hide space-y-2">
         {packagesInfo.map((pkg, index) => (
           <div key={pkg.id} className="flex items-center justify-between p-4">
             {/* Package Image and Name */}

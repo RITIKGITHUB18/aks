@@ -10,7 +10,27 @@ const CarouselComponent = ({ carouselData }) => {
   return (
     <div className="w-full">
       <Swiper
-        slidesPerView="1.5"
+        // Show 1.5 slides on very small screens, scale up at breakpoints
+        slidesPerView={1.5}
+        spaceBetween={15}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 24,
+          },
+          1456: {
+            slidesPerView: 5,
+            spaceBetween: 24,
+          },
+        }}
         grabCursor={true}
         modules={[Pagination]}
         className="hotelSwiper"

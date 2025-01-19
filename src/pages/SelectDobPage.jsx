@@ -9,51 +9,47 @@ const SelectDob = () => {
   const [selectedDate, setSelectedDate] = useState("DD");
   const [selectedYear, setSelectedYear] = useState("YY");
   const navigate = useNavigate();
-  const handleMonthChange = (e) => {
-    setSelectedMonth(e.target.value);
-  };
 
-  const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
-  };
+  const handleMonthChange = (e) => setSelectedMonth(e.target.value);
+  const handleDateChange = (e) => setSelectedDate(e.target.value);
+  const handleYearChange = (e) => setSelectedYear(e.target.value);
 
-  const handleYearChange = (e) => {
-    setSelectedYear(e.target.value);
-  };
+  const isDobValid = () =>
+    selectedMonth !== "MM" && selectedDate !== "DD" && selectedYear !== "YY";
 
   const handleDobSubmit = () => {
-    navigate("/home");
+    if (isDobValid()) {
+      navigate("/home");
+    }
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center">
+    <div className="bg-[#090D14] min-h-screen w-full text-white flex flex-col items-center px-4 mt-[52px]">
       {/* Back Button */}
-      <Link to="/verify-phone" className="self-start">
-        <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
+      <Link to="/verify-phone" className="self-start mt-4 ml-4">
+        <div className="rounded-full p-3 hover:bg-gray-600 w-11 h-11 bg-[#090D14] border border-[#202938] flex items-center justify-center">
           <img src={leftArrow} alt="Back" className="w-6 h-6" />
         </div>
       </Link>
 
       {/* Header Section */}
-      <div className="self-start text-start mt-[36px] mb-[24px] px-10">
-        <h1 className="text-[30px] font-[700] leading-[40px] text-white">
-          DOB
-        </h1>
-        <p className="text-[#EEEEEE] text-opacity-70 text-[17px] leading-6">
+      <div className="text-start mt-6 mb-4 px-4">
+        <h1 className="text-2xl font-bold leading-8 text-white mb-4">DOB</h1>
+        <p className="text-[#EEEEEE] text-start text-opacity-70 text-lg leading-6">
           Share your DOB with us to get special offers
         </p>
       </div>
 
       {/* Dropdowns Section */}
-      <div className="w-[353px] flex flex-col gap-4 mt-7">
-        <div className="flex gap-x-5 px-9 mb-5">
+      <div className="w-full max-w-[320px] flex flex-col gap-4 mt-4">
+        <div className="flex gap-4 justify-center">
           {/* Select Month */}
-          <div className="relative">
+          <div className="relative w-1/3">
             <select
               id="month"
               value={selectedMonth}
               onChange={handleMonthChange}
-              className="w-[80px] h-[51px] bg-[#090D14] text-white rounded-md px-4 py-2 cursor-pointer border-2 border-[#3579DD] focus:outline-none focus:ring-2 focus:ring-[#3579DD] appearance-none"
+              className="w-full h-12 bg-[#090D14] text-white rounded-md px-4 cursor-pointer border-[1px] border-[#3579DD] focus:outline-none focus:ring-2 focus:ring-[#3579DD] appearance-none"
             >
               <option value="MM" disabled>
                 MM
@@ -87,12 +83,12 @@ const SelectDob = () => {
           </div>
 
           {/* Select Date */}
-          <div className="relative">
+          <div className="relative w-1/3">
             <select
               id="date"
               value={selectedDate}
               onChange={handleDateChange}
-              className="w-[80px] h-[51px] bg-[#090D14] text-white rounded-md px-4 py-2 cursor-pointer border-2 border-[#3579DD] focus:outline-none focus:ring-2 focus:ring-[#3579DD] appearance-none"
+              className="w-full h-12 bg-[#090D14] text-white rounded-md px-4 cursor-pointer border-[1px] border-[#3579DD] focus:outline-none focus:ring-2 focus:ring-[#3579DD] appearance-none"
             >
               <option value="DD" disabled>
                 DD
@@ -126,16 +122,12 @@ const SelectDob = () => {
           </div>
 
           {/* Select Year */}
-          <div className="relative">
+          <div className="relative w-1/3">
             <select
               id="year"
               value={selectedYear}
               onChange={handleYearChange}
-              className="w-[88px] h-[51px] bg-[#090D14] text-white rounded-md px-4 py-2 cursor-pointer border-2 border-[#3579DD] focus:outline-none focus:ring-2 focus:ring-[#3579DD] appearance-none"
-              style={{
-                maxHeight: "100px",
-                overflowY: "auto",
-              }}
+              className="w-full h-12 bg-[#090D14] text-white rounded-md px-4 cursor-pointer border-[1px] border-[#3579DD] focus:outline-none focus:ring-2 focus:ring-[#3579DD] appearance-none"
             >
               <option value="YY" disabled>
                 YY
@@ -144,7 +136,7 @@ const SelectDob = () => {
                 <option
                   key={year.year}
                   value={year.year}
-                  className="bg-white text-black h-[80px]"
+                  className="bg-white text-black"
                 >
                   {year.year}
                 </option>
@@ -168,11 +160,19 @@ const SelectDob = () => {
             </div>
           </div>
         </div>
-        <div className="mt-5 px-5">
+
+        {/* Submit Button */}
+        <div className="mt-6 px-4">
           <CustomButton
             onClick={handleDobSubmit}
+            style="w-full rounded-[24px]"
             text="Continue"
-            buttonStyle="w-[353px] h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white rounded-[24px] font-[600]"
+            buttonStyle={`w-full h-14 rounded-[24px] font-semibold ${
+              isDobValid()
+                ? "bg-[#3579DD] hover:bg-blue-600 text-white"
+                : "bg-gray-600 text-gray-300 cursor-not-allowed"
+            }`}
+            disabled={!isDobValid()}
           />
         </div>
       </div>

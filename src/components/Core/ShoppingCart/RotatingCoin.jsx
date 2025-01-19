@@ -18,6 +18,10 @@ const RotatingCoin = () => {
     navigate("/home");
   };
 
+  const handleViewReceipt = () => {
+    navigate("/view-receipt");
+  };
+
   return (
     <div className="w-[343px] min-h-screen flex flex-col items-center justify-center bg-[#090D14] text-white animate-fade-in">
       {/* Rotating Coin */}
@@ -44,6 +48,7 @@ const RotatingCoin = () => {
       <div className="mt-8 space-y-4 w-full px-4">
         <CustomButton
           text="View Receipt"
+          onClick={handleViewReceipt}
           buttonStyle="w-[353px] h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[104px] font-[500] text-[15px] mt-6"
           type="submit"
         />

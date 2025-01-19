@@ -52,15 +52,19 @@ const HomePage = () => {
     navigate("/recommendation");
   };
 
+  const handleToastOnClick = () => {
+    navigate("/view-receipt");
+  };
+
   return (
-    <div className="bg-[#090D14] w-[393px] max-w-[440px] flex flex-col mx-auto overflow-y-auto h-screen scrollbar-hide">
+    <div className="relative flex w-full flex-col mx-auto h-auto overflow-y-auto scrollbar-hide">
       <div
         style={{
           backgroundImage: `url(${homeBg})`,
         }}
-        className="bg-no-repeat bg-cover bg-center w-full h-[350px] relative"
+        className="relative bg-no-repeat bg-cover bg-center w-full min-h-[300px] sm:min-h-[350px]"
       >
-        <div className="absolute flex mt-10 right-2 gap-4  p-4">
+        <div className="absolute flex mt-10 right-2 gap-4 p-4 sm:right-4">
           <div
             onClick={handleCartOnClick}
             className="relative flex items-center justify-center w-[44px] h-[44px] border-2 border-slate-500 cursor-pointer rounded-full p-[10px]"
@@ -85,8 +89,8 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="absolute flex flex-col bottom-[50px] left-1/2 transform -translate-x-1/2 translate-y-[50px] rounded-[16px] w-[350px] p-4 items-center overflow-y-auto">
-          <div className="w-[60px] h-[60px]">
+        <div className="absolute flex flex-col bottom-12 left-1/2 transform -translate-x-1/2 translate-y-[100px] rounded-[16px] w-[90%] p-4 items-center overflow-y-auto">
+          <div className="w-16 h-16">
             <img
               src={vibgyorBlub}
               alt="Vibgyor Icon"
@@ -107,31 +111,36 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="mt-[15px] px-4 flex-1">
-        <div className="flex items-center h-[50px] px-6 mt-2 mb-8">
+      <div className="mt-[50px] px-4 flex-1">
+        <div className="flex items-center justify-center h-[50px] px-6 mt-2 mb-8">
           <CouponsCarousel couponsData={coupanData} />
         </div>
 
         <div
           onClick={handleLocationClick}
-          className="relative mx-auto bg-[#161C25] rounded-[56px] w-[320px] h-[62px] mb-4 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
+          className="relative mx-auto bg-[#161C25] xs:mt-8 sm:px-4 rounded-[56px] w-full xs:w-[370px] sm:w-[380px] h-16 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
         >
-          <div className="absolute transform left-0 flex items-center justify-center">
-            <img
-              src={locationIcon}
-              className="w-[80px] h-[80px] translate-y-2"
-            />
+          <div className="absolute left-0 flex items-center">
             <div className="">
+              <img
+                src={locationIcon}
+                className="w-[80px] h-[80px] translate-y-2"
+              />
+            </div>
+            <div className="flex-1 overflow-hidden">
               <p className="text-[#FFFFFF]">Your Location</p>
               <p className="text-[#83858A]">{location}</p>
             </div>
-            <img src={arrowRightIcon} className="translate-x-[10px]" />
+            <div className="xs:translate-x-[55px] sm:translate-x-[250%]">
+              <img src={arrowRightIcon} className="w-4 h-4 ml-2" />
+            </div>
           </div>
         </div>
 
         {/* Recommendation Section Placeholder */}
-        <div className="">
-          <div className="flex justify-between items-center h-[50px] px-4">
+        {/* <div className="pb-4 xs:mt-8 sm:mt-10 mb-16 xs:mb-0"> */}
+        <div className="pt-2 pb-4">
+          <div className="flex justify-between items-center h-[50px] px-4 sm:px-10">
             <p className="text-white font-[500] text-[18px] leading-[24px]">
               Recommended for You
             </p>
@@ -142,16 +151,19 @@ const HomePage = () => {
               See All
             </button>
           </div>
-          <div className="mt-5 h-[250px] mb-3  overflow-y-auto">
+          <div className="xs:mt-2 sm:mt-2">
             <CarouselComponent carouselData={hotelData} />
           </div>
         </div>
       </div>
-      <div className="z-[100] absolute bottom-0 flex items-center justify-center -translate-y-[80px] translate-x-[30px]">
+      <div
+        onClick={handleToastOnClick}
+        className="z-[100] absolute bottom-0 left-[50%] transform -translate-x-[50%] -translate-y-[150%] flex flex-col items-center justify-center"
+      >
         {newOrder && toast && <OrderToast setToast={setToast} />}
       </div>
-      {/* Navbar Component Placeholder */}
-      <div className="fixed bottom-0 z-10 bg-solid-[#090D14]">
+
+      <div className="sticky bottom-0 z-10 w-full bg-[#090D14] border-t-[1px] border-[#202938] flex items-center justify-center pb-2">
         <Footer />
       </div>
     </div>

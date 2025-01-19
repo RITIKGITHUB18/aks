@@ -14,11 +14,11 @@ const Footer = () => {
   };
 
   return (
-    <div className="z-10 w-[393px] sm:w-[410px] bg-[#090D14] border-t-[0.75px] border-[#202938] pb-4 pt-3 flex justify-around items-center">
+    <div className="z-10 w-full bg-[#090D14] md:w-[600px] sm:pb-4 pt-3 flex justify-around items-center">
       {navbarData.map((tab) => (
         <div
           key={tab.id}
-          className="flex flex-col items-center cursor-pointer"
+          className="flex flex-col items-center cursor-pointer "
           onClick={() => handleNavigation(tab)}
         >
           <img
@@ -37,7 +37,7 @@ const Footer = () => {
           </p>
 
           {tab.name === "History" && newOrder && (
-            <div className="bg-red-700 w-[14px] h-[14px] fixed flex items-center justify-center rounded-full bottom-0 transform -translate-y-[36px] translate-x-2" />
+            <div className="bg-red-700 w-[14px] h-[14px] flex items-center justify-center rounded-full bottom-0 transform -translate-y-[36px] translate-x-2" />
           )}
         </div>
       ))}
