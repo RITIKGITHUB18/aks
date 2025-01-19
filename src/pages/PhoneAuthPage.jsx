@@ -42,13 +42,12 @@ const PhoneAuth = () => {
     <div className="bg-[#090D14] w-full text-white flex flex-col items-center justify-center">
       {/* Back Button */}
       <Link onClick={handleBack} className="self-start sm:ml-8">
-        <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
+        <div className="rounded-full p-[10px] mt-[14px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
           <img src={leftArrow} alt="Back" className="w-6 h-6" />
         </div>
       </Link>
 
-      {/* Header Section */}
-      <div className="flex flex-col items-start justify-start mt-[32px] mb-[24px]">
+      <div className="flex flex-col items-start justify-start mt-[52px] mb-[24px]">
         <h1 className="text-[30px] font-[700] leading-[40px] text-white">
           Hi there!
         </h1>
