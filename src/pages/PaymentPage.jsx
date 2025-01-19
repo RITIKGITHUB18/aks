@@ -239,7 +239,7 @@ export const PaymentPage = () => {
 
           {/* Proceed Payment Button */}
           {selectedPaymentMethod && (
-            <div className="fixed bottom-0 border-t-[1px] border-[#202938] px-8 pb-4 pt-4">
+            <div className="fixed bottom-0 border-t-[1px] w-full border-[#202938] px-8 pb-4 pt-4">
               <CustomButton
                 style="w-[330px] mx-auto h-[50px]"
                 text="Proceed Payment"

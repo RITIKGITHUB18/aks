@@ -96,7 +96,7 @@ const BookTable = () => {
   };
 
   return (
-    <div className="text-white flex flex-col items-center mx-auto h-auto overflow-y-auto w-full max-w-md relative">
+    <div className="text-white flex flex-col items-center mx-auto h-auto overflow-y-auto w-full  relative">
       <div
         style={{ backgroundImage: `url(${BookTableImg})` }}
         className="w-full bg-no-repeat bg-cover bg-center min-h-[250px] xs:min-h-[320px] sm:min-h-[340px] md:h-auto relative"

@@ -57,7 +57,7 @@ const ShoppingCart = () => {
     navigate(-1);
   };
   return (
-    <div className="w-full justify-center text-white flex flex-col ">
+    <div className="w-full justify-center text-white flex flex-col">
       <div className="fixed top-0 z-50 bg-[#090D14] px-4 pt-2 pb-4 w-full h-[180px] ml-4 sm:ml-10">
         <Link onClick={handleBack}>
           <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[50px]">
@@ -125,28 +125,28 @@ const ShoppingCart = () => {
         {/* Apply promos before you order */}
         {/* <hr className="w-full h-[0.75px] border-t-[0.75px] -[#202938]" /> */}
         {cartItems.length > 0 && (
-          <div className="fixed bottom-0 flex flex-col bg-solid-[#090D14] border-t-[1px] border-[#202938] items-center justify-center ml-2 bg-[#090D14] pb-5 pt-1">
-            <div className="self-start text-start ml-2">
-              <h1 className="text-[20px] font-[700] leading-[40px]">
-                Order Summary
-              </h1>
-            </div>
-
-            <div className="self-start text-start px-4 w-full">
-              <div className="flex justify-between w-full text-gray-400 font-medium text-sm">
-                <div>Total</div>
-                <div>${totalPrice.toFixed(2)}</div>
+          <div className="fixed bottom-0 w-full flex flex-col bg-solid-[#090D14] border-t-[1px] border-[#202938] items-center justify-center ml-2 bg-[#090D14] pb-5 pt-1">
+            <div className="w-full max-w-[500px]">
+              <div className="self-start text-start ml-2 px-10">
+                <h1 className="text-[20px] font-[700] leading-[40px]">
+                  Order Summary
+                </h1>
               </div>
-            </div>
 
-            {/* Proceed to Pay Button */}
-            <CustomButton
-              text="Proceed To Pay"
-              style="ml-2"
-              buttonStyle="w-[353px] h-[50px] flex items-center justify-center bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[100px] font-[500] mt-6"
-              type="submit"
-              onClick={handleProceedToPay}
-            />
+              <div className="self-start text-start px-12 w-full">
+                <div className="flex justify-between w-full text-gray-400 font-medium text-sm">
+                  <div>Total</div>
+                  <div>${totalPrice.toFixed(2)}</div>
+                </div>
+              </div>
+              <CustomButton
+                text="Proceed To Pay"
+                style="ml-2"
+                buttonStyle="w-[353px] h-[50px] flex items-center justify-center bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[100px] font-[500] mt-6"
+                type="submit"
+                onClick={handleProceedToPay}
+              />
+            </div>
           </div>
         )}
       </div>
