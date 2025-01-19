@@ -60,7 +60,7 @@ const HomePage = () => {
         className="bg-no-repeat bg-cover bg-center w-full min-h-[300px] sm:min-h-[350px] relative"
       >
         {/* Top-Right Icons */}
-        <div className="absolute top-3 right-3 flex gap-4 sm:right-4">
+        <div className="absolute top-10 right-3 flex gap-4 sm:right-4">
           <div
             onClick={handleCartOnClick}
             className="relative w-11 h-11 border-2 border-slate-500 cursor-pointer rounded-full flex items-center justify-center"
@@ -86,7 +86,7 @@ const HomePage = () => {
         </div>
 
         {/* Rewards Section (No absolute) */}
-        <div className="flex flex-col items-center pt-16 pb-8">
+        <div className="flex flex-col items-center pt-32 pb-8">
           <div className="w-16 h-16">
             <img src={vibgyorBlub} alt="Vibgyor" className="w-full h-full" />
           </div>
@@ -99,7 +99,7 @@ const HomePage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 px-4 mt-4">
+      <div className="flex-1 px-4">
         {/* Coupons Carousel */}
         <div className="my-4">
           <CouponsCarousel couponsData={coupanData} />
@@ -108,7 +108,7 @@ const HomePage = () => {
         {/* Location */}
         <div
           onClick={handleLocationClick}
-          className="relative mx-auto bg-[#161C25] rounded-full w-full max-w-[400px] h-16 cursor-pointer shadow-md flex items-center border-2 border-[#202938] px-4 my-4"
+          className="relative mx-auto bg-[#161C25] rounded-full w-full max-w-[350px] h-16 cursor-pointer shadow-md flex items-center border-2 border-[#202938] px-4 my-7"
         >
           <img
             src={locationIcon}
@@ -127,7 +127,7 @@ const HomePage = () => {
         </div>
 
         <div className="pt-2 pb-6">
-          <div className="flex justify-between items-center mb-2">
+          <div className="flex justify-between items-center mb-8 px-4">
             <p className="font-semibold text-base">Recommended for You</p>
             <button
               onClick={handleSeeAllOnclick}
@@ -140,7 +140,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* Order Toast (if needed) */}
       {newOrder && toast && (
         <div
           onClick={handleToastOnClick}
@@ -150,7 +149,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Sticky Footer */}
       <div className="mt-auto sticky bottom-0 z-10 w-full bg-[#090D14] border-t border-[#202938] py-2 flex items-center justify-center">
         <Footer />
       </div>
