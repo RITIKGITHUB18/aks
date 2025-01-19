@@ -26,18 +26,14 @@ const HomePage = () => {
     (state) => state.cart
   );
 
-  const totalItem = selectedPackages?.length + selectedDrinks?.length;
-  console.log("New Item: ", newItem);
+  const totalItem =
+    (selectedPackages?.length || 0) + (selectedDrinks?.length || 0);
 
   const navigate = useNavigate();
   const [location, setLocation] = useState("Kawungcarang road no 28...");
 
   const handleLocationClick = () => {
-    navigate("/map", {
-      state: {
-        location: location,
-      },
-    });
+    navigate("/map", { state: { location } });
   };
 
   const handleCartOnClick = () => {
@@ -57,28 +53,28 @@ const HomePage = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen flex  flex-col mx-auto h-auto overflow-y-auto scrollbar-hide">
+    <div className="relative w-full min-h-screen flex flex-col bg-black text-white">
+      {/* Hero Section with BG Image */}
       <div
-        style={{
-          backgroundImage: `url(${homeBg})`,
-        }}
-        className="relative bg-no-repeat bg-cover bg-center w-full min-h-[300px] sm:min-h-[350px]"
+        style={{ backgroundImage: `url(${homeBg})` }}
+        className="bg-no-repeat bg-cover bg-center w-full min-h-[300px] sm:min-h-[350px] relative"
       >
-        <div className="absolute flex mt-10 right-2 gap-4 p-4 sm:right-4">
+        {/* Top-Right Icons */}
+        <div className="absolute top-3 right-3 flex gap-4 sm:right-4">
           <div
             onClick={handleCartOnClick}
-            className="relative flex items-center justify-center w-[44px] h-[44px] border-2 border-slate-500 cursor-pointer rounded-full p-[10px]"
+            className="relative w-11 h-11 border-2 border-slate-500 cursor-pointer rounded-full flex items-center justify-center"
           >
-            <img src={cartIcon} alt="Cart Icon" className="w-[24px] h-[24px]" />
+            <img src={cartIcon} alt="Cart Icon" className="w-5 h-5" />
             {newItem && (
-              <div className="absolute top-12 flex items-center justify-center bg-red-500  rounded-full w-[18px] h-[18px] translate-x-[12px] -translate-y-[20px] text-white">
-                <p className="text-[11px] ">{totalItem}</p>
+              <div className="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center translate-x-[25%] -translate-y-[25%]">
+                {totalItem}
               </div>
             )}
           </div>
 
           <div
-            className="w-[44px] h-[44px] cursor-pointer"
+            className="w-11 h-11 cursor-pointer"
             onClick={handleProfileOnClick}
           >
             <img
@@ -89,81 +85,73 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="absolute flex flex-col bottom-12 left-1/2 transform -translate-x-1/2 translate-y-[100px] rounded-[16px] w-[90%] p-4 items-center overflow-y-auto">
+        {/* Rewards Section (No absolute) */}
+        <div className="flex flex-col items-center pt-16 pb-8">
           <div className="w-16 h-16">
-            <img
-              src={vibgyorBlub}
-              alt="Vibgyor Icon"
-              className="w-full h-full"
-            />
+            <img src={vibgyorBlub} alt="Vibgyor" className="w-full h-full" />
           </div>
-          <div className="flex flex-col text-white items-center mt-1">
-            <h1 className="font-[400] text-[26px] leading-[20px] text-white">
-              My Rewards Points
-            </h1>
-            <p className="text-[13px] leading-[18px] text-white mt-2">
-              Earned Points
-            </p>
-            <p className="text-[50px] font-[700] leading-[72px] mt-2">
-              {totalCoins}
-            </p>
+          <div className="text-center mt-4">
+            <h1 className="text-xl font-medium">My Rewards Points</h1>
+            <p className="text-sm mt-1">Earned Points</p>
+            <p className="text-4xl sm:text-5xl font-bold mt-2">{totalCoins}</p>
           </div>
         </div>
       </div>
 
-      <div className="mt-[50px] px-4 flex-1">
-        <div className="flex items-center justify-center h-[50px] px-6 mt-2 mb-8">
+      {/* Main Content */}
+      <div className="flex-1 px-4 mt-4">
+        {/* Coupons Carousel */}
+        <div className="my-4">
           <CouponsCarousel couponsData={coupanData} />
         </div>
 
+        {/* Location */}
         <div
           onClick={handleLocationClick}
-          className="relative mx-auto bg-[#161C25] xs:mt-8 sm:px-4 rounded-[56px] w-full xs:w-[370px] sm:w-[380px] h-16 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
+          className="relative mx-auto bg-[#161C25] rounded-full w-full max-w-[400px] h-16 cursor-pointer shadow-md flex items-center border-2 border-[#202938] px-4 my-4"
         >
-          <div className="absolute left-0 flex items-center">
-            <div className="">
-              <img
-                src={locationIcon}
-                className="w-[80px] h-[80px] translate-y-2"
-              />
-            </div>
-            <div className="flex-1 overflow-hidden">
-              <p className="text-[#FFFFFF]">Your Location</p>
-              <p className="text-[#83858A]">{location}</p>
-            </div>
-            <div className="xs:translate-x-[55px] sm:translate-x-[250%]">
-              <img src={arrowRightIcon} className="w-4 h-4 ml-2" />
-            </div>
+          <img
+            src={locationIcon}
+            className="w-12 h-12 mr-2"
+            alt="Location Icon"
+          />
+          <div className="flex-1">
+            <p className="font-medium">Your Location</p>
+            <p className="text-sm text-gray-400 truncate">{location}</p>
           </div>
+          <img
+            src={arrowRightIcon}
+            className="w-4 h-4 ml-2"
+            alt="Arrow Right"
+          />
         </div>
 
-        {/* Recommendation Section Placeholder */}
-        {/* <div className="pb-4 xs:mt-8 sm:mt-10 mb-16 xs:mb-0"> */}
-        <div className="pt-2 pb-4">
-          <div className="flex justify-between items-center h-[50px] px-4 sm:px-10">
-            <p className="text-white font-[500] text-[18px] leading-[24px]">
-              Recommended for You
-            </p>
+        <div className="pt-2 pb-6">
+          <div className="flex justify-between items-center mb-2">
+            <p className="font-semibold text-base">Recommended for You</p>
             <button
               onClick={handleSeeAllOnclick}
-              className="text-[#3579DD] text-[14px] font-[500] leading-[18px] cursor-pointer"
+              className="text-sm text-[#3579DD] font-medium"
             >
               See All
             </button>
           </div>
-          <div className="xs:mt-2 sm:mt-2">
-            <CarouselComponent carouselData={hotelData} />
-          </div>
+          <CarouselComponent carouselData={hotelData} />
         </div>
       </div>
-      <div
-        onClick={handleToastOnClick}
-        className="z-[100] absolute bottom-0 left-[50%] transform -translate-x-[50%] -translate-y-[150%] flex flex-col items-center justify-center"
-      >
-        {newOrder && toast && <OrderToast setToast={setToast} />}
-      </div>
 
-      <div className="mt-auto sticky bottom-0 z-10 w-full bg-[#090D14] border-t border-[#202938] flex items-center justify-center">
+      {/* Order Toast (if needed) */}
+      {newOrder && toast && (
+        <div
+          onClick={handleToastOnClick}
+          className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50"
+        >
+          <OrderToast setToast={setToast} />
+        </div>
+      )}
+
+      {/* Sticky Footer */}
+      <div className="mt-auto sticky bottom-0 z-10 w-full bg-[#090D14] border-t border-[#202938] py-2 flex items-center justify-center">
         <Footer />
       </div>
     </div>

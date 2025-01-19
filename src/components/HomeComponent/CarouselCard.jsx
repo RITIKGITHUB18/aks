@@ -15,7 +15,7 @@ const CarouselCard = ({ cardData }) => {
 
   return (
     <div
-      className="relative flex flex-col w-[269px] h-[183px] rounded-[12px] px-2 mb-3"
+      className="relative flex flex-col w-[17rem] h-auto rounded-[12px] px-2"
       onClick={handleBookTable}
     >
       {/* Hotel Image */}
@@ -41,7 +41,7 @@ const CarouselCard = ({ cardData }) => {
       </div>
 
       {/* Hotel Details */}
-      <div className="absolute flex flex-col w-full px-4 transform translate-y-[140px]">
+      <div className="flex flex-col w-full px-4 mt-2">
         {/* Hotel Name and Rating */}
         <div className="flex justify-between items-center">
           {/* Hotel Name and Rating */}
