@@ -17,7 +17,7 @@ const MapPage = () => {
   };
 
   return (
-    <div className="bg-[#090D14] w-[393px] text-white flex flex-col items-center">
+    <div className="w-full text-white flex flex-col items-center p-2 mx-auto">
       {/* Back Button */}
 
       {isMapVisible && <MapContainer />}
@@ -25,12 +25,12 @@ const MapPage = () => {
       {/* Header Section */}
       {!isMapVisible && (
         <>
-          <Link to="/home" className="self-start">
+          <Link to="/home" className="flex -translate-x-[300%]">
             <div className="rounded-full p-[10px] mt-[52px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
               <img src={leftArrow} alt="Back" className="w-6 h-6" />
             </div>
           </Link>
-          <div className="self-start text-start mt-[32px] mb-[24px] px-10">
+          <div className="text-start mt-[32px] flex flex-col items-start justify-start left-0 mb-[24px] px-10">
             <h1 className="text-[24px] font-[500] leading-[32px] text-white">
               Pick location
             </h1>
@@ -40,7 +40,7 @@ const MapPage = () => {
           </div>
 
           {/* Search Section */}
-          <div className="w-[353px] flex flex-col gap-4">
+          <div className="w-full max-w-[22rem] flex flex-col gap-4">
             <div className="relative flex items-center w-full">
               <div
                 className="absolute top-[16px] left-5"
@@ -62,7 +62,7 @@ const MapPage = () => {
 
           {/* Address Options */}
           <div
-            className="w-[336px] mt-4 flex flex-col h-[139px] leading-8"
+            className="w-full max-w-[21rem] mt-4 flex flex-col h-[139px] leading-8"
             onClick={toggleMapVisibility}
           >
             <div className="flex items-center justify-between bg-[#161C25] border-[1px] border-[#202938] rounded-t-[8px] rounded-b-none p-4 cursor-pointer">

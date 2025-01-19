@@ -38,7 +38,7 @@ const MapContainer = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       {loading && (
         <div className="flex items-center justify-center h-screen">
           <FallingLines
@@ -50,7 +50,7 @@ const MapContainer = () => {
         </div>
       )}
 
-      <div className="fixed z-10 mt-14 flex items-center px-4 w-[343px] h-[52px] border-[1px] border-[#202938] bg-[#202938] rounded-[100px]">
+      <div className="absolute z-10 mt-14 flex items-center px-4 w-full max-w-[22rem] h-[52px] border-[1px] border-[#202938] bg-[#202938] rounded-[100px]">
         <img
           src={searchIcon}
           style={{
@@ -65,7 +65,7 @@ const MapContainer = () => {
       </div>
 
       <div
-        style={{ width: "430px", height: "100vh", top: "0%" }}
+        style={{ width: "30rem", height: "100vh", top: "0%" }}
         className="rounded-[24px]"
       >
         <GoogleMapReact
@@ -76,9 +76,9 @@ const MapContainer = () => {
           defaultZoom={defaultProps.zoom}
           onClick={handleMapClick}
         />
-        <div className="fixed bottom-2 animate-slide-in">
+        <div className="absolute bottom-2 flex items-center left-[50%] transition-transform -translate-x-40 justify-center animate-slide-in">
           {showModal && (
-            <div className="flex flex-col w-[322px] h-[220px] items-center p-4 bg-[#202938] mt-4 top-[70%] rounded-[14px] justify-center translate-x-[50px]">
+            <div className="flex flex-col w-full max-w-[322px] h-[220px] items-center p-4 bg-[#202938] mt-4 rounded-[14px] justify-center">
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-center gap-x-4 ">
                   <span className="" onClick={() => setShowModal(false)}>

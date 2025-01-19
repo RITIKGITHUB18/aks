@@ -57,7 +57,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="relative flex w-full flex-col mx-auto h-auto overflow-y-auto scrollbar-hide">
+    <div className="relative w-full min-h-screen flex  flex-col mx-auto h-auto overflow-y-auto scrollbar-hide">
       <div
         style={{
           backgroundImage: `url(${homeBg})`,
@@ -163,7 +163,7 @@ const HomePage = () => {
         {newOrder && toast && <OrderToast setToast={setToast} />}
       </div>
 
-      <div className="sticky bottom-0 z-10 w-full bg-[#090D14] border-t-[1px] border-[#202938] flex items-center justify-center pb-2">
+      <div className="mt-auto sticky bottom-0 z-10 w-full bg-[#090D14] border-t border-[#202938] flex items-center justify-center">
         <Footer />
       </div>
     </div>
