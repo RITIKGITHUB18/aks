@@ -36,7 +36,7 @@ const ChatPage = () => {
       <div className="fixed top-0 z-50 bg-[#090D14] px-1 pb-4 w-[393px] pr-3">
         <div className="flex justify-between mt-[35px] w-full border-gray-600 pb-6 px-2">
           <div
-            onClick={handleBackOnclick}
+            onClick={() => handleBackOnclick()}
             className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center"
           >
             <img src={leftArrow} alt="Back" className="w-6 h-6" />

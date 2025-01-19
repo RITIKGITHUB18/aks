@@ -16,7 +16,7 @@ const HotelRecommendationPage = () => {
         onClick={handleBack}
         className="flex items-center self-start left-0 transition-transform translate-x-5 sm:translate-x-10 z-[200]"
       >
-        <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[50px]">
+        <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[25px]">
           <img src={leftArrow} alt="Back" className="w-6 h-6" />
         </div>
       </Link>

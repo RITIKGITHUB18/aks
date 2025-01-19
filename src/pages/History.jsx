@@ -21,13 +21,13 @@ const HistoryPage = () => {
 
   return (
     <div className="relative w-full min-h-screen text-white flex flex-col items-center scrollbar-hide">
-      <div className="fixed flex  z-50 bg-[#090D14] px-4 pb-0 w-full h-[180px]">
+      <div className="fixed flex z-50 bg-[#090D14] px-4 w-full h-[150px]">
         <Link onClick={handleBack} className="ml-5">
-          <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[50px]">
+          <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[20px]">
             <img src={leftArrow} alt="Back" className="w-6 h-6" />
           </div>
         </Link>
-        <div className="flex  items-center justify-start mt-10 ml-4 sm:ml-6 text-[24px]  leading-[31.2px] translate-y-[50px]">
+        <div className="flex  items-center justify-start ml-4 sm:ml-6 text-[24px]  leading-[31.2px] translate-y-[50px]">
           <p className="text-[24px] font-[500] mb-10">Checkout</p>
         </div>
       </div>

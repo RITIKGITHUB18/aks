@@ -38,7 +38,7 @@ const Receipt = () => {
   }
 
   return (
-    <div className="flex flex-col items-center w-full min-h-screen mb-2 bg-[#090D14] text-white animate-fade-in pt-14 px-4">
+    <div className="flex flex-col items-center w-full min-h-screen mb-2 bg-[#090D14] text-white animate-fade-in pt-4 px-4">
       {/* Back Arrow */}
       <div className="self-start md:ml-10 sm:ml-4 ml-2 mb-4">
         <Link to="/history" className="block">

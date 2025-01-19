@@ -68,7 +68,7 @@ const OrderSummary = () => {
   }, [checkout]);
 
   return (
-    <div className="text-white w-[393px] flex flex-col items-center p-2 mt-10 overflow-y-auto scrollbar-hide">
+    <div className="text-white w-[393px] flex flex-col items-center p-2 mt-4 overflow-y-auto scrollbar-hide">
       {!checkout && !showRotatingCoin ? (
         <div className="animate-fade-in mb-5">
           <Link to="/home" className="self-start">

@@ -42,7 +42,7 @@ const WalletPage = () => {
     <div className="w-full text-white flex flex-col items-center justify-center">
       <div
         onClick={handleBack}
-        className="self-start rounded-full mt-[52px] ml-4 sm:ml-10  cursor-pointer hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center"
+        className="self-start rounded-full mt-4 ml-4 sm:ml-10  cursor-pointer hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center"
       >
         <img src={leftArrow} alt="Back" className="w-6 h-6" />
       </div>

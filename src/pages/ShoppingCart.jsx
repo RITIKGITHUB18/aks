@@ -58,7 +58,7 @@ const ShoppingCart = () => {
   };
   return (
     <div className="w-full justify-center text-white flex flex-col">
-      <div className="fixed top-0 z-50 bg-[#090D14] px-4 pt-2 pb-4 w-full h-[180px] ml-4 sm:ml-10">
+      <div className="fixed top-0 z-50 bg-[#090D14] px-4 pb-4 w-full h-[180px] ml-4 sm:ml-10">
         <Link onClick={handleBack}>
           <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[50px]">
             <img src={leftArrow} alt="Back" className="w-6 h-6" />
