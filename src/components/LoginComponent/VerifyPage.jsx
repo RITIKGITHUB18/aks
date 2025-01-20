@@ -4,6 +4,8 @@ import OTPInput from "react-otp-input";
 import { Link, useNavigate } from "react-router-dom";
 import { leftArrow } from "../../assets/Images";
 import { supabase } from "../../helper/supabaseConfig";
+import { PhoneAuthProvider, signInWithCredential } from "firebase/auth";
+import { auth } from "../../helper/firebase";
 
 const VerifyPage = ({
   header,
@@ -20,7 +22,6 @@ const VerifyPage = ({
   const [resendCount, setResendCount] = useState(0);
   const navigate = useNavigate();
 
-  // const isOtpEntered = otp.length === 5 && parseInt(otp) >= 9999;
   const isOtpEntered = otp.length === 6 && parseInt(otp) >= 9999;
 
   const handleOnSubmit = async (e) => {
@@ -48,17 +49,30 @@ const VerifyPage = ({
         console.error("Error verifying OTP: ", error);
         setError("Something went wrong. Please try again.");
       }
-    } else {
-      if (otp === "123456") {
+    }
+    if (type == "phone") {
+      try {
+        const { state } = location;
+        const { verificationId } = state;
+
+        const credential = PhoneAuthProvider.credential(verificationId, otp);
+
+        const result = await signInWithCredential(auth, credential);
+        console.log("Phone authentication successfull: ", result);
+
         setError("");
-        if (onSuccess) onSuccess();
+        if (onSuccess) {
+          onSuccess();
+        }
         navigate(redirectPath);
-      } else {
+      } catch (error) {
+        console.error("Error verifying OTP: ", error);
         setError("Invalid OTP. Please try again.");
       }
+    } else {
+      setError("Invalid OTP. Please try again.");
     }
   };
-
   const handleResend = () => {
     if (resendCount >= 2) {
       setError(
@@ -73,10 +87,10 @@ const VerifyPage = ({
   };
 
   return (
-    <div className="relative w-full text-white flex flex-col items-center justify-center ">
+    <div className="relative w-full text-white flex flex-col items-center">
       {/* Back Button */}
       <Link to={backPath} className="self-start mx-6 md:mx-10">
-        <div className="rounded-full p-[10px] mt-[14px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938]">
+        <div className="rounded-full p-[10px] mt-[14px] ml-[10px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938]">
           <img
             src={leftArrow}
             alt="Back"
@@ -86,7 +100,7 @@ const VerifyPage = ({
       </Link>
 
       {/* Header */}
-      <div className="flex flex-col items-center text-center mt-[82px] mb-[24px] px-7">
+      <div className="flex flex-col items-center text-center mt-[60px] mb-[24px] px-7">
         <h1 className="text-[30px] font-[700] mb-2 leading-10">{header}</h1>
         <p className="text-slate-400 font-[400] text-[16px] leading-5">
           {description}{" "}
@@ -111,7 +125,7 @@ const VerifyPage = ({
               <input
                 {...props}
                 style={{ justifyContent: "space-between", gap: "0 5px" }}
-                className="w-[50px] h-[50px] bg-[#090D14] aspect-square  border border-[#3579DD] rounded-md text-center text-lg text-white focus:outline-none focus:ring-2 focus:ring-[#3579DD] gap-2"
+                className="w-[40px] h-[40px] bg-[#090D14] aspect-square  border border-[#3579DD] rounded-md text-center text-lg text-white focus:outline-none focus:ring-2 focus:ring-[#3579DD] gap-2"
               />
             )}
           />
@@ -136,7 +150,7 @@ const VerifyPage = ({
             onClick={handleOnSubmit}
             disabled={!isOtpEntered}
             style="bg-[#1E293B] rounded-[24px] mt-5"
-            buttonStyle={`w-[353px] h-[56px] ${
+            buttonStyle={`w-[330px] h-[56px] ${
               isOtpEntered
                 ? "bg-blue-500 hover:bg-blue-600 cursor-pointer"
                 : "bg-[#4D4D4D] "

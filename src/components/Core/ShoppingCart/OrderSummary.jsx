@@ -15,9 +15,9 @@ const orderData = {
     { label: "Merchant Name", value: "John's Diner" },
   ],
   summaryDetails: [
-    { label: "Amount", value: "$218" },
-    { label: "Discount", value: "$25.89" },
-    { label: "Admin Fee", value: "$25.99" },
+    { label: "Amount", value: "AED 218" },
+    { label: "Discount", value: "AED 25.89" },
+    { label: "Admin Fee", value: "AED 25.99" },
   ],
 };
 
@@ -55,7 +55,7 @@ const OrderSummary = () => {
   const generateOrderId = () => {
     const timestamp = Date.now().toString(36);
     const randomString = Math.random().toString(36).substring(2, 8);
-    return `ORD-${timestamp}-${randomString}`.toUpperCase();
+    return `ORD-AED {timestamp}-AED {randomString}`.toUpperCase();
   };
 
   if (!cartItem || !totalPrice) {
@@ -120,7 +120,8 @@ const OrderSummary = () => {
                     >
                       <span>{item?.name || item?.itemName}</span>
                       <span>
-                        {item.quantity} x $ {item.price}
+                        {item.quantity} x{" "}
+                        <span className="text-[12px]">AED</span> {item.price}
                       </span>
                     </li>
                   ))}
@@ -131,17 +132,24 @@ const OrderSummary = () => {
               <div className="space-y-2">
                 <div className="flex justify-between text-gray-400">
                   <span>Total Amount :</span>
-                  <span>$ {totalPrice.toFixed(2)}</span>
+                  <span>
+                    <span className="text-[12px]">AED</span>{" "}
+                    {totalPrice.toFixed(2)}
+                  </span>
                 </div>
                 <div className="flex justify-between text-gray-400">
                   <span>Discount (20%) :</span>
                   <span>
-                    $ {calculateDiscountedPrice(totalPrice.toFixed(2))}
+                    <span className="text-[12px]">AED</span>{" "}
+                    {calculateDiscountedPrice(totalPrice.toFixed(2))}
                   </span>
                 </div>
                 <div className="flex justify-between text-gray-400">
                   <span>Merchant fee (5%) :</span>
-                  <span>$ {merchantFee(totalPrice.toFixed(2))}</span>
+                  <span>
+                    <span className="text-[12px]">AED</span>{" "}
+                    {merchantFee(totalPrice.toFixed(2))}
+                  </span>
                 </div>
               </div>
 

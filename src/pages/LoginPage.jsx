@@ -40,38 +40,44 @@ const LoginPage = () => {
     }
   };
   return (
-    <div className="mt-6 bg-cover min-h-screen items-center justify-center">
+    <div className="mt-6 w-full min-h-screen items-center justify-center">
       <div className="flex flex-col items-center justify-center text-white p-4">
-        <div className="w-full flex items-center justify-between sm:justify-center mt-[52px] self-start">
-          <div className="w-[108px] h-[44px] px-4">
-            <Link to="/getStarted">
-              <img src={CrossIcon} alt="Close" className="w-[21px] h-[21px]" />
+        <div className="flex items-center justify-center  mt-[14px]">
+          <div className="w-full xs:w-[350px] flex items-center justify-center ">
+            <Link to="/getStarted" className="flex items-center justify-center">
+              <img
+                src={CrossIcon}
+                alt="Close"
+                className="w-[21px] h-[21px] transition-transform -translate-x-8"
+              />
             </Link>
           </div>
-          <div className="w-[285px] h-[44px] flex">
-            <h1 className="text-lg font-bold px-10">Log in or Sign up</h1>
+          <div className="w-full flex items-center self-start">
+            <h1 className="text-lg font-[500] transition-transform -translate-x-10">
+              Log in or Sign up
+            </h1>
           </div>
         </div>
 
-        <div className="flex flex-col justify-center w-full sm:w-[430px] p-10 rounded-lg shadow-md">
-          <h2 className="text-sm font-semibold mb-2">Email</h2>
+        <div className="flex flex-col justify-center w-full sm:w-[430px] p-8 rounded-lg shadow-md">
+          <h2 className="text-[17px] font-[400] mb-3 leading-6">Email</h2>
           <InputBox
-            style="mb-4"
+            style="mb-2"
             type="email"
             placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
-            inputStyle="p-2 border focus:outline-none focus-visible:ring border-[#3F70FA] rounded-lg bg-[#1E293B] text-white"
+            inputStyle="px-5 h-[51px] border focus:outline-none focus-visible:ring border-[#3F70FA] rounded-lg bg-[#1E293B] text-white"
           />
           <CustomButton
             text="Continue"
             onClick={handleOnClick}
             disabled={!isEmailEntered}
-            style="bg-[#1E293B] rounded-[24px]"
+            style="bg-[#1E293B] rounded-[24px] mt-3"
             buttonStyle={`w-full ${
               isEmailEntered
                 ? "bg-blue-500 hover:bg-blue-600 cursor-pointer"
                 : "bg-[#1E293B] "
-            } text-white py-2 rounded-[24px] font-semibold`}
+            } text-white py-3 rounded-[24px] font-semibold`}
           />
         </div>
 
@@ -80,14 +86,14 @@ const LoginPage = () => {
         )}
 
         {/* Divider Section */}
-        <div className="relative mt-6 w-[360px] flex items-center">
+        <div className="relative mt-6 w-full sm:w-[390px] flex items-center">
           <hr className="flex-grow border-[#334155]" />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 bg-[#334155] text-white text-sm font-medium rounded-[24px] border border-[#1E293B]">
             OR
           </div>
         </div>
 
-        <div className="w-full sm:w-[410px] mt-10">
+        <div className="w-full sm:w-[360px]  mt-12">
           <OAuthLoginComponent
             items={OAuthComponentData}
             style="w-full flex flex-col gap-4"

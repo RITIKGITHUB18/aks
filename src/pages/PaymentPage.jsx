@@ -164,10 +164,11 @@ export const PaymentPage = () => {
                 <div className="">
                   <p className="text-[#FFFFFF] translate-x-[-18px]">wallet</p>
                   <p className="text-[#83858A] translate-x-[-18px]">
-                    Available balance: $183.43
+                    Available balance: <span className="text-[13px]">AED</span>{" "}
+                    183.43
                   </p>
                 </div>
-                <img src={arrowRightIcon} className="translate-x-[20px]" />
+                <img src={arrowRightIcon} className="-translate-x-[10px]" />
               </div>
             </div>
           </Link>

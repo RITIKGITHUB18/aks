@@ -31,7 +31,7 @@ const FoodCard = ({ item }) => {
         </div>
         <div className="flex justify-between py-3">
           <p className="text-[16px] font-[500] mt-2 px-4">
-            $ {itemsPrice(item.price)}
+            AED {itemsPrice(item.price)}
           </p>
           {/* <div className="flex items-center bg-[#161C25] rounded-full px-1 py-2 gap-3 border-[#202938] border-[1px]">
             <button

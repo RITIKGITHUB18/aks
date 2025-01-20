@@ -28,7 +28,7 @@ const hotelData = [
     noOfRating: "120+",
     distance: "2.8 km away",
     hotelImg: hotelRoom01,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: RecommendedIcon,
     affordablePackages: [
       {
@@ -197,7 +197,7 @@ const hotelData = [
     noOfRating: "250+",
     distance: "1.5 km away",
     hotelImg: hotelRoom02,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: "",
     affordablePackages: [
       {
@@ -366,7 +366,7 @@ const hotelData = [
     noOfRating: "300+",
     distance: "3.2 km away",
     hotelImg: hotelRoom03,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: "",
     affordablePackages: [
       {
@@ -535,7 +535,7 @@ const hotelData = [
     noOfRating: "180+",
     distance: "4.0 km away",
     hotelImg: hotelRoom01,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: RecommendedIcon,
     affordablePackages: [
       {
@@ -704,7 +704,7 @@ const hotelData = [
     noOfRating: "90+",
     distance: "5.3 km away",
     hotelImg: hotelRoom02,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: "",
     affordablePackages: [
       {
@@ -873,7 +873,7 @@ const hotelData = [
     noOfRating: "200+",
     distance: "2.1 km away",
     hotelImg: hotelRoom03,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: "",
     affordablePackages: [
       {
@@ -1042,7 +1042,7 @@ const hotelData = [
     noOfRating: "150+",
     distance: "3.8 km away",
     hotelImg: hotelRoom01,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: RecommendedIcon,
     affordablePackages: [
       {
@@ -1211,7 +1211,7 @@ const hotelData = [
     noOfRating: "400+",
     distance: "1.0 km away",
     hotelImg: hotelRoom02,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: "",
     affordablePackages: [
       {
@@ -1380,7 +1380,7 @@ const hotelData = [
     noOfRating: "220+",
     distance: "6.0 km away",
     hotelImg: hotelRoom03,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: "",
     affordablePackages: [
       {
@@ -1549,7 +1549,7 @@ const hotelData = [
     noOfRating: "80+",
     distance: "4.5 km away",
     hotelImg: hotelRoom01,
-    price: "$28",
+    price: "AED 28",
     recommendedIcon: RecommendedIcon,
     affordablePackages: [
       {

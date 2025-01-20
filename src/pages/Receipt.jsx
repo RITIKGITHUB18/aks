@@ -104,7 +104,8 @@ const Receipt = () => {
                   >
                     <span>{item.name || item.itemName}</span>
                     <span>
-                      {item.qunatity} x ${item.price}
+                      {item.quantity > 1 && <span>{item.quantity} x </span>}
+                      <span className="text-[12px]">AED</span> {item.price}
                     </span>
                   </li>
                 ))}
@@ -116,15 +117,24 @@ const Receipt = () => {
             <div className="space-y-2">
               <div className="flex justify-between text-gray-400">
                 <span>Total Amount:</span>
-                <span>${parseFloat(totalPrice).toFixed(2)}</span>
+                <span>
+                  <span className="text-[12px]">AED</span>{" "}
+                  {parseFloat(totalPrice).toFixed(2)}
+                </span>
               </div>
               <div className="flex justify-between text-gray-400">
                 <span>Discount (20%):</span>
-                <span>${calculateDiscountedPrice(totalPrice)}</span>
+                <span>
+                  <span className="text-[12px]">AED</span>{" "}
+                  {calculateDiscountedPrice(totalPrice)}
+                </span>
               </div>
               <div className="flex justify-between text-gray-400">
                 <span>Merchant fee (5%):</span>
-                <span>${merchantFee(totalPrice)}</span>
+                <span>
+                  <span className="text-[12px]">AED</span>{" "}
+                  {merchantFee(totalPrice)}
+                </span>
               </div>
             </div>
 

@@ -38,7 +38,7 @@ const ShoppingCart = () => {
   const handleProceedToPay = () => {
     const transformedCartItems = cartItems.map((item) => ({
       label: item.name || item.itemName,
-      value: `${item.quantity} x $${item.price.toFixed(2)} 
+      value: `${item.quantity} x AED ${item.price.toFixed(2)} 
       `,
     }));
 
@@ -136,7 +136,7 @@ const ShoppingCart = () => {
               <div className="self-start text-start px-12 w-full">
                 <div className="flex justify-between w-full text-gray-400 font-medium text-sm">
                   <div>Total</div>
-                  <div>${totalPrice.toFixed(2)}</div>
+                  <div>AED {totalPrice.toFixed(2)}</div>
                 </div>
               </div>
               <CustomButton

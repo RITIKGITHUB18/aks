@@ -47,7 +47,7 @@ const CheckoutCard = ({ checkoutData, isLatest, viewReceipt }) => {
 
           <div>
             <p className="text-gray-400 text-sm font-[500] leading-[18.2px]">
-              ${data.price}
+              <span className="text-[11px]">AED</span> {data.price}
             </p>
           </div>
         </div>

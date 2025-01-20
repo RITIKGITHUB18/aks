@@ -3,13 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { leftArrow } from "../assets/Images";
 import CustomButton from "../components/common/CustomButton";
 import { IN } from "../assets/FLAG_SVG";
-import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
-import { auth } from "../helper/firebase";
+import { supabase } from "../helper/supabaseConfig";
 
 const PhoneAuth = () => {
-  console.log("Auth: ", auth);
   const navigate = useNavigate();
   const location = useLocation();
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const [selectedCountry, setSelectedCountry] = useState(
     location.state?.selectedCountry || {
@@ -20,23 +20,19 @@ const PhoneAuth = () => {
       dialingCode: "+91",
     }
   );
-  const [phoneNumber, setPhoneNumber] = useState("");
-
-  useEffect(() => {
-    return () => {
-      if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.clear();
-      }
-    };
-  }, []);
 
   const handleSelectCountry = () => {
     navigate("/select-country", { state: { currentCountry: selectedCountry } });
   };
 
   const handlePhoneAuth = async () => {
-    if (!phoneNumber.trim()) {
-      alert("Please enter a valid phone number");
+    if (isLoading) return;
+
+    setIsLoading(true);
+    const phoneRegex = /^[0-9]{10,15}$/;
+    if (!phoneNumber.trim() || !phoneRegex.test(phoneNumber)) {
+      // toast.error("Please enter a valid phone number");
+      setIsLoading(false);
       return;
     }
 
@@ -44,30 +40,27 @@ const PhoneAuth = () => {
     console.log("Full Phone Number: ", fullPhoneNumber);
 
     try {
-      // setupReCAPTCHA();
-      const recaptcha = new RecaptchaVerifier(auth, "recaptcha-container", {
-        size: "invisible",
-        callback: (response) => {},
+      const { error } = await supabase.auth.signInWithOtp({
+        phone: fullPhoneNumber,
       });
 
-      console.log("recaptcha: ", recaptcha);
-      const confirmationResult = await signInWithPhoneNumber(
-        auth,
-        fullPhoneNumber,
-        recaptcha
-      );
-
-      console.log("COnfirmationResult: ", confirmationResult);
+      if (error) {
+        console.error("Error sending OTP:", error);
+        // toast.error("Failed to send OTP. Please try again.");
+        setIsLoading(false);
+        return;
+      }
 
       navigate("/verify-phone", {
         state: {
-          confirmationResult,
           phoneNumber: fullPhoneNumber,
         },
       });
     } catch (error) {
       console.error("SMS not sent", error);
-      alert("Failed to send OTP. Check console for details.");
+      // toast.error("Failed to send OTP. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -115,13 +108,13 @@ const PhoneAuth = () => {
         <CustomButton
           onClick={handlePhoneAuth}
           style="w-full sm:w-[390px] px-10"
-          text="Send OTP"
-          buttonStyle="w-full h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white rounded-[24px] font-[600] mt-6 leading-6"
+          text={isLoading ? "Sending OTP..." : "Send OTP"}
+          buttonStyle={`w-full h-[56px] ${
+            isLoading ? "bg-gray-500" : "bg-[#3579DD] hover:bg-blue-600"
+          } text-white rounded-[24px] font-[600] mt-6 leading-6`}
+          disabled={isLoading}
         />
       </div>
-
-      {/* <div id="recaptcha-container" style={{ display: "none" }}></div> */}
-      <div id="recaptcha-container" className="mt-3"></div>
     </div>
   );
 };

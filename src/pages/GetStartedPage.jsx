@@ -16,12 +16,13 @@ const GetStartedPage = () => {
         }}
         className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover"
       ></div>
-      <div className="relative flex flex-col justify-between min-h-screen">
+      <div className="relative bottom-0 flex flex-col justify-between min-h-screen">
         <div className="flex-grow"></div>{" "}
         <div
           className="flex flex-col justify-center items-center text-white px-6 "
           style={{
-            height: "35vh",
+            height: "33vh",
+            bottom: "0",
             background:
               "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, #0F172A 100%)",
             backdropFilter: "blur(20px)",

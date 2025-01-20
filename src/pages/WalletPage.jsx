@@ -7,28 +7,32 @@ const lastTransaction = [
     id: 1,
     TransName: "Delivery Order",
     Date: "Nov 26, 2023 - 12:29",
-    amount: "$128",
+    amount: "128",
+    currency: "AED",
     icon: card,
   },
   {
     id: 2,
     TransName: "Top Up",
     Date: "Nov 26, 2023 - 13:00",
-    amount: "$64",
+    amount: "64",
+    currency: "AED",
     icon: card,
   },
   {
     id: 3,
     TransName: "Delivery Order",
     Date: "Nov 27, 2023 - 09:15",
-    amount: "$50",
+    amount: "50",
+    currency: "AED",
     icon: card,
   },
   {
     id: 4,
     TransName: "Withdrawal",
     Date: "Nov 27, 2023 - 10:05",
-    amount: "$200",
+    amount: "200",
+    currency: "AED",
     icon: card,
   },
 ];
@@ -60,7 +64,9 @@ const WalletPage = () => {
           <h3 className="font-[400] leading-[19.2px] text-[12px] text-[#83858A]">
             Available Balance
           </h3>
-          <h1 className="font-[500] text-[28px] leading-[36.4px]">$183.43</h1>
+          <h1 className="font-[500] text-[28px] leading-[36.4px]">
+            <span className="text-[18px]">AED</span>183.43
+          </h1>
         </div>
       </div>
 
@@ -90,6 +96,7 @@ const WalletPage = () => {
                 </div>
               </div>
               <div className="text-[#FFFFFF] font-[400] text-[14px] leading-[22.4px]">
+                <span className="text-[10px]">{trans.currency}</span>{" "}
                 {trans.amount}
               </div>
             </div>
