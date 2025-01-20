@@ -40,20 +40,25 @@ const PhoneAuth = () => {
     console.log("Full Phone Number: ", fullPhoneNumber);
 
     try {
-      const { error } = await supabase.auth.signInWithOtp({
-        phone: fullPhoneNumber,
+      // setupReCAPTCHA();
+      const recaptcha = new RecaptchaVerifier(auth, "recaptcha-container", {
+        size: "invisible",
+        callback: (response) => {},
       });
 
-      if (error) {
-        console.error("Error sending OTP:", error);
-        // toast.error("Failed to send OTP. Please try again.");
-        setIsLoading(false);
-        return;
-      }
+      console.log("recaptcha: ", recaptcha);
+      const confirmationResult = await signInWithPhoneNumber(
+        auth,
+        fullPhoneNumber,
+        recaptcha
+      );
+
+      console.log("ConfirmationResult: ", confirmationResult.verificationId);
 
       navigate("/verify-phone", {
         state: {
-          phoneNumber: fullPhoneNumber,
+          verificationId: confirmationResult.verificationId,
+          phoneNumber: fullPhoneNumber, // Make sure you pass phoneNumber too if needed
         },
       });
     } catch (error) {
