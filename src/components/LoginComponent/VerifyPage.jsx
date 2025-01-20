@@ -115,7 +115,7 @@ const VerifyPage = ({
   return (
     <div className="relative w-full text-white flex flex-col items-center">
       {/* Back Button */}
-      <Link to={backPath} className="self-start mx-6 md:mx-10">
+      <Link to={backPath} className="self-start mx-2 md:mx-10">
         <div className="rounded-full p-[10px] mt-[14px] ml-[10px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938]">
           <img
             src={leftArrow}
@@ -127,8 +127,10 @@ const VerifyPage = ({
 
       {/* Header */}
       <div className="flex flex-col items-center text-center mt-[60px] mb-[24px] px-7">
-        <h1 className="text-[30px] font-[700] mb-2 leading-10">{header}</h1>
-        <p className="text-slate-400 font-[400] text-[16px] leading-5">
+        <h1 className="text-[26px] sm:text-[30px] font-[700] mb-2 leading-10">
+          {header}
+        </h1>
+        <p className="text-slate-400 font-[400] text-[14px] sm:text-[16px] leading-5">
           {description}{" "}
           <span className="text-gray-200 text-[16px] leading-5 font-[500]">
             {emailOrPhone}

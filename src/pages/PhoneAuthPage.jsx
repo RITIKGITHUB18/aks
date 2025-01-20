@@ -3,14 +3,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { leftArrow } from "../assets/Images";
 import CustomButton from "../components/common/CustomButton";
 import { IN } from "../assets/FLAG_SVG";
-import { supabase } from "../helper/supabaseConfig";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { auth } from "../helper/firebase";
 
 const PhoneAuth = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
   const [selectedCountry, setSelectedCountry] = useState(
     location.state?.selectedCountry || {
       code3l: "IND",
@@ -20,6 +20,14 @@ const PhoneAuth = () => {
       dialingCode: "+91",
     }
   );
+
+  useEffect(() => {
+    return () => {
+      if (window.recaptchaVerifier) {
+        window.recaptchaVerifier.clear();
+      }
+    };
+  }, []);
 
   const handleSelectCountry = () => {
     navigate("/select-country", { state: { currentCountry: selectedCountry } });
@@ -31,7 +39,6 @@ const PhoneAuth = () => {
     setIsLoading(true);
     const phoneRegex = /^[0-9]{10,15}$/;
     if (!phoneNumber.trim() || !phoneRegex.test(phoneNumber)) {
-      // toast.error("Please enter a valid phone number");
       setIsLoading(false);
       return;
     }
@@ -53,17 +60,17 @@ const PhoneAuth = () => {
         recaptcha
       );
 
-      console.log("ConfirmationResult: ", confirmationResult.verificationId);
+      // console.log("ConfirmationResult: ", confirmationResult.verificationId);
 
       navigate("/verify-phone", {
         state: {
           verificationId: confirmationResult.verificationId,
-          phoneNumber: fullPhoneNumber, // Make sure you pass phoneNumber too if needed
+          phoneNumber: fullPhoneNumber,
         },
       });
     } catch (error) {
       console.error("SMS not sent", error);
-      // toast.error("Failed to send OTP. Please try again.");
+      alert("Failed to send OTP. Check console for details.");
     } finally {
       setIsLoading(false);
     }
@@ -120,6 +127,7 @@ const PhoneAuth = () => {
           disabled={isLoading}
         />
       </div>
+      <div id="recaptcha-container" className="mt-3"></div>
     </div>
   );
 };

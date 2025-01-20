@@ -112,7 +112,7 @@ const HomePage = () => {
         >
           <img
             src={locationIcon}
-            className="w-12 h-12 mr-2"
+            className="w-12 h-12 mr-2 transition-transform translate-y-1"
             alt="Location Icon"
           />
           <div className="flex-1">
