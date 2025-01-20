@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { leftArrow } from "../assets/Images";
 import CustomButton from "../components/common/CustomButton";
 import { IN } from "../assets/FLAG_SVG";
+import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
+import { auth } from "../helper/firebase";
 
 const PhoneAuth = () => {
+  console.log("Auth: ", auth);
   const navigate = useNavigate();
   const location = useLocation();
+
   const [selectedCountry, setSelectedCountry] = useState(
     location.state?.selectedCountry || {
       code3l: "IND",
@@ -18,19 +22,52 @@ const PhoneAuth = () => {
   );
   const [phoneNumber, setPhoneNumber] = useState("");
 
+  useEffect(() => {
+    return () => {
+      if (window.recaptchaVerifier) {
+        window.recaptchaVerifier.clear();
+      }
+    };
+  }, []);
+
   const handleSelectCountry = () => {
     navigate("/select-country", { state: { currentCountry: selectedCountry } });
   };
 
-  const handlePhoneAuth = () => {
-    if (phoneNumber.trim()) {
+  const handlePhoneAuth = async () => {
+    if (!phoneNumber.trim()) {
+      alert("Please enter a valid phone number");
+      return;
+    }
+
+    const fullPhoneNumber = `${selectedCountry.dialingCode}${phoneNumber}`;
+    console.log("Full Phone Number: ", fullPhoneNumber);
+
+    try {
+      // setupReCAPTCHA();
+      const recaptcha = new RecaptchaVerifier(auth, "recaptcha-container", {
+        size: "invisible",
+        callback: (response) => {},
+      });
+
+      console.log("recaptcha: ", recaptcha);
+      const confirmationResult = await signInWithPhoneNumber(
+        auth,
+        fullPhoneNumber,
+        recaptcha
+      );
+
+      console.log("COnfirmationResult: ", confirmationResult);
+
       navigate("/verify-phone", {
         state: {
-          phoneNumber: `${selectedCountry.code2l} ${phoneNumber}`,
+          confirmationResult,
+          phoneNumber: fullPhoneNumber,
         },
       });
-    } else {
-      alert("Please enter a valid phone number");
+    } catch (error) {
+      console.error("SMS not sent", error);
+      alert("Failed to send OTP. Check console for details.");
     }
   };
 
@@ -82,6 +119,9 @@ const PhoneAuth = () => {
           buttonStyle="w-full h-[56px] bg-[#3579DD] hover:bg-blue-600 text-white rounded-[24px] font-[600] mt-6 leading-6"
         />
       </div>
+
+      {/* <div id="recaptcha-container" style={{ display: "none" }}></div> */}
+      <div id="recaptcha-container" className="mt-3"></div>
     </div>
   );
 };

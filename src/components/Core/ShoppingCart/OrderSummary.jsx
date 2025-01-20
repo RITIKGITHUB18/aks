@@ -26,21 +26,21 @@ const OrderSummary = () => {
   const { receiptData } = useSelector((state) => state.cart);
   const { cartItem, totalPrice } = receiptData || {};
 
-  if (!cartItem || !totalPrice) {
-    return (
-      <div className="text-white text-center mt-20">
-        <p className="text-lg">No items in your cart.</p>
-      </div>
-    );
-  }
-
   console.log("cartItem in Order Summary: ", cartItem);
 
   const [checkout, setCheckout] = useState(false);
   const [showRotatingCoin, setShowRotatingCoin] = useState(false);
 
+  useEffect(() => {
+    if (checkout) {
+      const timeout = setTimeout(() => {
+        setShowRotatingCoin(true);
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [checkout]);
+
   const handleCheckout = () => {
-    // dispatch(resetCart());
     setCheckout(true);
   };
 
@@ -53,19 +53,18 @@ const OrderSummary = () => {
   };
 
   const generateOrderId = () => {
-    const timestamp = Date.now().toString(36); // Base-36 timestamp
-    const randomString = Math.random().toString(36).substring(2, 8); // Random string of 6 characters
+    const timestamp = Date.now().toString(36);
+    const randomString = Math.random().toString(36).substring(2, 8);
     return `ORD-${timestamp}-${randomString}`.toUpperCase();
   };
 
-  useEffect(() => {
-    if (checkout) {
-      const timeout = setTimeout(() => {
-        setShowRotatingCoin(true);
-      }, 3000);
-      return () => clearTimeout(timeout);
-    }
-  }, [checkout]);
+  if (!cartItem || !totalPrice) {
+    return (
+      <div className="text-white text-center mt-20">
+        <p className="text-lg">No items in your cart.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="text-white w-[393px] flex flex-col items-center p-2 mt-4 overflow-y-auto scrollbar-hide">

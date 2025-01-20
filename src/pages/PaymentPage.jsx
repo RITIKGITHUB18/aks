@@ -66,7 +66,7 @@ export const PaymentPage = () => {
     setError(false);
   };
 
-  const handleProceedPayment = () => {
+  const handleProceedPayment = async () => {
     if (selectedPaymentMethod) {
       const completedOrder = {
         paymentMethod: selectedPaymentMethod,
@@ -138,7 +138,6 @@ export const PaymentPage = () => {
         </div>
       ) : (
         <>
-          {/* Back Button */}
           <Link to="/shopping-cart" className="self-start ml-5">
             <div
               onClick={handleBack}
@@ -156,10 +155,7 @@ export const PaymentPage = () => {
           </div>
 
           <Link to="/wallet">
-            <div
-              // onClick={handleWalletClick}
-              className="relative mx-auto bg-[#161C25] rounded-[56px] w-[330px] h-[62px] mb-4 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]"
-            >
+            <div className="relative mx-auto bg-[#161C25] rounded-[56px] w-[330px] h-[62px] mb-4 cursor-pointer shadow-md flex justify-center items-center border-2 border-[#202938]">
               <div className="absolute transform left-0 flex items-center justify-center">
                 <img
                   src={walletIcon}
@@ -176,7 +172,6 @@ export const PaymentPage = () => {
             </div>
           </Link>
 
-          {/* Other Methods Header */}
           <h1 className="absolute top-[275px] transform -translate-x-[100px] font-[500] text-[18px]  leading-[23.4px] text-[#FFFFFF]">
             Other Method
           </h1>

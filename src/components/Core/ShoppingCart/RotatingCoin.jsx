@@ -19,14 +19,13 @@ const RotatingCoin = () => {
   };
 
   const handleViewReceipt = () => {
+    dispatch(addCoins(20));
     navigate("/view-receipt");
   };
 
   return (
     <div className="w-[343px] min-h-screen flex flex-col items-center justify-center bg-[#090D14] text-white animate-fade-in">
-      {/* Rotating Coin */}
       <div className="relative">
-        {/* <img src={Coin} alt="coin" className="animate-spin-slow" /> */}
         <Player
           autoplay
           loop={false}
