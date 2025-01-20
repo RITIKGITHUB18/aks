@@ -57,14 +57,14 @@ const PhoneAuth = () => {
         recaptcha
       );
 
-      console.log("COnfirmationResult: ", confirmationResult);
+      console.log("ConfirmationResult: ", confirmationResult.verificationId);
 
-      navigate("/verify-phone", {
+    navigate("/verify-phone", {
       state: {
         verificationId: confirmationResult.verificationId, 
-        phoneNumber: fullPhoneNumber,
+        phoneNumber: fullPhoneNumber, // Make sure you pass phoneNumber too if needed
       },
-      });
+    });
     } catch (error) {
       console.error("SMS not sent", error);
       alert("Failed to send OTP. Check console for details.");
