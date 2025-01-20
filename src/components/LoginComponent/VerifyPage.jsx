@@ -51,8 +51,12 @@ const VerifyPage = ({
     }
     if (type == "phone") {
       try {
-        const { state } = location;
-        const { verificationId } = state;
+       if (!location.state || !location.state.verificationId) {
+          setError("Verification ID is missing. Please try again.");
+          return;
+        }
+
+        const { verificationId } = location.state;
 
         const credential = PhoneAuthProvider.credential(verificationId, otp);
 
