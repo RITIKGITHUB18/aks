@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CustomButton from "../common/CustomButton";
 import OTPInput from "react-otp-input";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation} from "react-router-dom";
 import { leftArrow } from "../../assets/Images";
 import { supabase } from "../../helper/supabaseConfig";
 import { PhoneAuthProvider, signInWithCredential } from "firebase/auth";
@@ -20,6 +20,7 @@ const VerifyPage = ({
   const [error, setError] = useState("");
   const [resendCount, setResendCount] = useState(0);
   const navigate = useNavigate();
+   const location = useLocation();
 
   const isOtpEntered = otp.length === 6 && parseInt(otp) >= 9999;
 
