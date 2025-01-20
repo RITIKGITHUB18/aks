@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { leftArrow } from "../../assets/Images";
 import { PhoneAuthProvider, signInWithCredential } from "firebase/auth";
 import { auth } from "../../helper/firebase";
+import { supabase } from "../../helper/supabaseConfig";
 
 const VerifyPage = ({
   header,
@@ -20,7 +21,7 @@ const VerifyPage = ({
   const [error, setError] = useState("");
   const [resendCount, setResendCount] = useState(0);
   const navigate = useNavigate();
-  const location = useLocation(); // Access location.state
+  const location = useLocation();
 
   const isOtpEntered = otp.length === 6 && parseInt(otp) >= 9999;
 
@@ -29,23 +30,23 @@ const VerifyPage = ({
 
     if (type === "phone") {
       try {
-        // Ensure location.state exists and contains verificationId
         if (!location.state || !location.state.verificationId) {
           setError("Verification ID is missing. Please try again.");
           return;
         }
 
-        const { verificationId } = location.state; // Access verificationId from location.state
+        const { verificationId } = location.state;
 
         const credential = PhoneAuthProvider.credential(verificationId, otp);
         const result = await signInWithCredential(auth, credential);
         console.log("Phone authentication successful: ", result);
 
-        setError(""); // Clear error
+        setError("");
+
         if (onSuccess) {
           onSuccess();
         }
-        navigate(redirectPath); // Redirect to the specified path
+        navigate(redirectPath);
       } catch (error) {
         console.error("Error verifying OTP: ", error);
         setError("Invalid OTP. Please try again.");
