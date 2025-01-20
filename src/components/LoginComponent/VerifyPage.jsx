@@ -21,7 +21,6 @@ const VerifyPage = ({
   const [resendCount, setResendCount] = useState(0);
   const navigate = useNavigate();
 
- 
   const isOtpEntered = otp.length === 6 && parseInt(otp) >= 9999;
 
   const handleOnSubmit = async (e) => {
@@ -49,33 +48,30 @@ const VerifyPage = ({
         console.error("Error verifying OTP: ", error);
         setError("Something went wrong. Please try again.");
       }
-    } 
-    if(type=="phone") {
+    }
+    if (type == "phone") {
       try {
-        const {state} = location;
-        const {verificationId} = state;
+        const { state } = location;
+        const { verificationId } = state;
 
-        const credential = PhoneAuthProvider.credential(verificationId,otp);
+        const credential = PhoneAuthProvider.credential(verificationId, otp);
 
-        const result = await signInWithCredential(auth,credential);
-        console.log("Phone authentication successfull: ",result);
+        const result = await signInWithCredential(auth, credential);
+        console.log("Phone authentication successfull: ", result);
 
         setError("");
-        if(onSuccess){
+        if (onSuccess) {
           onSuccess();
         }
         navigate(redirectPath);
-
       } catch (error) {
         console.error("Error verifying OTP: ", error);
         setError("Invalid OTP. Please try again.");
       }
-      } else {
-        setError("Invalid OTP. Please try again.");
-      }
+    } else {
+      setError("Invalid OTP. Please try again.");
     }
   };
-
   const handleResend = () => {
     if (resendCount >= 2) {
       setError(
