@@ -60,10 +60,10 @@ const PhoneAuth = () => {
       console.log("COnfirmationResult: ", confirmationResult);
 
       navigate("/verify-phone", {
-        state: {
-          confirmationResult,
-          phoneNumber: fullPhoneNumber,
-        },
+      state: {
+        verificationId: confirmationResult.verificationId, 
+        phoneNumber: fullPhoneNumber,
+      },
       });
     } catch (error) {
       console.error("SMS not sent", error);
