@@ -53,7 +53,7 @@ const HistoryPage = () => {
           </p>
         </div>
       )}
-      <div className="mt-auto sticky bottom-0 z-10 w-full bg-[#090D14] border-t border-[#202938] flex items-center justify-center pt-2 pb-2">
+      <div className="mt-auto sticky bottom-0 z-10 w-full bg-[#090D14] border-t border-[#202938] py-2 flex items-center justify-center">
         <Footer />
       </div>
     </div>
