@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Avatar, leftArrow, phone, Send } from "../assets/Images";
 import Message from "../components/Core/Chatting/Message";
+import { motion } from "framer-motion";
 
 const ChatPage = () => {
   const location = useLocation();
@@ -32,7 +33,13 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="bg-[#090D14] w-full h-screen text-white flex flex-col items-center justify-center relative scrollbar-hide">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="bg-[#090D14] w-full h-screen text-white flex flex-col items-center justify-center relative scrollbar-hide"
+    >
       <div className="fixed top-0 z-50 bg-[#090D14] px-1 pb-4 w-[393px] pr-3">
         <div className="flex justify-between mt-[35px] w-full border-gray-600 pb-6 px-2">
           <div
@@ -83,7 +90,7 @@ const ChatPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

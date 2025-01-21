@@ -3,6 +3,7 @@ import { useState } from "react";
 import { countryCode } from "../data/countryCode";
 import { checked, leftArrow, searchIcon } from "../assets/Images";
 import CustomButton from "../components/common/CustomButton";
+import { motion } from "framer-motion";
 
 const SelectCountry = () => {
   const navigate = useNavigate();
@@ -32,7 +33,13 @@ const SelectCountry = () => {
   };
 
   return (
-    <div className="bg-[#090D14] min-h-screen w-full text-white">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="bg-[#090D14] min-h-screen w-full text-white"
+    >
       {/* Container */}
       <div className="mx-auto w-full max-w-md px-4 py-6 sm:px-6 sm:py-8">
         {/* Back Arrow */}
@@ -120,7 +127,7 @@ const SelectCountry = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

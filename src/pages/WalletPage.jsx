@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { card, leftArrow, more, walletIcon } from "../assets/Images";
+import { motion } from "framer-motion";
 
 const lastTransaction = [
   {
@@ -43,7 +44,13 @@ const WalletPage = () => {
     navigate(-1);
   };
   return (
-    <div className="w-full text-white flex flex-col items-center justify-center">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="w-full text-white flex flex-col items-center justify-center"
+    >
       <div
         onClick={handleBack}
         className="self-start rounded-full mt-4 ml-4 sm:ml-10  cursor-pointer hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center"
@@ -103,7 +110,7 @@ const WalletPage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

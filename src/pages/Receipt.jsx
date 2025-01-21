@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { leftArrow, qrimage } from "../assets/Images";
 import CustomButton from "../components/common/CustomButton";
+import { motion } from "framer-motion";
 
 const Receipt = () => {
   const { receiptData, orderId } = useLocation().state || {};
@@ -38,7 +39,13 @@ const Receipt = () => {
   }
 
   return (
-    <div className="flex flex-col items-center w-full min-h-screen mb-2 bg-[#090D14] text-white animate-fade-in pt-4 px-4">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="flex flex-col items-center w-full min-h-screen mb-2 bg-[#090D14] text-white animate-fade-in pt-4 px-4"
+    >
       {/* Back Arrow */}
       <div className="self-start md:ml-10 sm:ml-4 ml-2 mb-4">
         <Link to="/history" className="block">
@@ -138,7 +145,6 @@ const Receipt = () => {
               </div>
             </div>
 
-            {/* Back to Home Button */}
             <CustomButton
               text="Back to Home"
               buttonStyle="w-full h-14 bg-[#3579DD] hover:bg-blue-600 text-white py-2 rounded-[24px] font-semibold mt-6"
@@ -148,7 +154,7 @@ const Receipt = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

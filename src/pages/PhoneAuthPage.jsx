@@ -5,6 +5,7 @@ import CustomButton from "../components/common/CustomButton";
 import { IN } from "../assets/FLAG_SVG";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "../helper/firebase";
+import { motion } from "framer-motion";
 
 const PhoneAuth = () => {
   const navigate = useNavigate();
@@ -81,16 +82,21 @@ const PhoneAuth = () => {
   };
 
   return (
-    <div className="bg-[#090D14] w-full text-white flex flex-col items-center justify-center">
-      {/* Back Button */}
-      <Link onClick={handleBack} className="self-start sm:ml-8">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="bg-[#090D14] w-full text-white flex flex-col items-center justify-center"
+    >
+      <Link onClick={handleBack} className="self-start sm:ml-4">
         <div className="rounded-full p-[10px] mt-[14px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
           <img src={leftArrow} alt="Back" className="w-6 h-6" />
         </div>
       </Link>
 
-      <div className="flex flex-col items-start justify-start mt-[52px] mb-[24px]">
-        <h1 className="text-[30px] font-[700] leading-[40px] text-white">
+      <div className="flex flex-col mt-[40px] mb-[24px] transition-transform -translate-x-9 transl">
+        <h1 className="text-[30px] font-[700] leading-[40px] text-white ">
           Hi there!
         </h1>
         <p className="text-[#EEEEEE] text-opacity-70 text-[17px] font-[400] leading-6">
@@ -102,7 +108,7 @@ const PhoneAuth = () => {
         <div className="flex items-center gap-2">
           <div
             onClick={handleSelectCountry}
-            className="flex items-center cursor-pointer justify-center gap-x-1 sm:w-[90px] h-[56px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-center text-white focus:outline-none"
+            className="flex items-center cursor-pointer text-[15px] justify-center gap-x-1 sm:w-[90px] h-[40px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-center text-white focus:outline-none"
           >
             <img src={selectedCountry?.emoji} className="w-[20px] h-[20px]" />
             <p>{selectedCountry?.code2l}</p>
@@ -114,7 +120,7 @@ const PhoneAuth = () => {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             placeholder="Enter phone number"
-            className="flex h-[56px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-white px-4 focus:outline-none"
+            className="flex h-[40px] text-[15px] bg-[#090D14] border-b-[0.5px] border-slate-400 text-white px-4 focus:outline-none"
           />
         </div>
         <CustomButton
@@ -128,7 +134,7 @@ const PhoneAuth = () => {
         />
       </div>
       <div id="recaptcha-container" className="mt-3"></div>
-    </div>
+    </motion.div>
   );
 };
 

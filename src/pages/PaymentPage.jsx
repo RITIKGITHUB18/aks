@@ -19,6 +19,7 @@ import {
   setNewOrder,
 } from "../slice/checkOutSlice";
 import { resetCart } from "../slice/cartSlice";
+import { motion } from "framer-motion";
 
 export const PaymentPage = () => {
   const dispatch = useDispatch();
@@ -117,7 +118,13 @@ export const PaymentPage = () => {
   };
 
   return (
-    <div className="w-full text-white flex flex-col items-center justify-center">
+    <motion.div
+      // initial={{ y: "100%", opacity: 0 }}
+      // animate={{ y: "0", opacity: 1 }}
+      // exit={{ y: "100%", opacity: 0 }}
+      // transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="w-full text-white flex flex-col items-center justify-center"
+    >
       {!error && showApplePayAnimation ? (
         <div className="fixed inset-0 bg-[#090D14] bg-opacity-60 z-10 flex items-center justify-center">
           <Player
@@ -247,7 +254,7 @@ export const PaymentPage = () => {
           )}
         </>
       )}
-    </div>
+    </motion.div>
   );
 };
 

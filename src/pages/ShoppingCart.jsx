@@ -4,6 +4,7 @@ import { EmptyShoppingCart, leftArrow } from "../assets/Images";
 import FoodCard from "../components/Core/ShoppingCart/FoodCard";
 import CustomButton from "../components/common/CustomButton";
 import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -57,8 +58,14 @@ const ShoppingCart = () => {
     navigate(-1);
   };
   return (
-    <div className="w-full justify-center text-white flex flex-col">
-      <div className="fixed top-0 z-50 bg-[#090D14] px-4 pb-4 w-full h-[180px] ml-4 sm:ml-10">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="w-full justify-center text-white flex flex-col"
+    >
+      <div className="fixed top-0 z-50 bg-[#090D14] px-4 pb-4 w-full h-[180px] ml-2 sm:ml-3">
         <Link onClick={handleBack}>
           <div className="rounded-full p-2 hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border border-[#202938] flex items-center justify-center translate-y-[20px]">
             <img src={leftArrow} alt="Back" className="w-6 h-6" />
@@ -150,7 +157,7 @@ const ShoppingCart = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

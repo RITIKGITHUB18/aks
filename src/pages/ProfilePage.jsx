@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   EditIcon,
   leftArrow,
@@ -8,6 +8,8 @@ import {
   profileIcon,
 } from "../assets/Images";
 import CustomButton from "../components/common/CustomButton";
+import { motion } from "framer-motion";
+import { supabase } from "../helper/supabaseConfig";
 
 const ProfilePage = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +20,7 @@ const ProfilePage = () => {
     dob: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,15 +30,29 @@ const ProfilePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Submitted:", formData);
-    // Add form submission logic here
   };
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
 
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      navigate("/getStarted");
+    } catch (error) {
+      console.log("Error during logout: ", error.message);
+    }
+  };
+
   return (
-    <div className="w-full text-white flex flex-col items-center justify-center">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="w-full text-white flex flex-col items-center justify-center"
+    >
       {/* Back Button */}
       <Link to="/home" className="self-start ml-4 sm:ml-8">
         <div className="rounded-full p-[10px] mt-[30px] ml-[14px] hover:bg-gray-600 w-[44px] h-[44px] bg-[#090D14] border-[1px] border-[#202938] flex items-center justify-center">
@@ -56,7 +73,7 @@ const ProfilePage = () => {
       </div>
 
       <form
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         className="w-full px-6 mt-8 flex flex-col gap-6 items-center"
       >
         {/* Email Field */}
@@ -142,11 +159,14 @@ const ProfilePage = () => {
         </div>
 
         {/* Submit Button */}
-        <button className="mb-10 xs:mb-10 w-full max-w-[393px] h-[56px] border border-[#3579DD] text-[#3579DD] rounded-[56px] font-[600] mt-6 leading-6">
+        <button
+          onClick={handleLogout}
+          className="mb-10 xs:mb-10 w-full max-w-[393px] h-[56px] border border-[#3579DD] text-[#3579DD] rounded-[56px] font-[600] mt-6 leading-6"
+        >
           Logout
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

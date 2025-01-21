@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BookTableImg, cartIcon, leftArrow } from "../assets/Images";
 import DrinksComponent from "../components/BookingComponent/DrinksComponent";
@@ -13,12 +13,15 @@ import {
   removePackage,
   setNewCartItem,
 } from "../slice/cartSlice";
+import { motion } from "framer-motion";
 
 const BookTable = () => {
   const [activeTab, setActiveTab] = useState("dateTime");
   const [activeButton, setActiveButton] = useState("buyNow");
+
   const navigate = useNavigate();
   const location = useLocation();
+
   const hotelData = location.state?.hotelData;
 
   const dispatch = useDispatch();
@@ -96,7 +99,16 @@ const BookTable = () => {
   };
 
   return (
-    <div className="text-white flex flex-col items-center mx-auto h-auto overflow-y-auto w-full  relative">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="
+      text-white flex flex-col items-center mx-auto 
+      h-auto overflow-y-auto w-full relative 
+    "
+    >
       <div
         style={{ backgroundImage: `url(${BookTableImg})` }}
         className="w-full bg-no-repeat bg-cover bg-center min-h-[250px] xs:min-h-[320px] sm:min-h-[340px] md:h-auto relative"
@@ -197,7 +209,7 @@ const BookTable = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

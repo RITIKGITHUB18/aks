@@ -8,6 +8,7 @@ import {
 } from "../assets/Images";
 import MapContainer from "../components/Core/Map/MapContainer";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const MapPage = () => {
   const [isMapVisible, setIsMapVisible] = useState(false);
@@ -17,7 +18,13 @@ const MapPage = () => {
   };
 
   return (
-    <div className="w-full text-white flex flex-col items-center p-2 mx-auto">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0", opacity: 1 }}
+      exit={{ y: "100%", opacity: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="w-full text-white flex flex-col items-center p-2 mx-auto"
+    >
       {/* Back Button */}
 
       {isMapVisible && <MapContainer />}
@@ -104,7 +111,7 @@ const MapPage = () => {
           </div>
         </>
       )}
-    </div>
+    </motion.div>
   );
 };
 

@@ -19,7 +19,7 @@ const CarouselCard = ({ cardData }) => {
       onClick={handleBookTable}
     >
       {/* Hotel Image */}
-      <div className="relative w-full h-[132px]">
+      <div className="relative w-full h-[142px]">
         <img
           src={cardData.hotelImg}
           alt={cardData.name}
@@ -46,7 +46,7 @@ const CarouselCard = ({ cardData }) => {
         <div className="flex justify-between items-center">
           {/* Hotel Name and Rating */}
           <div>
-            <p className="font-[500] text-[14px] leading-[18px] text-white mb-1">
+            <p className="font-[500] text-[15px] md:text-[15px] leading-[18px] text-white mb-1 text-nowrap">
               {cardData.name}
             </p>
             <div className="flex items-center gap-2">
@@ -55,7 +55,7 @@ const CarouselCard = ({ cardData }) => {
                 <img
                   src={ratingStar}
                   alt="Rating Star"
-                  className="w-[12px] h-[12px] object-contain"
+                  className="w-[14px] h-[14px] object-contain"
                 />
                 <span className="text-[12px] text-gray-400">
                   {cardData.avgRating}
@@ -69,7 +69,7 @@ const CarouselCard = ({ cardData }) => {
 
           {/* Price */}
           <div>
-            <p className="text-white font-[500] text-[16px] leading-[20.8px]">
+            <p className="text-white font-[500] text-[14px] leading-[20.8px]">
               {cardData.price}
             </p>
           </div>
