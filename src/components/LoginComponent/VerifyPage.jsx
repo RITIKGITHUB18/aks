@@ -86,7 +86,9 @@ const VerifyPage = ({
         const { verificationId } = state;
 
         const credential = PhoneAuthProvider.credential(verificationId, otp);
-        const result = await signInWithCredential(auth, credential).then(dispatch(updateUser({ phoneNumber: emailOrPhone })););
+        const result = await signInWithCredential(auth, credential).then(
+          dispatch(updateUser({ phoneNumber: emailOrPhone }))
+        );
         console.log("Phone authentication successfull: ", result);
         setError("");
         if (onSuccess) {
