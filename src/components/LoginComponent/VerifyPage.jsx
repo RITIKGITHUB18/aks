@@ -6,6 +6,8 @@ import { leftArrow } from "../../assets/Images";
 import { PhoneAuthProvider, signInWithCredential } from "firebase/auth";
 import { auth } from "../../helper/firebase";
 import { supabase } from "../../helper/supabaseConfig";
+import { useDispatch } from "react-redux";
+import { updateUser } from "../../slice/userSlice";
 
 const VerifyPage = ({
   header,
@@ -22,7 +24,7 @@ const VerifyPage = ({
   const [resendCount, setResendCount] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
-
+  const dispatch = useDispatch();
   const isOtpEntered = otp.length === 6 && parseInt(otp) >= 9999;
 
   const handleOnSubmit = async (e) => {
@@ -67,6 +69,7 @@ const VerifyPage = ({
         }
 
         setError("");
+        dispatch(updateUser({ email: emailOrPhone }));
         if (onSuccess) {
           onSuccess();
         }
@@ -83,10 +86,9 @@ const VerifyPage = ({
         const { verificationId } = state;
 
         const credential = PhoneAuthProvider.credential(verificationId, otp);
-
         const result = await signInWithCredential(auth, credential);
         console.log("Phone authentication successfull: ", result);
-
+        dispatch(updateUser({ phoneNumber: emailOrPhone }));
         setError("");
         if (onSuccess) {
           onSuccess();

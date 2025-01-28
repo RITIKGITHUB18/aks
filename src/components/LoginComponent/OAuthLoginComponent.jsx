@@ -1,6 +1,10 @@
+import { useDispatch } from "react-redux";
 import { supabase } from "../../helper/supabaseConfig";
+import { updateUser } from "../../slice/userSlice";
 
 const OAuthLoginComponent = ({ items, style }) => {
+  const dispatch = useDispatch();
+
   const handleOAuthLogin = async (provider) => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
@@ -10,7 +14,9 @@ const OAuthLoginComponent = ({ items, style }) => {
             "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback",
         },
       });
-
+      const email = localStorage.getItem("sb-gpcwuuypobruknutpqkj-auth-token")
+        .user.email;
+      dispatch(updateUser({ email: email }));
       if (error) {
         console.error("OAuth login error:", error.message);
         alert(`Error logging in with ${provider}`);

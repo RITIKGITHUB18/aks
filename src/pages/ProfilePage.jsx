@@ -10,6 +10,7 @@ import {
 import CustomButton from "../components/common/CustomButton";
 import { motion } from "framer-motion";
 import { supabase } from "../helper/supabaseConfig";
+import { useSelector } from "react-redux";
 
 const ProfilePage = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,14 @@ const ProfilePage = () => {
     dob: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const userData = localStorage.getItem("sb-gpcwuuypobruknutpqkj-auth-token")
+    ? JSON.parse(localStorage.getItem("sb-gpcwuuypobruknutpqkj-auth-token"))
+    : {
+        email: "john@gmail.com",
+      };
+  const { user } = useSelector((state) => state.user);
+  console.log("user: ", user);
+  console.log("userData: ", userData.user);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -88,7 +97,8 @@ const ProfilePage = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
+            value={formData.email ? formData.email : userData.email}
+            placeholder={userData.user.email}
             onChange={handleChange}
             className="bg-[#202938] text-white rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
@@ -107,6 +117,7 @@ const ProfilePage = () => {
             type="tel"
             id="phone"
             name="phone"
+            placeholder={user?.phoneNumber}
             value={formData.phone}
             onChange={handleChange}
             className="bg-[#202938] text-white rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -127,6 +138,7 @@ const ProfilePage = () => {
             name="dob"
             value={formData.dob}
             onChange={handleChange}
+            placeholder={user?.dob}
             className="bg-[#202938] text-white rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>

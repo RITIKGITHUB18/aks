@@ -3,13 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../components/common/CustomButton";
 import { leftArrow } from "../assets/Images";
 import { dateData, monthData, yearData } from "../data/dobData";
+import { useDispatch } from "react-redux";
+import { updateUser } from "../slice/userSlice";
 
 const SelectDob = () => {
   const [selectedMonth, setSelectedMonth] = useState("MM");
   const [selectedDate, setSelectedDate] = useState("DD");
   const [selectedYear, setSelectedYear] = useState("YY");
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const handleMonthChange = (e) => setSelectedMonth(e.target.value);
   const handleDateChange = (e) => setSelectedDate(e.target.value);
   const handleYearChange = (e) => setSelectedYear(e.target.value);
@@ -17,8 +19,15 @@ const SelectDob = () => {
   const isDobValid = () =>
     selectedMonth !== "MM" && selectedDate !== "DD" && selectedYear !== "YY";
 
+  const dobFormat = () => {
+    const dob = `${selectedDate}-${selectedMonth}-${selectedYear}`;
+    return dob;
+  };
   const handleDobSubmit = () => {
     if (isDobValid()) {
+      const dob = dobFormat();
+      console.log("Dob: ", dob);
+      dispatch(updateUser({ dob: dob }));
       navigate("/home");
     }
   };
