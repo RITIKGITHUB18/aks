@@ -6,12 +6,15 @@ import { IN } from "../assets/FLAG_SVG";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "../helper/firebase";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { updateUser } from "../slice/userSlice";
 
 const PhoneAuth = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
   const [selectedCountry, setSelectedCountry] = useState(
     location.state?.selectedCountry || {
       code3l: "IND",
@@ -45,7 +48,6 @@ const PhoneAuth = () => {
     }
 
     const fullPhoneNumber = `${selectedCountry.dialingCode}${phoneNumber}`;
-    console.log("Full Phone Number: ", fullPhoneNumber);
 
     try {
       // setupReCAPTCHA();
@@ -55,6 +57,7 @@ const PhoneAuth = () => {
       });
 
       console.log("recaptcha: ", recaptcha);
+      dispatch(updateUser({ phoneNumber: fullPhoneNumber }));
       const confirmationResult = await signInWithPhoneNumber(
         auth,
         fullPhoneNumber,

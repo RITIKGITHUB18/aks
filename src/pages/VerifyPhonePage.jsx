@@ -14,7 +14,7 @@ const VerifyPhonePage = () => {
       description="We’ve sent a code to"
       emailOrPhone={phoneNumber}
       onResend={() => alert("A new OTP has been sent to your phone.")}
-      onSuccess={() => navigate("/dashboard")}
+      onSuccess={() => navigate("/select-dob")}
       redirectPath="/select-dob"
       backPath="/phone-auth"
       type="phone"
