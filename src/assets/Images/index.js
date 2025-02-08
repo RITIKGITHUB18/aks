@@ -63,8 +63,14 @@ import Send from "./Send.svg";
 import location from "./location.svg";
 import hussh from "./hussh.jpg";
 import toastQr from "./toastQr.svg";
+import lock from "./lock.svg";
+import call from "./call.svg";
+import mail from "./mail.svg";
 
 export {
+  mail,
+  call,
+  lock,
   toastQr,
   hussh,
   location,
