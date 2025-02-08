@@ -1,4 +1,8 @@
-import { AppleIcon, FacebookIcon, GoogleIcon } from "../assets/Images";
+import {
+  AppleIcon,
+  //  FacebookIcon,
+  GoogleIcon,
+} from "../assets/Images";
 
 const OAuthComponentData = [
   {
@@ -8,12 +12,12 @@ const OAuthComponentData = [
     text: "Continue with Apple",
   },
   { id: 2, provider: "google", logo: GoogleIcon, text: "Continue with Google" },
-  {
-    id: 3,
-    provider: "facebook",
-    logo: FacebookIcon,
-    text: "Continue with Facebook",
-  },
+  // {
+  //   id: 3,
+  //   provider: "facebook",
+  //   logo: FacebookIcon,
+  //   text: "Continue with Facebook",
+  // },
 ];
 
 export { OAuthComponentData };

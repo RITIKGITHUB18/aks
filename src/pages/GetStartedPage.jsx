@@ -14,14 +14,14 @@ const GetStartedPage = () => {
         style={{
           backgroundImage: `url(${crackersCelebration})`,
         }}
-        className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover"
+        className="absolute top-0 left-0 w-full h-full sm:bg-cover"
       ></div>
       <div className="relative bottom-0 flex flex-col justify-between min-h-screen">
         <div className="flex-grow"></div>{" "}
         <div
-          className="flex flex-col justify-center items-center text-white px-6 "
+          className="flex flex-col justify-center items-center text-white px-4 pb-2"
           style={{
-            height: "33vh",
+            height: "230px",
             bottom: "0",
             background:
               "linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, #0F172A 100%)",
@@ -29,17 +29,17 @@ const GetStartedPage = () => {
             WebkitBackdropFilter: "blur(20px)",
           }}
         >
-          <div className="flex flex-col justify-center text-start px-4 mt-3 w-full">
-            <h2 className="font-bold text-[20px] sm:text-[24px] leading-8">
+          <div className="flex flex-col justify-center text-start sm:px-4 mt-4 w-full">
+            <h2 className="font-bold text-[24px] sm:text-[24px] leading-8 ">
               Experience the Best
             </h2>
             <h2 className="font-bold text-[20px] sm:text-[24px] pt-1 leading-8">
               Night Life With AKS
             </h2>
-            <p className="font-medium text-[12px] sm:text-[14px] text-gray-300 pt-2">
+            <p className="font-[400] text-[14px] sm:text-[14px] text-[#E2E8F0] pt-2 leading-[5px] mt-2">
               Come join us at the exciting surfing events at Dubai.
             </p>
-            <p className="font-medium text-[12px] sm:text-[14px] text-gray-300 pt-1">
+            <p className="font-[400] text-[14px] sm:text-[14px] text-[#E2E8F0] pt-2">
               Register yourself now!
             </p>
           </div>
