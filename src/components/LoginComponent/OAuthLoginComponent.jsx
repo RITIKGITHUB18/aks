@@ -11,10 +11,11 @@ const OAuthLoginComponent = ({ items, style }) => {
         provider,
         options: {
           redirectTo:
-            "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback",
+            "https://yoiqmblqgsllnocysrqh.supabase.co/auth/v1/callback", // hushh.ai
+          // "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback", Mine
         },
       });
-      const email = localStorage.getItem("sb-gpcwuuypobruknutpqkj-auth-token")
+      const email = localStorage.getItem("sb-yoiqmblqgsllnocysrqh-auth-token")
         .user.email;
       dispatch(updateUser({ email: email }));
       if (error) {
@@ -23,7 +24,6 @@ const OAuthLoginComponent = ({ items, style }) => {
       }
     } catch (error) {
       console.error("Unexpected OAuth login error:", error);
-      alert("An unexpected error occurred during OAuth login.");
     }
   };
   return (

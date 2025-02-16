@@ -6,23 +6,25 @@ import OAuthLoginComponent from "../components/LoginComponent/OAuthLoginComponen
 import { OAuthComponentData } from "../data/loginComponentData";
 import { useState } from "react";
 import { supabase } from "../helper/supabaseConfig";
+import { updateUser } from "../slice/userSlice";
+import { useDispatch } from "react-redux";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const isEmailEntered = email.trim().length > 0;
 
   const handleOnClick = async () => {
     try {
-      // console.log("PRINTING EMAIL: ", email);
-      // navigate("/verify-email", { state: { email } });
+      console.log("PRINTING EMAIL: ", email);
       await supabase.auth
         .signInWithOtp({
           email,
           options: {
-            emailRedirectTo: "http://localhost:5173/auth/v1/callback",
+            emailRedirectTo: "http://localhost:5173/phone-auth",
           },
         })
         .then(({ error }) => {
@@ -30,7 +32,9 @@ const LoginPage = () => {
             setMessage(error.message);
             console.error("signIn error: ", error);
           } else {
-            setMessage("Check your email for the login link!");
+            setMessage("Check your email for the otp!");
+            dispatch(updateUser({ email: email }));
+            navigate("/verify-email", { state: { email } });
             setEmail("");
           }
         });

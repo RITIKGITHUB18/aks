@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { countryCode } from "../data/countryCode";
 import { checked, leftArrow, searchIcon } from "../assets/Images";

@@ -12,10 +12,14 @@ const userSlice = createSlice({
   reducers: {
     updateUser: (state, action) => {
       state.user = { ...state.user, ...action.payload };
-      localStorage.setItem("users", JSON.stringify(state.user));
+      localStorage.setItem("user", JSON.stringify(state.user));
+    },
+    removeUser: (state) => {
+      state.user = {};
+      localStorage.removeItem("user");
     },
   },
 });
 
-export const { updateUser } = userSlice.actions;
+export const { updateUser, removeUser } = userSlice.actions;
 export default userSlice.reducer;

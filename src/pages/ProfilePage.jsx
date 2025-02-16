@@ -10,14 +10,15 @@ import {
   // passwordViewOn,
   profileIcon,
 } from "../assets/Images";
-import CustomButton from "../components/common/CustomButton";
 import { motion } from "framer-motion";
 import { supabase } from "../helper/supabaseConfig";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../slice/userSlice";
 
 const ProfilePage = () => {
   const [password, setPassword] = useState("12345678");
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
   const userData = localStorage.getItem("sb-gpcwuuypobruknutpqkj-auth-token")
     ? JSON.parse(localStorage.getItem("sb-gpcwuuypobruknutpqkj-auth-token"))
     : {
@@ -35,6 +36,7 @@ const ProfilePage = () => {
   const handleLogout = async () => {
     try {
       await supabase.auth.signOut();
+      dispatch(removeUser({}));
       navigate("/getStarted");
     } catch (error) {
       console.log("Error during logout: ", error.message);
