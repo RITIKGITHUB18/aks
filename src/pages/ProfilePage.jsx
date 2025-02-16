@@ -66,7 +66,7 @@ const ProfilePage = () => {
           alt="Edit"
         />
         <p className="text-[17.5px] font-[600] leading-[21px] mt-8">
-          GFX Agency
+          {user?.username ? user?.username : <span>GFX Agency</span>}
         </p>
       </div>
 
