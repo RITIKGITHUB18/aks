@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import { useCart } from "../common/CartContext";
 import { useDispatch, useSelector } from "react-redux";
 import { setDateTime } from "../../slice/hotelSlice";
@@ -18,6 +18,9 @@ const DateTimeComponent = () => {
     "20:00",
     "22:00",
   ];
+
+  const scrollContainerRef = useRef(null);
+  const currentDateRef = useRef(null);
 
   const [selectedDate, setSelectedDate] = useState({
     day: dateTime?.day || null,
@@ -51,6 +54,14 @@ const DateTimeComponent = () => {
     selectedDate.month
   ).toLocaleString("default", { month: "long" });
 
+  useEffect(() => {
+    if (currentDateRef.current) {
+      currentDateRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+      });
+    }
+  }, [selectedDate.month]);
   const handleNextMonth = () => {
     setSelectedDate((prev) => {
       const newDate = new Date(prev.year, prev.month + 1);
@@ -104,10 +115,14 @@ const DateTimeComponent = () => {
         </button>
       </div>
 
-      <div className="flex w-[380px] mx-auto overflow-x-auto gap-x-4 px-2 mb-6 scrollbar-hide cursor-pointer">
+      <div
+        ref={scrollContainerRef}
+        className="flex w-[380px] mx-auto overflow-x-auto gap-x-4 px-2 mb-6 scrollbar-hide cursor-pointer"
+      >
         {allDates.map((weekDate, index) => (
           <button
             key={index}
+            ref={weekDate.date === selectedDate.date ? currentDateRef : null}
             onClick={() => handleDateSelection(weekDate.day, weekDate.date)}
             className={`flex-shrink-0 w-[70px] h-[60px] rounded-lg p-2 text-center ${
               selectedDate.date === weekDate.date

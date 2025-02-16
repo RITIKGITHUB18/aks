@@ -105,7 +105,7 @@ const ProfilePage = () => {
         </div>
 
         <div className="flex flex-col xs:w-[340px] sm:w-[393px]">
-          <p className="text-white text-sm mb-4 leading-4 font-[600]">
+          {/* <p className="text-white text-sm mb-4 leading-4 font-[600]">
             Password
           </p>
           <div className="relative flex">
@@ -121,7 +121,7 @@ const ProfilePage = () => {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
           <button
             onClick={handleLogout}
             className="mb-10 xs:mb-10 w-full max-w-[393px] h-[56px] border border-[#3579DD] text-[#3579DD] rounded-[56px] font-[600] mt-6 leading-6"
