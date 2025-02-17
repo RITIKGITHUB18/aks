@@ -1,13 +1,71 @@
 import { useNavigate } from "react-router-dom";
 import { welcomeScreenImg } from "../assets/Images";
 import { useAuth } from "../helper/AuthContext";
+import { supabase } from "../helper/supabaseConfig";
+import { updateUser } from "../slice/userSlice";
+import { useDispatch } from "react-redux";
 
 const WelcomeScreen = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleOnClick = () => {
-    navigate("/phone-auth");
+  const handleOnClick = async () => {
+    try {
+      // Wait for authentication to complete
+      const { data, error: sessionError } = await supabase.auth.getSession();
+
+      if (sessionError) {
+        console.error("Session fetch error:", sessionError);
+        return;
+      }
+
+      const userDetail = data.session?.user;
+      if (!userDetail) {
+        console.error("No user found in session");
+        return;
+      }
+
+      // Extract user metadata
+      const username = userDetail?.user_metadata?.name || null;
+      const phone = userDetail?.phone || null;
+      const dob = userDetail?.user_metadata?.dob || null;
+
+      // Update Redux store
+      dispatch(
+        updateUser({
+          id: userDetail.id,
+          email: userDetail.email,
+          username: username,
+          phone: phone,
+          dob: dob,
+        })
+      );
+
+      // Navigate based on missing profile data
+      if (!username) {
+        // If user has no name, go to phone-auth to fill name
+        navigate("/phone-auth");
+        return;
+      }
+
+      if (!phone) {
+        // If user has a name but no phone, pass a flag so phone-auth can skip name
+        navigate("/phone-auth", { state: { isNameEntered: true } });
+        return;
+      }
+
+      if (!dob) {
+        // If user is missing DOB, go to DOB selection
+        navigate("/select-dob");
+        return;
+      }
+
+      // If they have all fields, proceed to your main page
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Error during WelcomeScreen handleOnClick:", error);
+    }
   };
 
   return (

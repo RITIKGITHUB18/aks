@@ -16,7 +16,9 @@ const PhoneAuth = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const [isNameEntered, setIsNameEntered] = useState(false);
+  const [isNameEntered, setIsNameEntered] = useState(
+    location.state?.isNameEntered ?? false
+  );
   const [selectedCountry, setSelectedCountry] = useState(
     location.state?.selectedCountry || {
       code3l: "IND",
@@ -27,6 +29,7 @@ const PhoneAuth = () => {
     }
   );
 
+  // Clean up recaptcha on unmount
   useEffect(() => {
     return () => {
       if (window.recaptchaVerifier) {
@@ -52,14 +55,12 @@ const PhoneAuth = () => {
     const fullPhoneNumber = `${selectedCountry.dialingCode}${phoneNumber}`;
 
     try {
-      // setupReCAPTCHA();
       const recaptcha = new RecaptchaVerifier(auth, "recaptcha-container", {
         size: "invisible",
-        callback: (response) => {},
+        callback: () => {},
       });
 
       console.log("recaptcha: ", recaptcha);
-      dispatch(updateUser({ phoneNumber: fullPhoneNumber }));
 
       const confirmationResult = await signInWithPhoneNumber(
         auth,
@@ -67,7 +68,9 @@ const PhoneAuth = () => {
         recaptcha
       );
 
-      // console.log("ConfirmationResult: ", confirmationResult.verificationId);
+      dispatch(updateUser({ phoneNumber: fullPhoneNumber }));
+
+      console.log("ConfirmationResult: ", confirmationResult.verificationId);
 
       navigate("/verify-phone", {
         state: {

@@ -1,9 +1,11 @@
 import { useDispatch } from "react-redux";
 import { supabase } from "../../helper/supabaseConfig";
 import { updateUser } from "../../slice/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const OAuthLoginComponent = ({ items, style }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleOAuthLogin = async (provider) => {
     try {
@@ -11,16 +13,14 @@ const OAuthLoginComponent = ({ items, style }) => {
         provider,
         options: {
           redirectTo:
-            "https://yoiqmblqgsllnocysrqh.supabase.co/auth/v1/callback", // hushh.ai
-          // "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback", Mine
+            "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback",
         },
       });
-      const email = localStorage.getItem("sb-yoiqmblqgsllnocysrqh-auth-token")
-        .user.email;
-      dispatch(updateUser({ email: email }));
+
       if (error) {
         console.error("OAuth login error:", error.message);
         alert(`Error logging in with ${provider}`);
+        return;
       }
     } catch (error) {
       console.error("Unexpected OAuth login error:", error);

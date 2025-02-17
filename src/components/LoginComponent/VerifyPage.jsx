@@ -48,6 +48,7 @@ const VerifyPage = ({
         if (onSuccess) {
           onSuccess();
         }
+
         navigate(redirectPath);
       } catch (error) {
         console.error("Error verifying OTP: ", error);
