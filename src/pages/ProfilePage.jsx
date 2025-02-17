@@ -1,37 +1,15 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  call,
-  EditIcon,
-  leftArrow,
-  lock,
-  mail,
-  passwordViewOff,
-  // passwordViewOn,
-  profileIcon,
-} from "../assets/Images";
+import { call, EditIcon, leftArrow, mail, profileIcon } from "../assets/Images";
 import { motion } from "framer-motion";
 import { supabase } from "../helper/supabaseConfig";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../slice/userSlice";
 
 const ProfilePage = () => {
-  const [password, setPassword] = useState("12345678");
-  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const userData = localStorage.getItem("sb-gpcwuuypobruknutpqkj-auth-token")
-    ? JSON.parse(localStorage.getItem("sb-gpcwuuypobruknutpqkj-auth-token"))
-    : {
-        email: "john@gmail.com",
-      };
   const { user } = useSelector((state) => state.user);
   console.log("user: ", user);
-  console.log("userData: ", userData);
   const navigate = useNavigate();
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
-  };
 
   const handleLogout = async () => {
     try {
@@ -77,7 +55,7 @@ const ProfilePage = () => {
             <div>
               <img src={mail} className="absolute w-[24px] h-[24px]" />
             </div>
-            <p className="translate-x-8">{userData.user?.email}</p>
+            <p className="translate-x-8">{user?.email}</p>
           </div>
         </div>
 
@@ -88,9 +66,7 @@ const ProfilePage = () => {
             <div>
               <img src={call} className="absolute w-[24px] h-[24px]" />
             </div>
-            <p className="translate-x-[30px] text-[14px]">
-              {user?.phoneNumber}
-            </p>
+            <p className="translate-x-[30px] text-[14px]">{user?.phone}</p>
           </div>
         </div>
 
@@ -105,23 +81,6 @@ const ProfilePage = () => {
         </div>
 
         <div className="flex flex-col xs:w-[340px] sm:w-[393px]">
-          {/* <p className="text-white text-sm mb-4 leading-4 font-[600]">
-            Password
-          </p>
-          <div className="relative flex">
-            <div className="w-full bg-[#090d14] text-[#ABABAB] rounded-[12px] px-4 py-3 border-[1px] border-solid border-[#F1ECEC80]">
-              <img src={lock} className="absolute" />
-              <p className="translate-x-9">{password}</p>
-              <div>
-                <img
-                  src={showPassword ? passwordViewOff : passwordViewOff}
-                  alt="Toggle Password View"
-                  className="absolute top-1/2 transform -translate-y-1/2 right-3 w-6 h-6 cursor-pointer"
-                  onClick={togglePasswordVisibility}
-                />
-              </div>
-            </div>
-          </div> */}
           <button
             onClick={handleLogout}
             className="mb-10 xs:mb-10 w-full max-w-[393px] h-[56px] border border-[#3579DD] text-[#3579DD] rounded-[56px] font-[600] mt-6 leading-6"

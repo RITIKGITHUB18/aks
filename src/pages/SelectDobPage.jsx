@@ -42,11 +42,15 @@ const SelectDob = () => {
       }
 
       const supabaseUser = userResponse.user;
+      console.log("supabase: ", supabaseUser);
       const oldRawMeta = supabaseUser.user_metadata?.raw_user_meta_data || {};
+      console.log("oldRawMeta: ", oldRawMeta);
       const newRawMeta = {
         ...oldRawMeta,
         ...user,
       };
+
+      console.log("newRawMeta: ", newRawMeta);
 
       // 4. Update raw_user_meta_data in Supabase with the merged object
       const { data: updateData, error: updateError } =

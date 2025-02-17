@@ -1,12 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { welcomeScreenImg } from "../assets/Images";
-import { useAuth } from "../helper/AuthContext";
 import { supabase } from "../helper/supabaseConfig";
 import { updateUser } from "../slice/userSlice";
 import { useDispatch } from "react-redux";
 
 const WelcomeScreen = () => {
-  const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -37,7 +35,6 @@ const WelcomeScreen = () => {
           id: userDetail.id,
           email: userDetail.email,
           username: username,
-          phone: phone,
           dob: dob,
         })
       );
@@ -62,7 +59,7 @@ const WelcomeScreen = () => {
       }
 
       // If they have all fields, proceed to your main page
-      navigate("/dashboard");
+      navigate("/home");
     } catch (error) {
       console.error("Error during WelcomeScreen handleOnClick:", error);
     }

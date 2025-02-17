@@ -68,7 +68,7 @@ const PhoneAuth = () => {
         recaptcha
       );
 
-      dispatch(updateUser({ phoneNumber: fullPhoneNumber }));
+      dispatch(updateUser({ phone: fullPhoneNumber }));
 
       console.log("ConfirmationResult: ", confirmationResult.verificationId);
 
