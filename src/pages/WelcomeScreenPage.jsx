@@ -40,6 +40,7 @@ const WelcomeScreen = () => {
           email: userDetail.email,
           username: username,
           dob: dob,
+          phone: phone,
         })
       );
 
