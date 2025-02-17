@@ -1,19 +1,14 @@
-import { useDispatch } from "react-redux";
 import { supabase } from "../../helper/supabaseConfig";
-import { updateUser } from "../../slice/userSlice";
-import { useNavigate } from "react-router-dom";
 
 const OAuthLoginComponent = ({ items, style }) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const handleOAuthLogin = async (provider) => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
           redirectTo:
-            "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback",
+            // "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback", //mine
+            "https://yoiqmblqgsllnocysrqh.supabase.co/auth/v1/callback", // hushh
         },
       });
 

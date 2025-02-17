@@ -3,8 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../components/common/CustomButton";
 import { leftArrow } from "../assets/Images";
 import { dateData, monthData, yearData } from "../data/dobData";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../slice/userSlice";
+import { supabase } from "../helper/supabaseConfig";
 
 const SelectDob = () => {
   const [selectedMonth, setSelectedMonth] = useState("MM");
@@ -12,6 +13,8 @@ const SelectDob = () => {
   const [selectedYear, setSelectedYear] = useState("YYYY");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.user);
   const handleMonthChange = (e) => setSelectedMonth(e.target.value);
   const handleDateChange = (e) => setSelectedDate(e.target.value);
   const handleYearChange = (e) => setSelectedYear(e.target.value);
@@ -23,15 +26,49 @@ const SelectDob = () => {
     const dob = `${selectedDate}-${selectedMonth}-${selectedYear}`;
     return dob;
   };
-  const handleDobSubmit = () => {
-    if (isDobValid()) {
-      const dob = dobFormat();
-      console.log("Dob: ", dob);
-      dispatch(updateUser({ dob: dob }));
+
+  const handleDobSubmit = async () => {
+    if (!isDobValid()) return;
+    const dobValue = dobFormat();
+    dispatch(updateUser({ dob: dobValue }));
+
+    try {
+      const { data: userResponse, error: getUserError } =
+        await supabase.auth.getUser();
+      if (getUserError || !userResponse?.user) {
+        console.error("Error fetching user from Supabase:", getUserError);
+        alert("Could not fetch current user from Supabase.");
+        return;
+      }
+
+      const supabaseUser = userResponse.user;
+      const oldRawMeta = supabaseUser.user_metadata?.raw_user_meta_data || {};
+      const newRawMeta = {
+        ...oldRawMeta,
+        ...user,
+      };
+
+      // 4. Update raw_user_meta_data in Supabase with the merged object
+      const { data: updateData, error: updateError } =
+        await supabase.auth.updateUser({
+          data: {
+            userPersonalData: newRawMeta,
+          },
+        });
+
+      if (updateError) {
+        console.error("Supabase updateUser error:", updateError);
+        alert("Failed to update your profile in raw_user_meta_data.");
+        return;
+      }
+
+      console.log("Supabase updateUser success:", updateData);
       navigate("/home");
+    } catch (err) {
+      console.error("Error updating raw_user_meta_data:", err);
+      alert("Something went wrong while updating your profile.");
     }
   };
-
   return (
     <div className="bg-[#090D14] min-h-screen w-full text-white flex flex-col items-center px-4 mt-[14px]">
       {/* Back Button */}
