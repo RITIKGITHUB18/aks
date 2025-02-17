@@ -32,7 +32,11 @@ const WelcomeScreen = () => {
         userDetail?.user_metadata?.name || isUserData?.username || null;
       const phone = userDetail?.phone || isUserData?.phone || null;
       const dob = userDetail?.user_metadata?.dob || isUserData?.dob || null;
-
+      const profile_pic =
+        userDetail?.user_metadata.avatar__url ||
+        isUserData?.profile_pic ||
+        null;
+      console.log("profile_pic: ", profile_pic);
       // Update Redux store
       dispatch(
         updateUser({
@@ -41,6 +45,7 @@ const WelcomeScreen = () => {
           username: username,
           dob: dob,
           phone: phone,
+          profile_pic: profile_pic,
         })
       );
 
