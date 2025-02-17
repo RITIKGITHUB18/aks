@@ -36,8 +36,11 @@ const ProfilePage = () => {
         </div>
       </Link>
 
-      <div className="relative flex flex-col items-center justify-center">
-        <img src={profileIcon} className="w-[122.13px] h-[122.13px]" />
+      <div className="relative flex flex-col items-center justify-center rounded-full">
+        <img
+          src={user?.profile_pic || profileIcon}
+          className="w-[122.13px] h-[122.13px] rounded-full"
+        />
         <img
           src={EditIcon}
           className="absolute w-[27.24px] h-[27.24px] transform translate-x-[36px] translate-y-[30px] cursor-pointer"

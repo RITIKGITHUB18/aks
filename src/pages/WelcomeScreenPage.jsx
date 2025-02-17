@@ -19,15 +19,19 @@ const WelcomeScreen = () => {
       }
 
       const userDetail = data.session?.user;
+      const isUserData = userDetail?.user_metadata?.userPersonalData;
+
+      console.log("UserDetail: ", userDetail);
       if (!userDetail) {
         console.error("No user found in session");
         return;
       }
 
       // Extract user metadata
-      const username = userDetail?.user_metadata?.name || null;
-      const phone = userDetail?.phone || null;
-      const dob = userDetail?.user_metadata?.dob || null;
+      const username =
+        userDetail?.user_metadata?.name || isUserData?.username || null;
+      const phone = userDetail?.phone || isUserData?.phone || null;
+      const dob = userDetail?.user_metadata?.dob || isUserData?.dob || null;
 
       // Update Redux store
       dispatch(
@@ -41,19 +45,16 @@ const WelcomeScreen = () => {
 
       // Navigate based on missing profile data
       if (!username) {
-        // If user has no name, go to phone-auth to fill name
         navigate("/phone-auth");
         return;
       }
 
       if (!phone) {
-        // If user has a name but no phone, pass a flag so phone-auth can skip name
         navigate("/phone-auth", { state: { isNameEntered: true } });
         return;
       }
 
       if (!dob) {
-        // If user is missing DOB, go to DOB selection
         navigate("/select-dob");
         return;
       }

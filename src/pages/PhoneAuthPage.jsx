@@ -6,8 +6,6 @@ import { IN } from "../assets/FLAG_SVG";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "../helper/firebase";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { updateUser } from "../slice/userSlice";
 import AddNameComponent from "../components/LoginComponent/AddNameComponent";
 
 const PhoneAuth = () => {
@@ -15,10 +13,11 @@ const PhoneAuth = () => {
   const location = useLocation();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const dispatch = useDispatch();
   const [isNameEntered, setIsNameEntered] = useState(
     location.state?.isNameEntered ?? false
   );
+
+  console.log("isNameEntered: ", isNameEntered);
   const [selectedCountry, setSelectedCountry] = useState(
     location.state?.selectedCountry || {
       code3l: "IND",
@@ -39,7 +38,9 @@ const PhoneAuth = () => {
   }, []);
 
   const handleSelectCountry = () => {
-    navigate("/select-country", { state: { currentCountry: selectedCountry } });
+    navigate("/select-country", {
+      state: { currentCountry: selectedCountry, isNameEntered: isNameEntered },
+    });
   };
 
   const handlePhoneAuth = async () => {
@@ -67,9 +68,6 @@ const PhoneAuth = () => {
         fullPhoneNumber,
         recaptcha
       );
-
-      dispatch(updateUser({ phone: fullPhoneNumber }));
-
       console.log("ConfirmationResult: ", confirmationResult.verificationId);
 
       navigate("/verify-phone", {

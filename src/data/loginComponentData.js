@@ -7,11 +7,19 @@ import {
 const OAuthComponentData = [
   {
     id: 1,
+    provider: "google",
+    logo: GoogleIcon,
+    text: "Continue with Google",
+    disabled: false,
+  },
+  {
+    id: 2,
     provider: "apple",
     logo: AppleIcon,
     text: "Continue with Apple",
+    disabled: true,
   },
-  { id: 2, provider: "google", logo: GoogleIcon, text: "Continue with Google" },
+
   // {
   //   id: 3,
   //   provider: "facebook",

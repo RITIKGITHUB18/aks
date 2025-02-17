@@ -30,32 +30,6 @@ const VerifyPage = ({
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
-    if (type === "phone") {
-      try {
-        if (!location.state || !location.state.verificationId) {
-          setError("Verification ID is missing. Please try again.");
-          return;
-        }
-
-        const { verificationId } = location.state;
-
-        const credential = PhoneAuthProvider.credential(verificationId, otp);
-        const result = await signInWithCredential(auth, credential);
-        console.log("Phone authentication successful: ", result);
-
-        setError("");
-
-        if (onSuccess) {
-          onSuccess();
-        }
-
-        navigate(redirectPath);
-      } catch (error) {
-        console.error("Error verifying OTP: ", error);
-        setError("Invalid OTP. Please try again.");
-      }
-    }
-
     if (type === "email") {
       try {
         const { data, error: supabaseError } = await supabase.auth.verifyOtp({

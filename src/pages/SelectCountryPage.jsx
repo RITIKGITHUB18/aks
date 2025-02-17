@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 const SelectCountry = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isNameEntered = location?.state?.isNameEntered;
 
   // If we passed in a "currentCountry" from state, use it; otherwise default to empty object
   const currentCountry = location.state?.currentCountry || {};
@@ -21,12 +22,18 @@ const SelectCountry = () => {
   };
 
   const handleContinue = () => {
-    navigate("/phone-auth", { state: { selectedCountry } });
+    navigate("/phone-auth", {
+      state: { selectedCountry, isNameEntered: isNameEntered },
+    });
   };
 
-  const filteredCountries = countries.filter((country) =>
-    country.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const lowerSearch = search.toLowerCase();
+  const filteredCountries = countries.filter((country) => {
+    return (
+      country.name.toLowerCase().includes(lowerSearch) ||
+      country.dialingCode.toLowerCase().includes(lowerSearch)
+    );
+  });
 
   const handleBack = () => {
     navigate(-1, { state: { selectedCountry: currentCountry } });

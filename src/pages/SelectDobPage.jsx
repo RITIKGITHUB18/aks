@@ -43,11 +43,16 @@ const SelectDob = () => {
 
       const supabaseUser = userResponse.user;
       console.log("supabase: ", supabaseUser);
+
       const oldRawMeta = supabaseUser.user_metadata?.raw_user_meta_data || {};
+      const profile_pic = supabaseUser.user_metadata?.avatar_url;
+      dispatch(updateUser({ profile_pic: profile_pic }));
       console.log("oldRawMeta: ", oldRawMeta);
       const newRawMeta = {
         ...oldRawMeta,
         ...user,
+        profile_pic: profile_pic,
+        dob: dobValue,
       };
 
       console.log("newRawMeta: ", newRawMeta);
