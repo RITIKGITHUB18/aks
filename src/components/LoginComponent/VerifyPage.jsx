@@ -55,27 +55,61 @@ const VerifyPage = ({
         setError("Something went wrong. Please try again.");
       }
     }
-    if (type == "phone") {
-      try {
-        const { state } = location;
-        const { verificationId } = state;
+    // For the firebase
+    // if (type == "phone") {
+    //   try {
+    //     const { state } = location;
+    //     const { verificationId } = state;
 
-        const credential = PhoneAuthProvider.credential(verificationId, otp);
-        const result = await signInWithCredential(auth, credential).then(
-          dispatch(updateUser({ phoneNumber: emailOrPhone }))
-        );
-        console.log("Phone authentication successfull: ", result);
+    //     const credential = PhoneAuthProvider.credential(verificationId, otp);
+    //     const result = await signInWithCredential(auth, credential).then(
+    //       dispatch(updateUser({ phoneNumber: emailOrPhone }))
+    //     );
+    //     console.log("Phone authentication successfull: ", result);
+    //     setError("");
+    //     if (onSuccess) {
+    //       onSuccess();
+    //     }
+    //     navigate(redirectPath);
+    //   } catch (error) {
+    //     console.error("Error verifying OTP: ", error);
+    //     setError("Invalid OTP. Please try again.");
+    //   }
+    // } else {
+    //   setError("Invalid OTP. Please try again.");
+    // }
+
+    // For the supabase
+    if (type === "phone") {
+      try {
+        // The phoneNumber we passed to /verify-phone is in location.state
+        const fullPhoneNumber = location.state?.phoneNumber || emailOrPhone;
+
+        // Attempt to verify with Supabase
+        const { data, error: supabaseError } = await supabase.auth.verifyOtp({
+          phone: fullPhoneNumber,
+          token: otp,
+          type: "sms",
+        });
+
+        if (supabaseError) {
+          console.error("Supabase phone verification error:", supabaseError);
+          setError(supabaseError.message || "Invalid OTP. Please try again.");
+          return;
+        }
+
+        // If successful, store phone in Redux
+        dispatch(updateUser({ phone: fullPhoneNumber }));
+
         setError("");
         if (onSuccess) {
           onSuccess();
         }
         navigate(redirectPath);
-      } catch (error) {
-        console.error("Error verifying OTP: ", error);
-        setError("Invalid OTP. Please try again.");
+      } catch (err) {
+        console.error("Error verifying OTP with Supabase:", err);
+        setError("Something went wrong. Please try again.");
       }
-    } else {
-      setError("Invalid OTP. Please try again.");
     }
   };
   const handleResend = () => {

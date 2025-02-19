@@ -87,7 +87,7 @@ const ShoppingCart = () => {
                 </div>
 
                 <div className="text-[12px] text-[#E19C34]">
-                  Product more than 2 days are automatically lost
+                  Products more than 2 days are automatically lost
                 </div>
               </div>
             </div>

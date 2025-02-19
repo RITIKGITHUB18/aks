@@ -49,7 +49,7 @@ const HistoryPage = () => {
             No Purchasing history is present.
           </p>
           <p className="flex items-center justify-center">
-            please buy something
+            Please buy something
           </p>
         </div>
       )}

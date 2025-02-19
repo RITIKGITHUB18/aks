@@ -12,7 +12,7 @@ const InputBox = ({
       <input
         type={type}
         placeholder={placeholder}
-        disabled={true}
+        // disabled={true}
         value={value}
         onChange={onChange}
         className={`w-full p-2 border rounded-[24px] ${inputStyle}`}

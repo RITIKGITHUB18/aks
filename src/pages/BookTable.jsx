@@ -192,7 +192,7 @@ const BookTable = () => {
                 }
               `}
             >
-              Add to Cart
+              Go to Cart
             </button>
             <button
               onClick={() => handleAddToCart("BuyNow")}

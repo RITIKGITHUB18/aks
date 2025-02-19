@@ -35,17 +35,23 @@ const SelectDob = () => {
     try {
       const { data: userResponse, error: getUserError } =
         await supabase.auth.getUser();
+
       if (getUserError || !userResponse?.user) {
         console.error("Error fetching user from Supabase:", getUserError);
         alert("Could not fetch current user from Supabase.");
         return;
       }
 
+      const phone = user?.phone;
+      console.log("user: ", user);
+      console.log("Phone: ", phone);
+
       const supabaseUser = userResponse.user;
       console.log("supabase: ", supabaseUser);
 
       const oldRawMeta = supabaseUser.user_metadata?.raw_user_meta_data || {};
-      const profile_pic = supabaseUser.user_metadata?.avatar_url;
+      const profile_pic = supabaseUser?.user_metadata?.avatar_url;
+      console.log(supabaseUser.user_metadata);
       dispatch(updateUser({ profile_pic: profile_pic }));
       console.log("oldRawMeta: ", oldRawMeta);
       const newRawMeta = {
@@ -53,6 +59,7 @@ const SelectDob = () => {
         ...user,
         profile_pic: profile_pic,
         dob: dobValue,
+        phone: phone,
       };
 
       console.log("newRawMeta: ", newRawMeta);

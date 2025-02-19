@@ -24,7 +24,7 @@ const LoginPage = () => {
         .signInWithOtp({
           email,
           options: {
-            emailRedirectTo: "http://localhost:5173/phone-auth",
+            emailRedirectTo: "http://localhost:5173/",
           },
         })
         .then(({ error }) => {
