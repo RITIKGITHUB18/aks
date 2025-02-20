@@ -4,6 +4,7 @@ import cartReducer from "../slice/cartSlice";
 import checkoutReducer from "../slice/checkOutSlice";
 import coinReducer from "../slice/coinsSlice";
 import userReducer from "../slice/userSlice";
+import locationReducer from "../slice/locationSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     checkout: checkoutReducer,
     coins: coinReducer,
     user: userReducer,
+    location: locationReducer,
   },
 });
 

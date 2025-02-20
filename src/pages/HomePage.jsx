@@ -16,6 +16,7 @@ import { useState } from "react";
 import { useAuth } from "../helper/AuthContext";
 import { useSelector } from "react-redux";
 import OrderToast from "../components/common/OrderToast";
+import GetLocation from "../components/HomeComponent/GetLocation";
 
 const HomePage = () => {
   const { user, signOut } = useAuth();
@@ -25,16 +26,12 @@ const HomePage = () => {
   const { newItem, selectedPackages, selectedDrinks } = useSelector(
     (state) => state.cart
   );
-
+  const location = useSelector((state) => state.location);
+  console.log("location: ", location);
   const totalItem =
     (selectedPackages?.length || 0) + (selectedDrinks?.length || 0);
 
   const navigate = useNavigate();
-  const [location, setLocation] = useState("Kawungcarang road no 28...");
-
-  const handleLocationClick = () => {
-    navigate("/map", { state: { location } });
-  };
 
   const handleCartOnClick = () => {
     navigate("/shopping-cart");
@@ -105,26 +102,7 @@ const HomePage = () => {
           <CouponsCarousel couponsData={coupanData} />
         </div>
 
-        {/* Location */}
-        <div
-          onClick={handleLocationClick}
-          className="relative mx-auto bg-[#161C25] rounded-full w-full max-w-[350px] h-16 cursor-pointer shadow-md flex items-center border-2 border-[#202938] px-4 my-7"
-        >
-          <img
-            src={locationIcon}
-            className="w-12 h-12 mr-2 transition-transform translate-y-1"
-            alt="Location Icon"
-          />
-          <div className="flex-1">
-            <p className="font-medium">Your Location</p>
-            <p className="text-sm text-gray-400 truncate">{location}</p>
-          </div>
-          <img
-            src={arrowRightIcon}
-            className="w-4 h-4 ml-2"
-            alt="Arrow Right"
-          />
-        </div>
+        <GetLocation />
 
         <div className="pt-2 pb-6">
           <div className="flex justify-between items-center mb-8 px-4">

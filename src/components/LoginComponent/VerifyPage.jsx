@@ -3,8 +3,6 @@ import CustomButton from "../common/CustomButton";
 import OTPInput from "react-otp-input";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { leftArrow } from "../../assets/Images";
-import { PhoneAuthProvider, signInWithCredential } from "firebase/auth";
-import { auth } from "../../helper/firebase";
 import { supabase } from "../../helper/supabaseConfig";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../slice/userSlice";
@@ -55,41 +53,22 @@ const VerifyPage = ({
         setError("Something went wrong. Please try again.");
       }
     }
-    // For the firebase
-    // if (type == "phone") {
-    //   try {
-    //     const { state } = location;
-    //     const { verificationId } = state;
-
-    //     const credential = PhoneAuthProvider.credential(verificationId, otp);
-    //     const result = await signInWithCredential(auth, credential).then(
-    //       dispatch(updateUser({ phoneNumber: emailOrPhone }))
-    //     );
-    //     console.log("Phone authentication successfull: ", result);
-    //     setError("");
-    //     if (onSuccess) {
-    //       onSuccess();
-    //     }
-    //     navigate(redirectPath);
-    //   } catch (error) {
-    //     console.error("Error verifying OTP: ", error);
-    //     setError("Invalid OTP. Please try again.");
-    //   }
-    // } else {
-    //   setError("Invalid OTP. Please try again.");
-    // }
 
     // For the supabase
     if (type === "phone") {
       try {
         // The phoneNumber we passed to /verify-phone is in location.state
-        const fullPhoneNumber = location.state?.phoneNumber || emailOrPhone;
+        const phoneNumber = location.state?.phoneNumber || emailOrPhone;
 
         // Attempt to verify with Supabase
+        console.log("Otp: ", otp);
+        console.log(typeof otp);
+        console.log("phoneNumber inside verify phone: ", phoneNumber);
+
         const { data, error: supabaseError } = await supabase.auth.verifyOtp({
-          phone: fullPhoneNumber,
+          phone: phoneNumber,
           token: otp,
-          type: "sms",
+          type: "phone_change",
         });
 
         if (supabaseError) {
@@ -99,7 +78,7 @@ const VerifyPage = ({
         }
 
         // If successful, store phone in Redux
-        dispatch(updateUser({ phone: fullPhoneNumber }));
+        dispatch(updateUser({ phone: phoneNumber }));
 
         setError("");
         if (onSuccess) {
