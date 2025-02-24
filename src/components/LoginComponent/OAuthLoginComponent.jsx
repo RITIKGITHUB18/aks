@@ -7,8 +7,7 @@ const OAuthLoginComponent = ({ items, style }) => {
         provider,
         options: {
           redirectTo:
-            // "https://gpcwuuypobruknutpqkj.supabase.co/auth/v1/callback", //mine
-            "https://yoiqmblqgsllnocysrqh.supabase.co/auth/v1/callback", // hushh
+            "https://yoiqmblqgsllnocysrqh.supabase.co/auth/v1/callback",
         },
       });
 
@@ -21,39 +20,38 @@ const OAuthLoginComponent = ({ items, style }) => {
       console.error("Unexpected OAuth login error:", error);
     }
   };
+
   return (
     <div className="flex flex-col items-center justify-center">
-      {items.map((item, index) => (
-        <button
-          key={index}
-          disabled={item?.disabled}
-          onClick={() => handleOAuthLogin(item.provider)}
-          className={`flex flex-col justify-center w-[360px] h-[52.46px] bg-[#1E293B] rounded-[24px] cursor-pointer ${style} mb-3`}
-        >
-          <div className="flex items-center justify-evenly">
-            <div className="flex pl-8">
-              <img
-                src={item.logo}
-                alt={`${item.provide} icon`}
-                className="w-[25px] h-[25px]"
-              />
-            </div>
+      {items.map((item, index) => {
+        const disabledClasses = item.disabled
+          ? "cursor-not-allowed opacity-50"
+          : "cursor-pointer";
 
-            <div className="flex mx-auto pr-5">
-              <p className="text-[#FFFFFF] font-[500] text-[16.79px] leading-6 space-x-5">
-                {item.text}
-              </p>
+        return (
+          <button
+            key={index}
+            disabled={item.disabled}
+            onClick={() => handleOAuthLogin(item.provider)}
+            className={`flex flex-col justify-center w-[360px] h-[52.46px] bg-[#1E293B] rounded-[24px] mb-3 ${style} ${disabledClasses}`}
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex pl-8">
+                <img
+                  src={item.logo}
+                  alt={`${item.provider} icon`}
+                  className="w-[25px] h-[25px]"
+                />
+              </div>
+              <div className="flex mx-auto pr-5">
+                <p className="text-[#FFFFFF] font-[500] text-[16.79px] leading-6 space-x-5">
+                  {item.text}
+                </p>
+              </div>
             </div>
-            <div className="relative">
-              {item.disabled && (
-                <span className="absolute text-[7px] text-white bg-yellow-700 px-[1px] py-1 rounded-[12px] -translate-x-[70px] -translate-y-[19px] w-[3.5rem]">
-                  coming soon
-                </span>
-              )}
-            </div>
-          </div>
-        </button>
-      ))}
+          </button>
+        );
+      })}
     </div>
   );
 };

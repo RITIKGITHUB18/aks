@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { crackersCelebration } from "../assets/Images";
+import { aksLogo, aksNight, crackersCelebration } from "../assets/Images";
 
 const GetStartedPage = () => {
   const navigate = useNavigate();
@@ -12,10 +12,15 @@ const GetStartedPage = () => {
       {/* Background Image */}
       <div
         style={{
-          backgroundImage: `url(${crackersCelebration})`,
+          backgroundImage: `url(${aksNight})`,
         }}
         className="absolute top-0 left-0 w-full h-full sm:bg-cover"
-      ></div>
+      >
+        <div className="flex items-center justify-center transition-transform translate-y-[250%] duration-200 animate-fade-in">
+          <img src={aksLogo} className="w-[250px] h-[128px]" />
+        </div>
+      </div>
+
       <div className="relative bottom-0 flex flex-col justify-between min-h-screen">
         <div className="flex-grow"></div>{" "}
         <div

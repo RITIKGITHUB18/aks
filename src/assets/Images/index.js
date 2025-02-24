@@ -66,8 +66,12 @@ import toastQr from "./toastQr.svg";
 import lock from "./lock.svg";
 import call from "./call.svg";
 import mail from "./mail.svg";
+import aksNight from "./aksNightLandingPageImg.png";
+import aksLogo from "./aksLogo.png";
 
 export {
+  aksLogo,
+  aksNight,
   mail,
   call,
   lock,
