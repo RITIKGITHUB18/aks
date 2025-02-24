@@ -56,9 +56,9 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    if (!locationState.lat || !locationState.lon) {
-      return;
-    }
+    // if (!locationState.lat || !locationState.lon) {
+    //   return;
+    // }
     const fetchRecommendations = async () => {
       try {
         setIsLoading(true);
