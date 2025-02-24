@@ -12,17 +12,23 @@ import CarouselComponent from "../components/HomeComponent/CarouselComponent";
 import CouponsCarousel from "../components/HomeComponent/CouponsCarousel";
 import { coupanData } from "../data/coupanData";
 import { hotelData } from "../data/hotelData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../helper/AuthContext";
 import { useSelector } from "react-redux";
 import OrderToast from "../components/common/OrderToast";
 import GetLocation from "../components/HomeComponent/GetLocation";
+import RecommendationShimmer from "../components/common/RecommendationShimmer";
 
 const HomePage = () => {
   const { user, signOut } = useAuth();
+  const [recommendedEvents, setRecommendedEvents] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(false);
   const { totalCoins } = useSelector((state) => state.coins);
   const { newOrder } = useSelector((state) => state.checkout);
-  const [toast, setToast] = useState(newOrder);
+  const locationState = useSelector((state) => state.location);
+  console.log(locationState);
+
   const { newItem, selectedPackages, selectedDrinks } = useSelector(
     (state) => state.cart
   );
@@ -30,7 +36,7 @@ const HomePage = () => {
   console.log("location: ", location);
   const totalItem =
     (selectedPackages?.length || 0) + (selectedDrinks?.length || 0);
-
+  const [toast, setToast] = useState(newOrder);
   const navigate = useNavigate();
 
   const handleCartOnClick = () => {
@@ -48,6 +54,32 @@ const HomePage = () => {
   const handleToastOnClick = () => {
     navigate("/view-receipt");
   };
+
+  useEffect(() => {
+    if (!locationState.lat || !locationState.lon) {
+      return;
+    }
+    const fetchRecommendations = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetch(
+          `https://aks-backend-53407187172.us-central1.run.app/api/v1/recommend_location/recommendations/by-distance/${locationState.lat}/${locationState.lon}`,
+          {
+            method: "GET",
+          }
+        );
+        const data = await res.json();
+        console.log("Recommendations data:", data.recommendations);
+        setRecommendedEvents(data.recommendations);
+      } catch (error) {
+        console.error("Failed to fetch recommendations:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchRecommendations();
+  }, [locationState.lat, locationState.lon]);
 
   return (
     <div className="relative w-full min-h-screen flex flex-col bg-black text-white">
@@ -114,7 +146,18 @@ const HomePage = () => {
               See All
             </button>
           </div>
-          <CarouselComponent carouselData={hotelData} />
+          {isLoading ? (
+            <CarouselComponent carouselData={[]} isLoading={isLoading} />
+          ) : recommendedEvents.length > 0 ? (
+            <CarouselComponent
+              carouselData={recommendedEvents}
+              isLoading={isLoading}
+            />
+          ) : (
+            <p className=" flex justify-center items-center text-gray-500">
+              No event is recommended for your location
+            </p>
+          )}
         </div>
       </div>
 
