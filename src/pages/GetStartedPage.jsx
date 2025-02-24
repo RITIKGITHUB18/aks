@@ -16,7 +16,7 @@ const GetStartedPage = () => {
         }}
         className="absolute top-0 left-0 w-full h-full sm:bg-cover"
       >
-        <div className="flex items-center justify-center transition-transform translate-y-[250%] duration-200 animate-fade-in">
+        <div className="flex items-center justify-center transition-transform translate-y-[250%] duration-200 animate-fade-logo">
           <img src={aksLogo} className="w-[250px] h-[128px]" />
         </div>
       </div>

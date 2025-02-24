@@ -1,28 +1,30 @@
 @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  from {
+    opacity: 0;
   }
-  
-  @keyframes slide-in {
-    from {
-      transform: translateY(30px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
   }
-  
-  .animate-fade-in {
-    animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
   }
-  
-  .animate-slide-in {
-    animation: slide-in 0.5s ease-in-out;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+.animate-fade-logo {
+  animation: fade-in 2s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-in-out;
+}
