@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setDateTime } from "../../slice/hotelSlice";
 
-const DateTimeComponent = () => {
+const DateTimeComponent = ({ onTimeChosen }) => {
   const dispatch = useDispatch();
   const { dateTime } = useSelector((state) => state.hotel); // Access dateTime from Redux state
 
@@ -62,6 +62,7 @@ const DateTimeComponent = () => {
       });
     }
   }, [selectedDate.month]);
+
   const handleNextMonth = () => {
     setSelectedDate((prev) => {
       const newDate = new Date(prev.year, prev.month + 1);
@@ -85,15 +86,27 @@ const DateTimeComponent = () => {
   };
 
   const handleDateSelection = (day, date) => {
+    const chosenDateObj = new Date(selectedDate.year, selectedDate.month, date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    chosenDateObj.setHours(0, 0, 0, 0);
+
+    if (chosenDateObj < today) {
+      return;
+    }
     const updatedDate = { ...selectedDate, day, date };
     setSelectedDate(updatedDate);
-    dispatch(setDateTime(updatedDate)); // Update Redux state
+    dispatch(setDateTime(updatedDate));
   };
 
   const handleTimeSelection = (time) => {
     const updatedDate = { ...selectedDate, time };
     setSelectedDate(updatedDate);
-    dispatch(setDateTime(updatedDate)); // Update Redux state
+    dispatch(setDateTime(updatedDate));
+
+    if (onTimeChosen) {
+      onTimeChosen();
+    }
   };
   return (
     <div className="w-[393px] mx-auto relative">

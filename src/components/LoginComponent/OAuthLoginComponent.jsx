@@ -30,7 +30,7 @@ const OAuthLoginComponent = ({ items, style }) => {
           onClick={() => handleOAuthLogin(item.provider)}
           className={`flex flex-col justify-center w-[360px] h-[52.46px] bg-[#1E293B] rounded-[24px] cursor-pointer ${style} mb-3`}
         >
-          <div className="flex items-center">
+          <div className="flex items-center justify-evenly">
             <div className="flex pl-8">
               <img
                 src={item.logo}
@@ -39,14 +39,14 @@ const OAuthLoginComponent = ({ items, style }) => {
               />
             </div>
 
-            <div className="flex mx-auto pr-8">
+            <div className="flex mx-auto pr-5">
               <p className="text-[#FFFFFF] font-[500] text-[16.79px] leading-6 space-x-5">
                 {item.text}
               </p>
             </div>
             <div className="relative">
               {item.disabled && (
-                <span className="absolute text-[7px] text-white bg-green-800 px-2 py-1 rounded-[12px] -translate-x-[70px] -translate-y-[15px] w-[4rem]">
+                <span className="absolute text-[7px] text-white bg-yellow-700 px-[1px] py-1 rounded-[12px] -translate-x-[70px] -translate-y-[19px] w-[3.5rem]">
                   coming soon
                 </span>
               )}

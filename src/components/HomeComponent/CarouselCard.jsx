@@ -9,7 +9,7 @@ const CarouselCard = ({ cardData }) => {
 
   const handleBookTable = () => {
     dispatch(selectHotel(cardData));
-    const url = `/book-table/${cardData.id}`;
+    const url = `/book-table/${cardData?.location?.id}`;
     navigate(url, { state: { hotelData: cardData } });
   };
 

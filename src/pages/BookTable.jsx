@@ -50,12 +50,21 @@ const BookTable = () => {
     navigate("/shopping-cart", { state: { action: buttonType } });
   };
 
+  const handleNext = () => {
+    setActiveTab("drinks");
+  };
+
+  const handleTimeChosen = () => {
+    setActiveTab("packages");
+  };
+
   const renderActiveTab = () => {
     switch (activeTab) {
       case "dateTime":
         return (
           <DateTimeComponent
             onSave={(dateTime) => dispatch(setDateTime(dateTime))}
+            onTimeChosen={handleTimeChosen}
           />
         );
       case "packages":
@@ -177,9 +186,39 @@ const BookTable = () => {
           {renderActiveTab()}
         </div>
       </div>
-
-      {/* Cart Buttons (fixed at bottom if items are selected) */}
-      {showCartButtons && activeTab !== "dateTime" && (
+      {/* Cart Buttons and  activeTab is packages then we need to render the add to cart and next buttons*/}
+      {showCartButtons && activeTab === "packages" && (
+        <div className="sticky bottom-0 left-0 w-full bg-[#090D14] border-t border-[#202938] pt-4 pb-6 px-4">
+          <div className="flex justify-evenly">
+            <button
+              onClick={() => handleAddToCart("addToCart")}
+              className={`px-6 py-2 text-sm font-medium rounded-full 
+                ${
+                  activeButton === "addToCart"
+                    ? "bg-[#3579DD] text-white border border-[#3579DD]"
+                    : "text-[#3579DD] border border-[#3579DD] hover:bg-[#3579DD] hover:text-white"
+                }
+              `}
+            >
+              Go to Cart
+            </button>
+            <button
+              onClick={() => handleNext("next")}
+              className={`px-6 py-2 text-sm font-medium rounded-full
+                ${
+                  activeButton === "buyNow"
+                    ? "bg-[#3579DD] text-white border border-[#3579DD]"
+                    : "text-[#3579DD] border border-[#3579DD] hover:bg-[#3579DD] hover:text-white"
+                }
+              `}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
+      {/* Cart Buttons and the activeTab is drinks then we need to render the add to cart and buy now */}
+      {showCartButtons && activeTab === "drinks" && (
         <div className="sticky bottom-0 left-0 w-full bg-[#090D14] border-t border-[#202938] pt-4 pb-6 px-4">
           <div className="flex justify-evenly">
             <button

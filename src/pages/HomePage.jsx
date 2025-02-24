@@ -63,7 +63,7 @@ const HomePage = () => {
       try {
         setIsLoading(true);
         const res = await fetch(
-          `https://aks-backend-53407187172.us-central1.run.app/api/v1/recommend_location/recommendations/by-distance/${locationState.lat}/${locationState.lon}`,
+          `https://aks-backend-53407187172.us-central1.run.app/api/v1/recommend_location/recommendations/by-distance`,
           {
             method: "GET",
           }
